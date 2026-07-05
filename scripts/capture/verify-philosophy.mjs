@@ -24,8 +24,9 @@ if (/#[0-9a-fA-F]{3}\b/.test(html)) fail("3-digit hex literal found — use a fu
 // 2. No shadows.
 if (/box-shadow|drop-shadow/i.test(html)) fail("shadow found (elevation must be a background step)");
 
-// 3. Icons: no rounded caps left un-restyled.
-if (/stroke-linecap="round"/.test(html)) fail('icon with stroke-linecap="round" (must be square)');
+// 3. Icons: no rounded caps left un-restyled (catches both the SVG attribute
+// form `stroke-linecap="round"` and the CSS form `stroke-linecap:round`).
+if (/stroke-linecap\s*[:=]\s*["']?round\b/i.test(html)) fail('icon stroke-linecap:round found (must be square)');
 
 // 4. Required social/OG meta tags present.
 for (const needle of ['property="og:image"', 'property="og:title"', 'name="twitter:card"',
@@ -33,8 +34,11 @@ for (const needle of ['property="og:image"', 'property="og:title"', 'name="twitt
   if (!html.includes(needle)) fail("missing meta: " + needle);
 }
 
-// 5. og:image must be an absolute Pages URL (no /docs/ segment).
-if (!html.includes("https://luxsolari.github.io/lux-design-system/assets/social-card.png"))
+// 5. og:image must be an absolute Pages URL (no /docs/ segment). Anchored to
+// the og:image meta tag's content attribute specifically — a whole-file
+// substring search would also match the twitter:image tag and miss a
+// regression that broke only og:image.
+if (!/property="og:image"\s+content="https:\/\/luxsolari\.github\.io\/lux-design-system\/assets\/social-card\.png"/.test(html))
   fail("og:image is not the absolute Pages asset URL");
 
 // 6. Author named only in the footer region (once).
