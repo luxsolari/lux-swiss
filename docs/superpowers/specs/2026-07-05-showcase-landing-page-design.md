@@ -83,18 +83,36 @@ enforces, so identity is preserved:
   text; `primary` (red) only for the destructive/accent cases the system already
   reserves it for. Never multicolor.
 - **Square caps & miter joins**, geometric construction, minimal rounding —
-  matching "mostly square corners." (Feather/Lucide default to *round* caps; we
-  restyle them square. This is the biggest identity tell.)
+  matching "mostly square corners." (Lucide defaults to *round* caps; we restyle
+  them square. This is the biggest identity tell.)
 - **Small and sparing.** 16–20px, augmenting the uppercase-mono text labels,
   never replacing them. The mono label stays the primary signifier.
 - **No icon fonts, no emoji.** Inline SVG only, so `currentColor` and stroke
   width stay controllable. The emoji ban is unchanged.
 
-**Source approach — restyle an existing set.** The system documents how to adopt
-a restrained monoline set (Lucide / Feather-style) and override it to the rules
-above (square caps, `currentColor`, consistent stroke). It ships no bespoke icon
-set; the demo uses a few restyled Lucide-style icons (menu, close, arrow,
-external-link, sun/moon) as living examples.
+**Source — Lucide, and only Lucide.** [Lucide](https://lucide.dev) is the single
+sanctioned icon set of the design system, mirroring how the system already names
+exactly two fonts and forbids the rest. No other icon library, no icon fonts, no
+mixing sets. Lucide is chosen because it is monoline-native, `currentColor`-
+native, on a consistent 24px grid, broad in coverage, and tree-shakeable.
+
+**The restyle is three surgical overrides** of Lucide's defaults, which carry the
+only off-identity opinions:
+
+| Attribute | Lucide default | Duotone Swiss |
+|-----------|---------------|---------------|
+| `stroke-width` | `2` | `1.5` |
+| `stroke-linecap` | `round` | `square` |
+| `stroke-linejoin` | `round` | `miter` |
+
+Everything else (the paths, the `currentColor` stroke, the 24px viewBox) is kept
+as-is. Applied globally via a CSS rule on the icon class, or per-usage on inline
+SVG / `lucide-react` props.
+
+**Integration.** Projects pull icons from `lucide` / `lucide-react` (or copy the
+raw inline SVG) and apply the restyle. The system ships no vendored icons; the
+demo copies a few Lucide glyphs inline (menu, x, arrow-right, external-link,
+sun/moon) restyled to spec, as living examples.
 
 **Files changed by this amendment:**
 
@@ -122,7 +140,7 @@ Top to bottom, all built with the design system's own tokens and patterns:
    uppercase-mono label pattern, shown live.
 6. **Component gallery** — buttons (3 variants + disabled), tags/pills (4 kinds),
    status pips (4 states), an input, a card, the middot toggle, and an
-   **iconography** cell showing 4–6 restyled monoline icons — each in its own
+   **iconography** cell showing 4–6 restyled Lucide icons — each in its own
    bordered cell with a mono caption. Icons also appear tastefully in the nav
    (menu/toggle) and footer (external-link) to demonstrate the new allowance in
    context.
@@ -184,8 +202,9 @@ idiomatic in-repo home. User flips Settings → Pages → source `/docs` after m
 - Custom domain.
 - Changes to `theme.css` or the palette/typography rules — the iconography
   amendment reuses existing `currentColor` semantics and adds no tokens.
-- A bespoke/shipped icon set — the system documents restyling rules only; the
-  demo carries the sample icons.
+- A bespoke or vendored icon set — Lucide is endorsed as the sole set and the
+  system documents the restyling rules only; the demo carries a few inline
+  Lucide glyphs as examples.
 - Automated CI regeneration of screenshots (manual re-run of the capture pass is
   sufficient for now).
 
