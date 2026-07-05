@@ -146,6 +146,48 @@ figure captions** (e.g. a `<figcaption>` or a marginal note). It is never used f
 emphasis — emphasis is always weight. Treat it as a distinct voice for asides, not
 a highlighter.
 
+### Optional registers & variants (governed)
+
+The mono + sans core is canonical. Two **sanctioned optional registers** extend it
+for projects that need them — governed as strictly as Lucide and Observable Plot,
+each with exactly one role:
+
+| Register | Font (MAIN) | Role — nothing else |
+|----------|-------------|---------------------|
+| Serif | **Zilla Slab** | Long-form editorial body and pull-quotes. Never UI. |
+| Utility | **Inter** | Dense data, tables, captions, fine print. Never the primary voice. |
+
+Zilla Slab is a slab serif *derived from a monospace* (Fira Mono) — echoing how
+Space Grotesk was drawn from Space Mono. Inter is the neo-grotesque neutral
+(Helvetica / Univers lineage).
+
+**Two variants.** The stack ships in two flavors that share a body + serif spine
+and swap only the mono signature and the utility voice. Drive every font through
+four role variables; a `.alt` class swaps the variant exactly like `.dark` swaps
+the theme:
+
+| Role | MAIN (Space) | ALT (Geist) |
+|------|--------------|-------------|
+| Display / mono (`--font-mono`) | Space Mono | Geist Mono |
+| Body / sans (`--font-sans`) | Space Grotesk | Space Grotesk |
+| Serif / long-form (`--font-serif`) | Zilla Slab | Zilla Slab |
+| Utility / data (`--font-util`) | Inter | Geist Sans |
+
+```css
+:root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
+        --font-serif:'Zilla Slab',Georgia,serif; --font-util:'Inter',system-ui,sans-serif; }
+.alt  { --font-mono:'Geist Mono',ui-monospace,monospace; --font-util:'Geist',system-ui,sans-serif; }
+```
+
+Load all six families (MAIN + ALT) when offering the variants:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&family=Geist:wght@400..700&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet" />
+```
+
+MAIN is the default and canonical; ALT is a sanctioned alternative. Never mix a
+register outside its role, and never run a third variant.
+
 ## Spacing & layout
 
 - **Max content width:** 1000–1200px centered, `px-6` gutters.
