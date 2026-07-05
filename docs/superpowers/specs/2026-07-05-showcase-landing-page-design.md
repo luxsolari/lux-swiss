@@ -27,9 +27,14 @@ truth:
 4. **An in-repo asset gallery** — the section crops, reusable by README and any
    future site.
 
-Additionally, this effort **amends the design system to permit minimal,
-philosophically-aligned icons** (see the Iconography section below), demonstrated
-live on the landing page.
+Additionally, this effort makes **two philosophically-aligned amendments to the
+design system itself**, both demonstrated live on the landing page:
+
+- **Iconography** — permit minimal icons, endorsing restyled **Lucide** as the
+  sole set (see the Iconography section below).
+- **Charts** — relax the chart-library ban, endorsing restyled **Observable
+  Plot** as the sole library while keeping hand-rolled SVG the default (see the
+  Charts section below).
 
 ### Success criteria
 
@@ -64,11 +69,10 @@ capture section crops in light and dark, plus a fixed 1280×640 social card.
 
 ### Note on the system's "SVG-only, no chart library" rule
 
-That rule governs *products built with* the system at runtime. For *marketing
-assets about* the system, screenshots (raster) are chosen deliberately so exact
-type and borders survive GitHub's font sanitization. The user has also relaxed
-SVG/icon purity slightly to ease chart creation, provided charts stay strongly
-aligned with the philosophy (foreground / muted / primary only, no new colors).
+That rule is itself being amended (see the Charts amendment below) and, for the
+demo's *marketing assets*, screenshots (raster) are chosen deliberately so exact
+type and borders survive GitHub's font sanitization. Charts stay strongly aligned
+with the philosophy either way (foreground / muted / primary only, no new colors).
 
 ## Design-system amendment — Iconography (in scope)
 
@@ -122,6 +126,57 @@ sun/moon) restyled to spec, as living examples.
   entry with the concrete restyling pattern and a compliant inline-SVG example.
 - `theme.css` is **not** touched — icons use existing `currentColor` semantics.
 
+## Design-system amendment — Charts (in scope)
+
+The current system bans chart libraries outright ("No chart libraries. SVG
+only."). This amendment relaxes that to the same shape as iconography: endorse
+**one** library, restyled to obey the palette. The original *reason* for the ban
+is preserved as the endorsement test — a library is only acceptable to the degree
+its default aesthetic (palettes, rounded corners, tooltips, gridlines) can be
+stripped to duotone.
+
+- **Hand-rolled SVG stays the default.** The simple charts (timeline strip, share
+  bars, single differential line) are ~20 lines of raw SVG; they should stay
+  hand-rolled. The library is the sanctioned tool for when scales / axes /
+  many-series / interaction complexity genuinely earns a dependency.
+- **Source — Observable Plot, and only Observable Plot.**
+  [Observable Plot](https://observablehq.com/plot) is the single sanctioned chart
+  library. Chosen because it is framework-agnostic (vanilla JS SVG node that drops
+  into React / Svelte / Vue / plain HTML — preserving the system's multi-framework
+  promise, which React-only libs like visx/Recharts would break), SVG-native, and
+  concise. No other chart library; canvas-based libs (Chart.js, ECharts, uPlot)
+  are excluded outright since they break the SVG/border crispness.
+
+**Restyle rules — theme Plot's defaults down to duotone:**
+
+- **Palette: `foreground` / `muted-foreground` / `primary` only.** Set colors
+  explicitly per mark (`fill` / `stroke` = a CSS var); never use Plot's default
+  categorical color scheme. Disable the color legend.
+- **Encode categories & emphasis without new colors** — solid vs `stroke-dasharray`
+  dashed lines (the "paired curve" pattern), fill-opacity steps, and an outline
+  ring for the highlighted slice (the "share bars" pattern). Same rule as the rest
+  of the system.
+- **Square everything.** No rounded bar corners; `rect`/`barY` are square by
+  default in Plot — keep them that way.
+- **Strip chrome.** Gridlines off or `muted` at low opacity; axis ticks/labels
+  restyled to the uppercase-mono label pattern via `className` + CSS; no default
+  tooltips (or a hard-bordered, mono, no-shadow custom one matching the modal
+  pattern).
+- **Transparent background**, `color: var(--foreground)`, inherits the page.
+
+**Integration.** `@observablehq/plot`; `Plot.plot({ marks, x, y, color, style })`
+returns an SVG node appended to the DOM — works in any framework. Load via ESM in
+plain HTML.
+
+**Files changed by this amendment:**
+
+- `skills/lux-design-system/SKILL.md` — rewrite the **Charts** section: keep
+  hand-rolled SVG as default, add the endorsed-library allowance; update the "Do
+  not" list ("No chart libraries" → "Only Observable Plot, restyled; hand-rolled
+  SVG preferred for simple charts").
+- `skills/lux-design-system/references/components.md` — expand the **SVG charts**
+  entry with the Plot restyling rules and a compliant example.
+
 ## The landing page — section design
 
 Top to bottom, all built with the design system's own tokens and patterns:
@@ -146,7 +201,9 @@ Top to bottom, all built with the design system's own tokens and patterns:
    context.
 7. **Charts** — 2–3 hand-rolled SVG charts (differential line with zero-crossing
    fill, share bars, timeline strip) on neutral sample data, proving the
-   no-library chart approach.
+   hand-rolled default, **plus one Observable Plot chart** restyled to duotone
+   (captioned as such) demonstrating the endorsed-library amendment. Plot loads
+   via ESM CDN; the screenshot pass waits for it to render.
 8. **Footer** — install snippet (`/plugin install lux-design-system`), MIT
    license, links.
 
@@ -192,8 +249,8 @@ idiomatic in-repo home. User flips Settings → Pages → source `/docs` after m
 
 - Land via a branch + pull request; **no direct pushes to `main`**.
 - Add a `## [Unreleased]` entry to `CHANGELOG.md` in the same PR. The iconography
-  amendment is user-facing new capability → a `feat` (minor bump under the repo's
-  semver discipline); the demo page/assets are `docs`.
+  and charts amendments are user-facing new capability → `feat` (minor bump under
+  the repo's semver discipline); the demo page/assets are `docs`.
 - Conventional Commit subject lines.
 
 ## Out of scope
