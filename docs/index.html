@@ -109,6 +109,21 @@
           </a>
         </div>
       </section>
+      <section id="install" style="border-top:none; padding-top:0;">
+        <div style="border:1px solid var(--border); background:var(--card); padding:28px 32px;
+             display:flex; flex-wrap:wrap; align-items:center; gap:24px 40px; justify-content:space-between;">
+          <div style="min-width:0;">
+            <p class="label" style="margin:0 0 12px;">Install — two lines in Claude Code</p>
+            <pre style="margin:0; border:none; background:none; padding:0; overflow:auto;
+                 font-family:'Space Mono',monospace; font-size:1rem; line-height:1.8; color:var(--foreground);">/plugin marketplace add luxsolari/lux-solari-plugins
+/plugin install lux-design-system</pre>
+          </div>
+          <a href="https://github.com/luxsolari/lux-design-system"
+             style="border:1px solid var(--foreground); background:var(--foreground); color:var(--background);
+             padding:12px 22px; text-decoration:none; font-family:'Space Mono',monospace;
+             text-transform:uppercase; letter-spacing:0.2em; font-size:0.75rem; white-space:nowrap;">Get the plugin</a>
+        </div>
+      </section>
       <section id="rules">
         <div class="divider"><h3>Two rules govern everything</h3><span class="rule"></span></div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
@@ -129,54 +144,61 @@
       <section id="palette">
         <div class="divider"><h3>Palette</h3><span class="rule"></span></div>
         <p class="label" style="margin:-8px 0 20px;">Semantic tokens — never a raw hex in markup</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(172px,1fr)); gap:16px;">
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--background);"></div>
+            <div class="pal-chip" data-token="background" style="height:64px; background:var(--background);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">background</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">page</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--card);"></div>
+            <div class="pal-chip" data-token="card" style="height:64px; background:var(--card);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">card</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">surface</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--foreground);"></div>
+            <div class="pal-chip" data-token="foreground" style="height:64px; background:var(--foreground);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">foreground</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">ink/text</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--muted);"></div>
+            <div class="pal-chip" data-token="muted" style="height:64px; background:var(--muted);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">muted</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">subtle</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--muted-foreground);"></div>
+            <div class="pal-chip" data-token="muted-foreground" style="height:64px; background:var(--muted-foreground);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">muted-foreground</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">metadata</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--primary);"></div>
+            <div class="pal-chip" data-token="primary" style="height:64px; background:var(--primary);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">primary</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">accent</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
           <figure style="margin:0; border:1px solid var(--border);">
-            <div style="height:72px; background:var(--border);"></div>
+            <div class="pal-chip" data-token="border" style="height:64px; background:var(--border);"></div>
             <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
               <span class="label" style="display:block;">border</span>
               <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">borders</span>
+              <dl class="pal-vals" style="margin:8px 0 0; font-family:'Space Mono',monospace; font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
             </figcaption>
           </figure>
         </div>
@@ -281,7 +303,7 @@
           </div>
 
           <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Icons — Lucide, restyled</p>
+            <p class="label" style="margin-bottom:16px;">Icons · Lucide — endorsed set</p>
             <div style="display:flex; flex-wrap:wrap; gap:18px; color:var(--foreground);">
               <svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg><!-- menu -->
               <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><!-- x -->
@@ -322,7 +344,7 @@
         </div>
 
         <figure style="margin:32px 0 0;">
-          <figcaption class="label" style="margin-bottom:12px;">Observable Plot — restyled to the palette (endorsed library)</figcaption>
+          <figcaption class="label" style="margin-bottom:12px;">Observable Plot · endorsed chart library — restyled to the palette</figcaption>
           <div id="plot-mount"></div>
         </figure>
       </section>
@@ -340,10 +362,6 @@
            margin:0;">/plugin install lux-design-system</p>
       </div>
       <footer style="border-top:1px solid var(--border); padding:48px 0; margin-top:0;">
-        <p class="label" style="margin-bottom:12px;">Install</p>
-        <pre style="border:1px solid var(--border); background:var(--muted); padding:16px;
-             font-family:'Space Mono',monospace; font-size:0.85rem; overflow:auto; margin:0;">/plugin marketplace add luxsolari/lux-solari-plugins
-/plugin install lux-design-system</pre>
         <div style="display:flex; justify-content:space-between; align-items:baseline;
              flex-wrap:wrap; gap:16px; margin-top:24px; font-family:'Space Mono',monospace;
              font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em;">
@@ -375,6 +393,37 @@
       ],
     });
     document.querySelector("#plot-mount").append(chart);
+  </script>
+  <script>
+    // Fill each palette swatch with its live hex / rgb / hsl, recomputed on theme change
+    // so the values always match the swatch (data values → Space Mono).
+    (function () {
+      function pad(n) { return n.toString(16).padStart(2, "0"); }
+      function toHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min, h = 0, s = 0, l = (max + min) / 2;
+        if (d) {
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+          h *= 60;
+        }
+        return [Math.round(h), Math.round(s * 100), Math.round(l * 100)];
+      }
+      function fill() {
+        document.querySelectorAll("#palette figure").forEach(function (fig) {
+          var chip = fig.querySelector(".pal-chip"), dl = fig.querySelector(".pal-vals");
+          if (!chip || !dl) return;
+          var m = getComputedStyle(chip).backgroundColor.match(/\d+/g);
+          if (!m) return;
+          var r = +m[0], g = +m[1], b = +m[2], H = toHsl(r, g, b);
+          dl.innerHTML = "<div>HEX #" + pad(r) + pad(g) + pad(b) + "</div>" +
+            "<div>RGB " + r + " " + g + " " + b + "</div>" +
+            "<div>HSL " + H[0] + " " + H[1] + "% " + H[2] + "%</div>";
+        });
+      }
+      fill();
+      new MutationObserver(fill).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    })();
   </script>
   <script>
     (function () {
