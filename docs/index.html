@@ -271,6 +271,38 @@
 
         </div>
       </section>
+      <section id="charts">
+        <div class="divider"><h3>Charts</h3><span class="rule"></span></div>
+        <p class="label" style="margin:-8px 0 24px;">Hand-rolled SVG by default · Observable Plot when a lib is warranted</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+
+          <figure style="margin:0;">
+            <figcaption class="label" style="margin-bottom:12px;">Share bars — outline ring marks the highlight</figcaption>
+            <svg width="100%" height="120" viewBox="0 0 320 120">
+              <rect x="0" y="10" width="240" height="18" fill="var(--foreground)"/>
+              <rect x="0" y="40" width="150" height="18" fill="var(--muted-foreground)"/>
+              <rect x="0" y="70" width="90"  height="18" fill="var(--muted-foreground)"/>
+              <rect x="0" y="10" width="240" height="18" fill="none" stroke="var(--primary)" stroke-width="1.5"/>
+            </svg>
+          </figure>
+
+          <figure style="margin:0;">
+            <figcaption class="label" style="margin-bottom:12px;">Differential — foreground above, primary below zero</figcaption>
+            <svg width="100%" height="120" viewBox="0 0 320 120">
+              <line x1="0" y1="60" x2="320" y2="60" stroke="var(--muted-foreground)" stroke-opacity="0.4"/>
+              <polyline fill="none" stroke="var(--foreground)" stroke-width="1.5"
+                points="0,60 40,40 80,30 120,45 160,55"/>
+              <polyline fill="none" stroke="var(--primary)" stroke-width="1.5"
+                points="160,55 200,75 240,90 280,80 320,70"/>
+            </svg>
+          </figure>
+        </div>
+
+        <figure style="margin:32px 0 0;">
+          <figcaption class="label" style="margin-bottom:12px;">Observable Plot — restyled to the palette (endorsed library)</figcaption>
+          <div id="plot-mount"></div>
+        </figure>
+      </section>
       <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
            width:1200px; height:630px; background:var(--background); color:var(--foreground);
            padding:80px; display:flex; flex-direction:column; justify-content:space-between;
@@ -286,6 +318,22 @@
       </div>
     </main>
   </div>
+  <script type="module">
+    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+    const data = [0,1,3,2,4,6,5,7,6,8].map((v,i) => ({ t:i, v, u: Math.max(0, v-2) }));
+    const chart = Plot.plot({
+      width: 900, height: 220, marginLeft: 28, marginBottom: 24,
+      style: { background:"transparent", color:"var(--foreground)",
+               fontFamily:"'Space Mono', monospace", fontSize:"11px" },
+      x: { label:null }, y: { label:null },
+      marks: [
+        Plot.gridY({ stroke:"var(--muted-foreground)", strokeOpacity:0.15 }),
+        Plot.lineY(data, { x:"t", y:"v", stroke:"var(--foreground)", strokeWidth:1.5 }),
+        Plot.lineY(data, { x:"t", y:"u", stroke:"var(--muted-foreground)", strokeWidth:1.5, strokeDasharray:"4 3" }),
+      ],
+    });
+    document.querySelector("#plot-mount").append(chart);
+  </script>
   <script>
     (function () {
       var root = document.documentElement;
