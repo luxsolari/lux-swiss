@@ -188,6 +188,89 @@
           </div>
         </div>
       </section>
+      <section id="components">
+        <div class="divider"><h3>Components</h3><span class="rule"></span></div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px;">
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Buttons</p>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; font-family:'Space Mono',monospace;
+                        text-transform:uppercase; letter-spacing:0.2em; font-size:0.7rem;">
+              <button style="border:1px solid var(--foreground); background:var(--foreground);
+                color:var(--background); padding:8px 14px;">Filled</button>
+              <button style="border:1px solid var(--foreground); background:none;
+                color:var(--foreground); padding:8px 14px;">Outlined</button>
+              <button style="border:none; background:none; color:var(--muted-foreground);
+                padding:8px 14px;">Ghost</button>
+              <button style="border:1px solid var(--foreground); background:none; padding:8px 14px;
+                opacity:0.4;" disabled>Disabled</button>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Tags</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; font-family:'Space Mono',monospace;
+                        font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em;">
+              <span style="color:var(--muted-foreground); padding:2px 8px;">Neutral</span>
+              <span style="background:var(--foreground); color:var(--background); padding:2px 8px;">Signal</span>
+              <span style="border:1px dashed color-mix(in srgb, var(--foreground) 50%, transparent); padding:2px 8px;">Outlined</span>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Status pips</p>
+            <div style="display:flex; flex-direction:column; gap:10px; font-family:'Space Mono',monospace;
+                        font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em;">
+              <span style="display:inline-flex; align-items:center; gap:8px;">
+                <span style="width:6px;height:6px;border-radius:9999px;background:var(--foreground);"></span>Connected</span>
+              <span style="display:inline-flex; align-items:center; gap:8px;">
+                <span style="width:6px;height:6px;border-radius:9999px;background:var(--primary);"></span>Warning</span>
+              <span style="display:inline-flex; align-items:center; gap:8px;">
+                <span style="width:6px;height:6px;border-radius:9999px;background:color-mix(in srgb, var(--foreground) 35%, transparent);"></span>Disconnected</span>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Input</p>
+            <label class="label" style="display:block; margin-bottom:8px;">Email</label>
+            <input placeholder="you@example.com" style="width:100%; border:1px solid var(--border);
+              background:var(--input); padding:8px 12px; font-family:'Space Mono',monospace;
+              font-size:0.85rem; color:var(--foreground);" />
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Card</p>
+            <div style="border:1px solid var(--border); background:var(--card); padding:16px;">
+              <p style="margin:0; font-family:'Space Mono',monospace; font-weight:700;">Elevated surface</p>
+              <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
+                Depth is a background step, never a shadow.</p>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Toggle</p>
+            <div style="display:flex; gap:8px; font-family:'Space Mono',monospace; font-size:0.75rem;
+                        text-transform:uppercase; letter-spacing:0.2em;">
+              <span style="color:var(--foreground);">EN</span>
+              <span style="color:var(--muted-foreground); opacity:0.4;">·</span>
+              <span style="color:var(--muted-foreground);">ES</span>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Icons — Lucide, restyled</p>
+            <div style="display:flex; flex-wrap:wrap; gap:18px; color:var(--foreground);">
+              <svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg><!-- menu -->
+              <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><!-- x -->
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- arrow-right -->
+              <svg class="icon" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><!-- external-link -->
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg><!-- sun -->
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><!-- moon -->
+            </div>
+          </div>
+
+        </div>
+      </section>
       <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
            width:1200px; height:630px; background:var(--background); color:var(--foreground);
            padding:80px; display:flex; flex-direction:column; justify-content:space-between;
