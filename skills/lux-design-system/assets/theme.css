@@ -1,0 +1,64 @@
+/* Duotone Swiss — theme tokens for Tailwind 4.
+ * Paste into your global stylesheet (e.g. app/globals.css).
+ * For non-Tailwind stacks, the :root / .dark blocks work as plain CSS
+ * custom properties — drop the @import and @theme lines. */
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f5efe0;
+  --foreground: #0a0a0a;
+  --card: #faf6ec;
+  --card-foreground: #0a0a0a;
+  --primary: #8b2e2e;
+  --primary-foreground: #f5efe0;
+  --secondary: #0a0a0a;
+  --secondary-foreground: #f5efe0;
+  --muted: #ebe5d5;
+  --muted-foreground: #4a4a48;
+  --border: #0a0a0a;
+  --input: #faf6ec;
+  --ring: #8b2e2e;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f5efe0;
+  --card: #161616;
+  --card-foreground: #f5efe0;
+  --primary: #c04545;
+  --primary-foreground: #f5efe0;
+  --secondary: #f5efe0;
+  --secondary-foreground: #0a0a0a;
+  --muted: #1f1f1f;
+  --muted-foreground: #a8a8a0;
+  --border: #f5efe0;
+  --input: #161616;
+  --ring: #c04545;
+}
+
+@theme inline {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
