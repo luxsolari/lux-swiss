@@ -13,6 +13,7 @@ All notable changes to this plugin are documented here. Format follows
 - **Showcase landing page** (`docs/index.html`) served on GitHub Pages, plus
   README screenshots, a 1200×630 social-preview card, and a reproducible Playwright
   capture script.
+- **`docs/PROMOTION.md`** — launch checklist and drafted repo topics/description.
 
 ### Changed
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
