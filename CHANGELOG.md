@@ -34,6 +34,17 @@ All notable changes to this plugin are documented here. Format follows
   sidebar nav (wordmark, anchor nav, theme toggle, GitHub link,
   copyright), collapsing to a red top band with a hamburger toggle below
   the mobile breakpoint.
+- **Segment stripe reuse** — the two-color stripe is no longer a single
+  fixed instance under the hero; it's now a general decorative
+  divider/spacer reusable at any length, demonstrated at three different
+  lengths on the showcase page (`SKILL.md`, `references/components.md`,
+  `docs/index.html`).
+- **Destructive button and hover-state visibility** — a new Destructive
+  button variant (Red's already-named "destructive" job, now with a
+  documented variant), plus two "Default / Hover" static swatch pairs
+  (destructive button, nav link) so hover states are visible on the
+  showcase page without a live pointer (`SKILL.md`,
+  `references/components.md`, `docs/index.html`).
 
 ### Changed
 - **BREAKING CHANGE: renamed Duotone Swiss to Lux Swiss.** The plugin slug
