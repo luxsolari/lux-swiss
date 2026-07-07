@@ -91,10 +91,11 @@ Dark mode is the `.dark` class on `<html>`, toggled via JS and persisted to
 
 This repository is dual-licensed:
 
-- **Tooling and scripts** (`scripts/`, CI config, git hooks) — MIT ©
-  2026 Lux Solari (Luciano Laje). See [LICENSE](LICENSE).
 - **The design system itself** (`skills/lux-swiss/`, `docs/index.html`,
   `docs/assets/`, [HOUSE-MARK.md](HOUSE-MARK.md)) — CC BY-SA 4.0 © 2026
   Lux Solari (Luciano Laje). Free to use and adapt, including
   commercially, provided you credit Lux Solari and license your
   derivative under the same terms. See [LICENSE-DESIGN](LICENSE-DESIGN).
+- **Everything else** (build/tooling scripts, CI config, git hooks, and
+  project documentation such as this README) — MIT © 2026 Lux Solari
+  (Luciano Laje). See [LICENSE](LICENSE).

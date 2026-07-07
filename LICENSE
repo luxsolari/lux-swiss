@@ -1,9 +1,9 @@
 MIT License
 
-This license covers this repository's tooling, scripts, and CI
-configuration. The design system itself — `skills/lux-swiss/`,
-`docs/index.html`, `docs/assets/`, and `HOUSE-MARK.md` — is licensed
-separately under CC BY-SA 4.0; see `LICENSE-DESIGN`.
+This license covers everything in this repository except the
+design-system content covered separately by `LICENSE-DESIGN` —
+namely `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`, and
+`HOUSE-MARK.md`, which are licensed under CC BY-SA 4.0 instead.
 
 Copyright (c) 2026 Lux Solari (Luciano Laje)
 
