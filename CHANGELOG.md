@@ -20,6 +20,12 @@ All notable changes to this plugin are documented here. Format follows
   governed with a strict role.
 
 ### Changed
+- **BREAKING CHANGE: renamed Duotone Swiss to Lux Swiss.** The plugin slug
+  changes from `lux-design-system` to `lux-swiss`; the GitHub repo, the
+  skill directory, and every install command follow. Anyone who has
+  already run `/plugin install lux-design-system@lux-solari-plugins` needs
+  to reinstall as `/plugin install lux-swiss@lux-solari-plugins`.
+  "Duotone" survives as a descriptive tagline, not the name.
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
   is now the one sanctioned chart library when a lib is warranted, restyled to the
   palette (`SKILL.md`, `references/components.md`).
