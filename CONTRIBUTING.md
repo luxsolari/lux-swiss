@@ -10,7 +10,9 @@ action/Structural-Block/brand-moment/hover-signal jobs, but never a second hue) 
 shadow contradict the system and won't be accepted; express new states through
 weight, size, spacing, and contrast instead. The segment stripe (§ SKILL.md
 Philosophy section) is reusable at any length, not a fixed one-off — keep it
-two equal ink/Blood-Red segments regardless of length.
+two equal ink/Blood-Red segments regardless of length. The Accent button
+reuses the Destructive button's exact visual mechanism under a different
+semantic name — don't invent a second visual treatment for it.
 
 - Palette / token changes: update both `SKILL.md`'s tables and `assets/theme.css`
   so they never drift apart.

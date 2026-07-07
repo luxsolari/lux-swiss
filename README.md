@@ -31,9 +31,12 @@ of viewport, or a bold word inside a heading), one governed brand-moment
 element per page (larger and bolder than any other heading), and hover-state
 feedback wherever an accent signals interactivity. The two-color segment
 stripe — ink then Blood Red — is reusable at any length as a decorative
-divider, not a one-off. No success green, no info blue, no second accent.
-Win/loss, active/inactive, emphasis, and error are all expressed through
-**typography weight, spacing, and contrast — never by adding a color.**
+divider, not a one-off. A new Accent button and Accent card put more color
+on hover/borders, and a new Interactive card carries the same ink-to-Red
+hover transition onto a clickable card. No success green, no info blue, no
+second accent. Win/loss, active/inactive, emphasis, and error are all
+expressed through **typography weight, spacing, and contrast — never by
+adding a color.**
 
 - Visible 1px borders everywhere; **no shadows** (elevation is a background step).
 - Generous whitespace; mostly square corners.

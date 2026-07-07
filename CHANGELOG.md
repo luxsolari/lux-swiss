@@ -6,6 +6,17 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Accent button** — a fifth button variant (Red-bordered, general
+  emphasis rather than destructive) using the same mechanism as the
+  existing Destructive button — a separate semantic name, not a
+  different visual treatment (`SKILL.md`, `references/components.md`,
+  `docs/index.html`).
+- **Accent card and Interactive card** — a new static Red-bordered card
+  with a background wash, and a new clickable card with an ink-to-Red
+  hover transition — more color on hover/borders across cards, not just
+  buttons (`SKILL.md`, `references/components.md`, `docs/index.html`).
+
 ## [2.0.0] — 2026-07-07
 
 ### Added
