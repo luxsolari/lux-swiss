@@ -16,8 +16,8 @@ two systems play here.
 - The same governance discipline: every color, every optional type
   register, every icon set is explicitly sanctioned and scoped — nothing
   ad hoc.
-- The same warm cream base (`#f5efe0` light / near-black dark, ink)
-  underneath everything.
+- The same warm cream base (`#f5efe0` cream in light mode, near-black ink
+  in dark mode) underneath everything.
 
 ## What's different
 
