@@ -196,6 +196,18 @@ nav link, since this system has no second color to add one with:
 <a style="color:var(--primary-foreground); opacity:1;">Section</a>
 ```
 
+**Accent button hover, Default vs. Hover.** Same mechanism as the
+Destructive button above — a separate semantic name for general
+emphasis, not a different visual treatment:
+
+```html
+<button style="border:1px solid var(--primary); background:none;
+  color:var(--primary); padding:8px 16px;">Learn more</button>
+<!-- :hover (or a static .is-hover-demo modifier class for illustration) -->
+<button style="border:1px solid var(--primary); background:var(--primary);
+  color:var(--primary-foreground); padding:8px 16px;">Learn more</button>
+```
+
 ## Iconography (Lucide, restyled)
 
 Lucide is the only sanctioned icon set. Drop in the raw Lucide inline SVG and add
@@ -227,6 +239,40 @@ border border-border bg-card text-card-foreground p-6
 
 Nest a section divider (see `SKILL.md`) inside for titled regions. Keep corners
 square unless a `rounded-md` (0.5rem) genuinely helps.
+
+**Accent card.** A static, Red-bordered card with a subtle background
+wash — more color than the plain card above:
+
+```jsx
+<div className="border border-primary p-6" style={{ background: "color-mix(in srgb, var(--primary) 8%, var(--card))" }}>
+  <p className="font-mono font-bold">Accent card</p>
+  <p className="text-sm text-muted-foreground">
+    Red border + wash — more color on hover/borders.
+  </p>
+</div>
+```
+
+**Interactive card.** A clickable card (wrap in `<a>` or `<button>`)
+with its own hover transition — ink border at rest, Red on hover, the
+system's normal single-accent hover hierarchy:
+
+```html
+<a href="#" style="display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--border); padding:24px; transition:border-color 0.15s;">
+  <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Interactive card</p>
+  <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
+    Ink border at rest, Red on hover — click anywhere on the card.
+  </p>
+</a>
+<!-- :hover (or a static .is-hover-demo modifier class for illustration) -->
+<a href="#" style="display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--primary); padding:24px;">
+  <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Interactive card</p>
+  <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
+    Ink border at rest, Red on hover — click anywhere on the card.
+  </p>
+</a>
+```
 
 ## Inputs
 
