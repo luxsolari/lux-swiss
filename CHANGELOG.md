@@ -6,6 +6,8 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+## [2.0.0] — 2026-07-07
+
 ### Added
 - **Iconography** guidance — Lucide endorsed as the sole icon set, with the
   monoline / `currentColor` / square-cap restyle rules (`SKILL.md`,
