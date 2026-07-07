@@ -340,7 +340,7 @@ Replace it with:
     <aside class="sidebar">
       <div>
         <div style="display:flex; align-items:center; justify-content:space-between;">
-          <span class="sidebar-wordmark">Duotone</span>
+          <span class="sidebar-wordmark">Lux Swiss</span>
           <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
             <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
               <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
