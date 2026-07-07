@@ -229,7 +229,7 @@ Never mix a register outside its role.
 
 ## Buttons
 
-All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Four variants:
+All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Five variants:
 
 - **Ghost / nav** (most common): `text-muted-foreground hover:text-foreground
   transition-colors`, no border.
@@ -240,6 +240,11 @@ All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Four variants:
 - **Destructive:** `border border-primary text-primary px-4 py-2
   hover:bg-primary hover:text-primary-foreground` — Red's already-named
   "destructive" job (see Philosophy), now with a documented variant.
+- **Accent:** `border border-primary text-primary px-4 py-2
+  hover:bg-primary hover:text-primary-foreground` — general emphasis,
+  not destructive. Same swap mechanism as Destructive — a separate
+  semantic name for a different use, not a different visual treatment
+  (this system has only one accent to draw on).
 
 **Disabled** is always `opacity-40` — never a color change.
 
@@ -252,6 +257,11 @@ visibility, not governance: hover states weren't demonstrated anywhere
 on the showcase page without an actual pointer. The new Destructive
 button above, and a static "Default / Hover" swatch pair for it and for
 the sidebar nav link, now show what was already true.
+
+The new Accent button and Interactive card (see
+`references/components.md`) are further demonstrations of the same
+rule — more color on hover/borders, using the one accent this system
+has, not a new pattern.
 
 ## Tags / pills
 
