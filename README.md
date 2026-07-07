@@ -2,6 +2,7 @@
 
 [![Version](https://img.shields.io/github/v/release/luxsolari/lux-swiss)](https://github.com/luxsolari/lux-swiss/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Design: CC BY-SA 4.0](https://img.shields.io/badge/design-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE-DESIGN)
 
 <p align="center">
   <a href="https://luxsolari.github.io/lux-swiss/">
@@ -88,4 +89,12 @@ Dark mode is the `.dark` class on `<html>`, toggled via JS and persisted to
 
 ## License
 
-MIT © 2026 Lux Solari (Luciano Laje)
+This repository is dual-licensed:
+
+- **Tooling and scripts** (`scripts/`, CI config, git hooks) — MIT ©
+  2026 Lux Solari (Luciano Laje). See [LICENSE](LICENSE).
+- **The design system itself** (`skills/lux-swiss/`, `docs/index.html`,
+  `docs/assets/`, [HOUSE-MARK.md](HOUSE-MARK.md)) — CC BY-SA 4.0 © 2026
+  Lux Solari (Luciano Laje). Free to use and adapt, including
+  commercially, provided you credit Lux Solari and license your
+  derivative under the same terms. See [LICENSE-DESIGN](LICENSE-DESIGN).
