@@ -6,6 +6,8 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+## [2.1.0] — 2026-07-08
+
 ### Added
 - **Accent button** — a fifth button variant (Red-bordered, general
   emphasis rather than destructive) using the same mechanism as the
