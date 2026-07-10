@@ -23,10 +23,19 @@
   --ring: #8b2e2e;
   --radius: 0.5rem;
 
-  /* Font roles. */
+  /* Font roles — Space flavor (default). --serif is shared by both
+     flavors and is never overridden by .geist. */
   --mono: "Space Mono", ui-monospace, monospace;
   --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --serif: "Zilla Slab", Georgia, serif;
+}
+
+/* Geist flavor — add class="geist" on <html>; composes with .dark
+   exactly like the theme. Swaps only --mono/--sans; --serif stays
+   Zilla Slab in both flavors. */
+.geist {
+  --mono: "Geist Mono", ui-monospace, monospace;
+  --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
 }
 
 .dark {

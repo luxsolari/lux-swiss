@@ -6,6 +6,22 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Geist font flavor** — a `.geist` class (composes with `.dark`, exactly
+  like the theme) that swaps `--font-mono`/`--font-sans` from Space
+  Mono/Space Grotesk to Geist Mono/Geist Sans; `--font-serif` (Zilla
+  Slab) is shared by both flavors and never overridden. `SKILL.md`'s
+  setup steps ask which flavor to apply (default: Space), each with its
+  own 3-family Google Fonts link (down from the old 4-role/6-family
+  MAIN/ALT variant this replaces — 2 roles ever swap, not 4). The
+  showcase page (`docs/index.html`) gets a live Space·Geist toggle next
+  to the Light·Dark one, and `scripts/capture/capture.mjs` can screenshot
+  either flavor.
+- **Serif promoted from an optional register to a core role** —
+  `SKILL.md`'s Typography section now documents mono/sans/serif as one
+  three-role table instead of a two-font core plus a separately-governed
+  "optional register."
+
 ## [2.1.0] — 2026-07-08
 
 ### Added
