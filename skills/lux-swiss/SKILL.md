@@ -33,15 +33,23 @@ Pastel Turquoise highlight; see `HOUSE-MARK.md` for how the two relate.
 
 Whenever you build or restyle UI, reach for these tokens and patterns by default
 instead of inventing ad-hoc colors or leaning on a component library's stock look.
-Two setup moves come first on any new project:
+Three setup moves come first on any new project:
 
-1. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
+1. **Ask which font flavor to use.** Before applying the system, ask the
+   user: **Space** or **Geist**? Both share the same three roles (mono,
+   sans, serif) and differ only in the mono/sans pair — Space Mono +
+   Space Grotesk vs. Geist Mono + Geist Sans; Zilla Slab is shared by
+   both (see [Typography](#typography)). **Default to Space** if they
+   have no preference. Apply Geist by adding the `.geist` class to
+   `<html>` (it composes with `.dark`, exactly like the theme).
+2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
-   variable for light + dark mode, and wires them to Tailwind 4 via
-   `@theme inline`. For non-Tailwind stacks the same `:root` / `.dark` variables
-   work as plain CSS custom properties.
-2. **Load the fonts.** Add the Google Fonts link (below) or the framework
-   equivalent (`next/font`, etc.).
+   variable for light + dark mode and both font flavors, and wires them to
+   Tailwind 4 via `@theme inline`. For non-Tailwind stacks the same
+   `:root` / `.dark` / `.geist` variables work as plain CSS custom properties.
+3. **Load the fonts.** Add the Google Fonts link for the chosen flavor
+   (below) or the framework equivalent (`next/font`, etc.) — just that
+   flavor's families, not both, unless the project needs a live toggle.
 
 Then compose UI from the patterns in this file. For the full component library
 (status pips, modals, toggles, SVG charts) see
@@ -131,26 +139,49 @@ once per page; every other heading keeps the normal type scale.
 
 ## Typography
 
-Two fonts form the core, strictly separated by function — and they already share
-DNA: **Space Grotesk is the proportional cousin of Space Mono** (it was drawn from
-it). The pairing is a *duotone of one skeleton*, mirroring the two-color rule.
-Never swap their roles.
+Three roles, strictly separated by function, in **two font flavors** that
+share the same serif and swap only the mono/sans pair. Never swap a
+role's job, and never run a third flavor.
 
-| Font | Use |
-|------|-----|
-| **Space Grotesk** (`font-sans`) | Body copy, UI text, prose, and dense-data/utility text (tables, fine print) at smaller size with tabular figures |
-| **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav, labels |
+| Role | Space (default) | Geist (flavor) | Use |
+|------|------|------|-----|
+| Display / mono (`font-mono`) | **Space Mono** | **Geist Mono** | Headings, display, data values, tags, nav, labels |
+| Body / sans (`font-sans`) | **Space Grotesk** | **Geist Sans** | Body copy, UI text, prose, and dense-data/utility text (tables, fine print) at smaller size with tabular figures |
+| Serif / long-form (`font-serif`) | **Zilla Slab** | **Zilla Slab** (shared) | Long-form editorial body and pull-quotes. Never UI. |
 
-```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+Space Grotesk is the proportional cousin of Space Mono (it was drawn from
+it) — a *duotone of one skeleton*, mirroring the two-color rule. Zilla
+Slab is a slab serif derived from a monospace (Fira Mono), echoing the
+same lineage, which is why it stays identical across both flavors.
+
+Drive every font through three role variables; a `.geist` class swaps
+the flavor exactly like `.dark` swaps the theme:
+
+```css
+:root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
+        --font-serif:'Zilla Slab',Georgia,serif; }
+.geist { --font-mono:'Geist Mono',ui-monospace,monospace; --font-sans:'Geist',system-ui,sans-serif; }
 ```
 
-Space Grotesk loads as a **variable font** (continuous `300..700` axis); Space Mono
-loads its two weights plus **italics**.
+Load only the chosen flavor's two families plus Zilla Slab — three
+families, not five, unless the project needs a live toggle:
+
+```html
+<!-- Space flavor (default) -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<!-- Geist flavor -->
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+```
+
+Both sans faces load as **variable fonts**, requested at just the four
+weights actually used (300/400/500/700) rather than their full axis;
+both mono faces load regular + bold, roman + italic; Zilla Slab loads
+its usual four cuts.
 
 **Range comes from weight, not more typefaces.** Exactly as difference is expressed
 through weight/space/contrast rather than a new color, hierarchy is expressed
-through the weight axis rather than a new face. Space Grotesk weight scale:
+through the weight axis rather than a new face. Sans weight scale (same four
+stops in either flavor):
 
 | Weight | Use |
 |--------|-----|
@@ -159,14 +190,14 @@ through the weight axis rather than a new face. Space Grotesk weight scale:
 | **500** Medium | UI emphasis, active labels, small headings in prose |
 | **700** Bold | Strong emphasis — sparing; prefer 500 |
 
-**Heading scale** — Space Mono, weight 700: `h1` 3rem/−0.02em/1.1 ·
+**Heading scale** — mono, weight 700: `h1` 3rem/−0.02em/1.1 ·
 `h2` 2.25rem/−0.02em/1.15 · `h3` 1.875rem/−0.01em/1.2 · `h4` 1.5rem/1.3 ·
 `h5` 1.25rem/1.3 · `h6` 1.125rem/1.3.
 
-**Body** — Space Grotesk 400, 1rem base, line-height 1.65, `kern`/`liga`/`calt`
+**Body** — sans, weight 400, 1rem base, line-height 1.65, `kern`/`liga`/`calt`
 on, antialiased.
 
-**Label pattern** (pervasive — nav, metadata, section headers): Space Mono,
+**Label pattern** (pervasive — nav, metadata, section headers): mono,
 `text-xs`, `uppercase`, `tracking-[0.2em]`, weight 400 inactive / 700 active,
 `text-muted-foreground` inactive → `text-foreground` active.
 
@@ -175,42 +206,11 @@ block get `font-variant-numeric: tabular-nums` (`font-feature-settings: "tnum" 1
 so digits share one width and align to the grid — the typographic equivalent of
 the system's hard borders. Prose numerals stay proportional (the default).
 
-**Space Mono italic** is reserved for one structural job: **inline annotations and
-figure captions** (e.g. a `<figcaption>` or a marginal note). It is never used for
-emphasis — emphasis is always weight. Treat it as a distinct voice for asides, not
-a highlighter.
-
-### Optional registers (governed)
-
-The mono + sans core is canonical. One **sanctioned optional register** extends it
-for projects that need it — governed as strictly as Lucide and Observable Plot,
-with exactly one role:
-
-| Register | Font (MAIN) | Role — nothing else |
-|----------|-------------|---------------------|
-| Serif | **Zilla Slab** | Long-form editorial body and pull-quotes. Never UI. |
-
-Zilla Slab is a slab serif *derived from a monospace* (Fira Mono) — echoing how
-Space Grotesk was drawn from Space Mono.
-
-Drive every font through three role variables:
-
-| Role | Font |
-|------|------|
-| Display / mono (`--font-mono`) | Space Mono |
-| Body / sans (`--font-sans`) | Space Grotesk |
-| Serif / long-form (`--font-serif`) | Zilla Slab |
-
-```css
-:root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
-        --font-serif:'Zilla Slab',Georgia,serif; }
-```
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
-```
-
-Never mix a register outside its role.
+**Mono italic** is reserved for one structural job: **inline annotations and
+figure captions** (e.g. a `<figcaption>` or a marginal note) — Space Mono
+italic in the Space flavor, Geist Mono italic in the Geist flavor. It is
+never used for emphasis — emphasis is always weight. Treat it as a
+distinct voice for asides, not a highlighter.
 
 ## Spacing & layout
 

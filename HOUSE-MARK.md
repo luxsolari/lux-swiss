@@ -18,13 +18,18 @@ two systems play here.
   ad hoc.
 - The same warm cream base (`#f5efe0` cream in light mode, near-black ink
   in dark mode) underneath everything.
+- **The same three-role typography core and the same Space/Geist font
+  flavor**: Space Mono (display/mono) + Space Grotesk (body/sans) +
+  Zilla Slab (serif) by default, or Geist Mono + Geist Sans + the same
+  shared Zilla Slab via a `.geist` class on `<html>` in either system.
+  Typography is no longer a differentiator between the two — palette,
+  icon set, and Structural Block details are.
 
 ## What's different
 
 | | Tri-Swiss | Lux Swiss |
 |---|---|---|
 | Palette | Tri-tone — ink/cream + Swiss Red + a governed Pastel Turquoise highlight | Strict duotone — ink/cream + Blood Red, no third color |
-| Typography | Geist family (Sans/Mono) + Space Mono italic + Zilla Slab | Space Grotesk/Mono + Zilla Slab |
 | Icons | `geist-icons` | Lucide |
 | Structural Block | Sidebar/hero-band/bold-word for Swiss Red, plus a tri-part ink/red/turquoise segment stripe | Sidebar/hero-band/bold-word for Blood Red, plus a two-color ink/red segment stripe and a typographic brand-moment device (since there's no third color to spare) |
 

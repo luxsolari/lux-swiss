@@ -43,7 +43,9 @@ Win/loss, active/inactive, emphasis, and error are all expressed through
 
 - Visible 1px borders everywhere; **no shadows** (elevation is a background step).
 - Generous whitespace; mostly square corners.
-- **Space Mono** for headings, data, tags, and nav; **Space Grotesk** for body.
+- **Space Mono** for headings, data, tags, and nav; **Space Grotesk** for
+  body — or the **Geist** flavor (Geist Mono + Geist Sans), toggled with
+  a single `.geist` class; Zilla Slab (serif, long-form) is shared by both.
 - Uppercase monospace labels with wide letter-spacing.
 - Hand-rolled SVG charts — no chart libraries.
 
@@ -88,7 +90,10 @@ Add the marketplace, then install:
 ## Applying it to a project
 
 1. Copy `assets/theme.css` into your global stylesheet.
-2. Add the Space Grotesk + Space Mono Google Fonts link (or `next/font`).
+2. Pick a font flavor — **Space** (default: Space Grotesk + Space Mono) or
+   **Geist** (Geist Sans + Geist Mono, via the `.geist` class on `<html>`)
+   — and add that flavor's Google Fonts link (or `next/font`); both share
+   Zilla Slab as the serif register.
 3. Build with the semantic tokens (`bg-background`, `text-foreground`,
    `border-border`, `bg-primary`, …) and the component patterns.
 

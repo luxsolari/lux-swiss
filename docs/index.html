@@ -13,6 +13,7 @@
         var dark = saved ? saved === "dark"
           : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
         if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
       } catch (e) {}
     })();
   </script>
@@ -34,16 +35,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --background:#f5efe0; --foreground:#0a0a0a; --card:#faf6ec; --card-foreground:#0a0a0a;
       --primary:#8b2e2e; --primary-foreground:#f5efe0; --secondary:#0a0a0a; --secondary-foreground:#f5efe0;
       --muted:#ebe5d5; --muted-foreground:#4a4a48; --border:#0a0a0a; --input:#faf6ec; --ring:#8b2e2e;
-      /* Role fonts */
+      /* Role fonts — Space flavor (default). --font-serif is shared by
+         both flavors and is never overridden by .geist. */
       --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
       --font-serif:'Zilla Slab',Georgia,serif;
+    }
+    /* Geist flavor — add class="geist" on <html>; composes with .dark. */
+    .geist {
+      --font-mono:'Geist Mono',ui-monospace,monospace; --font-sans:'Geist',system-ui,sans-serif;
     }
     .dark {
       --background:#0a0a0a; --foreground:#f5efe0; --card:#161616; --card-foreground:#f5efe0;
@@ -170,6 +176,11 @@
         </nav>
       </div>
       <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button>
+          <span class="mid">·</span>
+          <button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
         <div class="toggle" role="group" aria-label="Color theme">
           <button data-theme-btn="light" aria-pressed="true">Light</button>
           <span class="mid">·</span>
@@ -339,12 +350,12 @@
       </section>
       <section id="registers">
         <div class="divider"><h3>Three type registers</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Core duotone + one sanctioned register</p>
+        <p class="label" style="margin:-8px 0 24px;">Core duotone · toggle Space · Geist in the nav to reskin the page</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:32px;">
           <div>
             <p class="label" style="margin-bottom:12px;">Display / mono</p>
             <p style="font-family:var(--font-mono); font-size:1.7rem; font-weight:700; letter-spacing:-0.02em; margin:0;">Lux Swiss</p>
-            <p class="label" style="margin-top:10px;">Space Mono</p>
+            <p class="label" style="margin-top:10px;">Space Mono → Geist Mono</p>
           </div>
           <div>
             <p class="label" style="margin-bottom:12px;">Body / sans</p>
@@ -352,7 +363,7 @@
               carries a landing-page lead, a dashboard's dense stat block, and a
               settings page's fine print, no separate voice for any of them, just
               the weight axis already established.</p>
-            <p class="label" style="margin-top:10px;">Space Grotesk</p>
+            <p class="label" style="margin-top:10px;">Space Grotesk → Geist Sans</p>
           </div>
           <div>
             <p class="label" style="margin-bottom:12px;">Serif / long-form</p>
@@ -727,6 +738,27 @@
         var dark = btn.dataset.themeBtn === "dark";
         localStorage.setItem("theme", dark ? "dark" : "light");
         apply(dark);
+      });
+    })();
+  </script>
+  <script>
+    // Font-flavor toggle (Space ⇄ Geist): swaps the .geist class, which reskins the
+    // page's --font-mono and --font-sans role variables. Persisted under "flavor".
+    (function () {
+      var root = document.documentElement;
+      apply(localStorage.getItem("flavor") === "geist");
+      function apply(geist) {
+        root.classList.toggle("geist", geist);
+        document.querySelectorAll("[data-flavor-btn]").forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.dataset.flavorBtn === (geist ? "geist" : "space")));
+        });
+      }
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-flavor-btn]");
+        if (!btn) return;
+        var geist = btn.dataset.flavorBtn === "geist";
+        localStorage.setItem("flavor", geist ? "geist" : "space");
+        apply(geist);
       });
     })();
   </script>
