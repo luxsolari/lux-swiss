@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lux Swiss — banner</title>
+  <!-- The house banner: the design system's cover. Rendered to
+       docs/assets/banner-light.png and banner-dark.png by
+       scripts/capture/banner.sh (headless Chrome, 960x288 at 2x).
+       Add ?dark to render the dark theme.
+       Derivation: primary slab 192x288 (3x 64) at x=576 bleeding top and
+       bottom; foreground block 192x192 at x=768 bleeding top and right;
+       three 1px border rules (y=96, y=192, x=528) because the system is
+       "borders, not shadows"; the two-segment stripe (ink then red, 90x8,
+       gap 6) as the house motif; name in the display face at 76px so it
+       fits the 440px text zone; 64px grid pitch throughout. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    html, body { margin:0; width:960px; height:288px; overflow:hidden; }
+    .cover { position:relative; width:960px; height:288px; background:var(--background); }
+    .cover svg { position:absolute; inset:0; display:block; }
+    .cover .red { fill:var(--primary); }
+    .cover .ink { fill:var(--foreground); }
+    .cover .rule { stroke:var(--border); stroke-width:1; fill:none; }
+    .cover .name { position:absolute; left:48px; bottom:74px; margin:0; font-family:var(--font-mono);
+      font-weight:700; font-size:76px; line-height:.92; letter-spacing:-0.02em; color:var(--foreground); white-space:nowrap; }
+    .cover .tag { position:absolute; left:48px; bottom:44px; margin:0; font-family:var(--font-mono); font-size:13px;
+      letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-foreground); }
+  </style>
+  <script>if (location.search.indexOf("dark") !== -1) document.documentElement.classList.add("dark");</script>
+</head>
+<body>
+  <div class="cover">
+    <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+      <rect class="red" x="576" y="0" width="192" height="288"/>
+      <rect class="ink" x="768" y="0" width="192" height="192"/>
+      <line class="rule" x1="480" y1="96.5" x2="960" y2="96.5"/>
+      <line class="rule" x1="480" y1="192.5" x2="960" y2="192.5"/>
+      <line class="rule" x1="528.5" y1="0" x2="528.5" y2="288"/>
+      <rect class="ink" x="768" y="232" width="90" height="8"/>
+      <rect class="red" x="864" y="232" width="90" height="8"/>
+    </svg>
+    <p class="name">Lux Swiss</p>
+    <p class="tag">Two colors, one accent, no shadows</p>
+  </div>
+</body>
+</html>

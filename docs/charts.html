@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Charts — Lux Swiss</title>
+  <meta name="description" content="Lux Swiss charts: hand-rolled SVG in three colors, and Observable Plot restyled to the palette." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Charts — Lux Swiss" />
+  <meta property="og:description" content="Lux Swiss charts: hand-rolled SVG in three colors, and Observable Plot restyled to the palette." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/charts.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Charts — Lux Swiss" />
+  <meta name="twitter:description" content="Lux Swiss charts: hand-rolled SVG in three colors, and Observable Plot restyled to the palette." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">06 — Data</p>
+            <h1>Charts</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">Hand-rolled SVG is the default: <code>width="100%"</code>, a fixed height, a <code>viewBox</code> from the data range. Colors are <code>foreground</code>, <code>muted-foreground</code> and <code>primary</code> only. Encode categories and emphasis with solid versus dashed strokes, fill opacity and outline rings, never a new hue.</p>
+          </header>
+          <section id="handrolled" class="first">
+            <div class="divider"><h3>Hand-rolled SVG</h3><span class="rule"></span></div>
+            <div class="grid grid-2" style="gap:32px; align-items:start;">
+              <figure style="margin:0;">
+                <figcaption class="label" style="margin-bottom:12px;">Share bars — outline ring marks the highlight</figcaption>
+                <svg width="100%" height="120" viewBox="0 0 320 120">
+                  <rect x="0" y="10" width="240" height="18" fill="var(--foreground)"/>
+                  <rect x="0" y="40" width="150" height="18" fill="var(--muted-foreground)"/>
+                  <rect x="0" y="70" width="90"  height="18" fill="var(--muted-foreground)"/>
+                  <rect x="0" y="10" width="240" height="18" fill="none" stroke="var(--primary)" stroke-width="1.5"/>
+                </svg>
+              </figure>
+              <figure style="margin:0;">
+                <figcaption class="label" style="margin-bottom:12px;">Differential — foreground above, primary below zero</figcaption>
+                <svg width="100%" height="120" viewBox="0 0 320 120">
+                  <line x1="0" y1="60" x2="320" y2="60" stroke="var(--muted-foreground)" stroke-opacity="0.4"/>
+                  <polyline fill="none" stroke="var(--foreground)" stroke-width="1.5" points="0,60 40,40 80,30 120,45 160,55 175,60"/>
+                  <polyline fill="none" stroke="var(--primary)" stroke-width="1.5" points="175,60 200,75 240,90 280,80 320,70"/>
+                </svg>
+              </figure>
+              <figure style="margin:0;">
+                <figcaption class="label" style="margin-bottom:12px;">Paired curve — solid vs dashed, not two hues</figcaption>
+                <svg width="100%" height="120" viewBox="0 0 320 120">
+                  <line x1="0" y1="100" x2="320" y2="100" stroke="var(--muted-foreground)" stroke-opacity="0.4"/>
+                  <polyline fill="none" stroke="var(--foreground)" stroke-width="1.5" points="0,100 60,80 120,64 180,50 240,38 320,20"/>
+                  <polyline fill="none" stroke="var(--muted-foreground)" stroke-width="1.5" stroke-dasharray="4 3" points="0,100 60,86 120,74 180,66 240,52 320,44"/>
+                </svg>
+              </figure>
+              <figure style="margin:0;">
+                <figcaption class="label" style="margin-bottom:12px;">Timeline strip — dots for events, ticks for milestones</figcaption>
+                <svg width="100%" height="120" viewBox="0 0 320 120">
+                  <rect x="0" y="52" width="320" height="16" fill="var(--muted)"/>
+                  <line x1="80" y1="44" x2="80" y2="76" stroke="var(--foreground)"/>
+                  <line x1="200" y1="44" x2="200" y2="76" stroke="var(--foreground)"/>
+                  <circle cx="30" cy="60" r="3" fill="var(--foreground)"/><circle cx="55" cy="60" r="3" fill="var(--foreground)"/>
+                  <circle cx="120" cy="60" r="3" fill="var(--primary)"/><circle cx="150" cy="60" r="3" fill="var(--foreground)"/>
+                  <circle cx="240" cy="60" r="3" fill="var(--foreground)"/><circle cx="290" cy="60" r="3" fill="var(--primary)"/>
+                </svg>
+              </figure>
+            </div>
+            <p class="measure small muted" style="margin-top:24px;">Reference forms: timeline strip, differential line (zero-crossing fill in <code>foreground</code> above and <code>primary</code> below), paired curve (solid player, dashed opponent), share bars (the highlighted slice gets an outline ring, not a hue). Grid lines are <code>muted-foreground</code> at 0.15, the zero axis at 0.4, axis labels <code>mono</code> at 11px.</p>
+            <div class="flourish-row"><div class="stripe flourish" aria-hidden="true"><i></i><i></i></div></div>
+          </section>
+
+          <section id="plot">
+            <div class="divider"><h3>Observable Plot — the one sanctioned library</h3><span class="rule"></span></div>
+            <p class="measure">When scales, axes, many series or interaction genuinely warrant a library, Observable Plot is the single sanctioned choice: framework-agnostic SVG, no other chart library, no canvas libraries. Restyle it to the palette: explicit mark colors (never its default scheme), no color legend, square bars, muted grid marks, and axes in the mono label pattern.</p>
+            <figure style="margin:32px 0 0;">
+              <figcaption class="label" style="margin-bottom:12px;">Observable Plot · restyled to the palette · live from jsDelivr</figcaption>
+              <div id="plot-mount"></div>
+            </figure>
+            <pre style="margin-top:32px;"><code>import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+const chart = Plot.plot({
+  width: 640, height: 240,
+  style: { background: "transparent", color: "var(--foreground)",
+           fontFamily: "var(--font-mono)", fontSize: "11px" },
+  x: { label: null }, y: { label: null },
+  marks: [
+    Plot.gridY({ stroke: "var(--muted-foreground)", strokeOpacity: 0.15 }),
+    Plot.ruleY([0], { stroke: "var(--muted-foreground)", strokeOpacity: 0.4 }),
+    Plot.lineY(data, { x: "t", y: "v", stroke: "var(--foreground)", strokeWidth: 1.5 }),
+    Plot.lineY(data, { x: "t", y: "u", stroke: "var(--muted-foreground)",
+                       strokeWidth: 1.5, strokeDasharray: "4 3" }),
+  ],
+});</code></pre>
+          </section>
+
+          <section id="rules">
+            <div class="divider"><h3>Rules</h3><span class="rule"></span></div>
+            <ul class="list-plain measure">
+              <li>Explicit palette colors per mark. Never Plot's default color scheme.</li>
+              <li>No color legend. Series are told apart by solid versus dashed, by fill opacity, or by an outline ring.</li>
+              <li>Square bars. Muted grid. Axes restyled to the mono label pattern.</li>
+              <li>Tabular figures on every axis and every value.</li>
+              <li>Hand-rolled SVG first; reach for Plot only when complexity earns it.</li>
+            </ul>
+          </section>
+          <div class="pager"><a href="structural-block.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Structural Block</a><a href="house-mark.html" class="label">House Mark <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+  <script type="module">
+    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+    const data = [0,1,3,2,4,6,5,7,6,8].map((v,i) => ({ t:i, v, u: Math.max(0, v-2) }));
+    // Render after fonts load so Plot measures axis labels with the real font.
+    await document.fonts.ready;
+    const chart = Plot.plot({
+      width: 836, height: 220, marginLeft: 28, marginBottom: 24,
+      style: { background:"transparent", color:"var(--foreground)", fontFamily:"var(--font-mono)", fontSize:"11px" },
+      x: { label:null }, y: { label:null },
+      marks: [
+        Plot.gridY({ stroke:"var(--muted-foreground)", strokeOpacity:0.15 }),
+        Plot.lineY(data, { x:"t", y:"v", stroke:"var(--foreground)", strokeWidth:1.5 }),
+        Plot.lineY(data, { x:"t", y:"u", stroke:"var(--muted-foreground)", strokeWidth:1.5, strokeDasharray:"4 3" }),
+      ],
+    });
+    document.querySelector("#plot-mount").append(chart);
+  </script>
+</body>
+</html>

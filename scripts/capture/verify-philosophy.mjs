@@ -3,7 +3,22 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const html = fs.readFileSync(path.resolve(here, "../../docs/index.html"), "utf8");
+// Every page of the documentation site plus its shared stylesheet and script are
+// checked as one text; the meta-tag checks below apply to the page set as a whole
+// (each page carries its own tags, so a missing tag on any page still fails 5).
+const docs = path.resolve(here, "../../docs");
+const files = [
+  ...fs.readdirSync(docs).filter((f) => f.endsWith(".html")).map((f) => path.join(docs, f)),
+  path.join(docs, "assets/site.css"),
+  path.join(docs, "assets/site.js"),
+];
+const html = files.map((f) => fs.readFileSync(f, "utf8")).join("\n");
+for (const f of files.filter((f) => f.endsWith(".html") && path.basename(f) !== "banner.html")) {
+  const page = fs.readFileSync(f, "utf8");
+  for (const needle of ['property="og:image"', 'name="description"', 'rel="stylesheet" href="assets/site.css"']) {
+    if (!page.includes(needle)) { console.error("FAIL:", path.basename(f), "missing", needle); process.exitCode = 1; }
+  }
+}
 
 const PALETTE = new Set([
   "#f5efe0","#0a0a0a","#faf6ec","#8b2e2e","#ebe5d5","#4a4a48",

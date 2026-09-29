@@ -6,11 +6,14 @@
 
 <p align="center">
   <a href="https://luxsolari.github.io/lux-swiss/">
-    <img src="docs/assets/hero-light.png" alt="Lux Swiss — strict two-color design system" width="900" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png" />
+      <img src="docs/assets/banner-light.png" alt="Lux Swiss — two colors, one accent, no shadows" width="960" />
+    </picture>
   </a>
 </p>
 
-<p align="center"><strong><a href="https://luxsolari.github.io/lux-swiss/">View the live demo →</a></strong></p>
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-swiss/">Showcase and documentation →</a></strong></p>
 
 A Claude Code plugin that teaches Claude **Lux Swiss** (formerly Duotone
 Swiss) — Lux Solari's house design language — so every project you build
@@ -54,6 +57,26 @@ Win/loss, active/inactive, emphasis, and error are all expressed through
 - Hand-rolled SVG charts — no chart libraries.
 
 ## See it
+
+[luxsolari.github.io/lux-swiss](https://luxsolari.github.io/lux-swiss/) is both
+the showcase and the documentation. Its sidebar is the system's own Structural
+Block, and every demo on it is plain HTML on the tokens:
+
+| Page | What it documents |
+|------|-------------------|
+| [Overview](https://luxsolari.github.io/lux-swiss/) | The banner, the two governing rules, how to use the system, the do-not list |
+| [Colors](https://luxsolari.github.io/lux-swiss/colors.html) | Thirteen semantic tokens in both themes, Blood Red's four jobs, measured contrast |
+| [Typography](https://luxsolari.github.io/lux-swiss/typography.html) | Three roles, the Space/Geist flavors, the weight axis, the heading scale, labels, Jost |
+| [Spacing](https://luxsolari.github.io/lux-swiss/spacing.html) | Spacing steps, the one radius, fixed sizes, opacity states |
+| [Components](https://luxsolari.github.io/lux-swiss/components.html) | Sixteen patterns with live demos and guidelines |
+| [Structural Block](https://luxsolari.github.io/lux-swiss/structural-block.html) | Sidebar, hero band, bold word, the segment stripe, the brand moment, hover hierarchy |
+| [Charts](https://luxsolari.github.io/lux-swiss/charts.html) | Hand-rolled SVG and the restyled Observable Plot |
+| [House Mark](https://luxsolari.github.io/lux-swiss/house-mark.html) | How Lux Swiss and Tri-Swiss relate |
+
+The site is static HTML under `docs/`, served by GitHub Pages: `docs/assets/site.css`
+holds the tokens and every pattern, `docs/assets/site.js` the theme, flavor and Jost
+toggles. The banner above is `docs/banner.html`, rendered by
+`scripts/capture/banner.sh`.
 
 Light and dark are the same two-color system inverted — difference by contrast,
 never by a new hue:

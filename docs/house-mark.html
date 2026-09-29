@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>House Mark — Lux Swiss</title>
+  <meta name="description" content="How Lux Swiss and Tri-Swiss, Lux Solari's two house-mark design systems, share governance and differ in palette." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="House Mark — Lux Swiss" />
+  <meta property="og:description" content="How Lux Swiss and Tri-Swiss, Lux Solari's two house-mark design systems, share governance and differ in palette." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/house-mark.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="House Mark — Lux Swiss" />
+  <meta name="twitter:description" content="How Lux Swiss and Tri-Swiss, Lux Solari's two house-mark design systems, share governance and differ in palette." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">07 — Governance</p>
+            <h1>House Mark</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">Tri-Swiss and Lux Swiss are Lux Solari's two house-mark design systems: not two variations of one system, but two related, independently governed languages that carry the same personal brand identity into whatever they are applied to. A house mark is the imprint a maker stamps across everything they produce so it reads as theirs regardless of the title.</p>
+          </header>
+          <section id="shared" class="first">
+            <div class="divider"><h3>What they share</h3><span class="rule"></span></div>
+            <ul class="list-plain measure">
+              <li>The same two structural pillars: visible 1px borders, no shadows (elevation is a background step), generous whitespace, uppercase monospace labels, square corners.</li>
+              <li>The same governance discipline: every color, every optional type register, every icon set is explicitly sanctioned and scoped. Nothing ad hoc.</li>
+              <li>The same warm cream base, <code>#f5efe0</code> in light and near-black ink in dark.</li>
+              <li>The same three-role typography core and the same Space/Geist flavor: Space Mono, Space Grotesk and Zilla Slab by default, or Geist Mono and Geist Sans with the same Zilla Slab via <code>.geist</code>. Typography is not a differentiator between the two; palette, icon set and Structural Block details are.</li>
+            </ul>
+          </section>
+
+          <section id="different">
+            <div class="divider"><h3>What is different</h3><span class="rule"></span></div>
+            <table class="data-table">
+              <thead><tr><th></th><th>Tri-Swiss</th><th>Lux Swiss</th></tr></thead>
+              <tbody>
+                <tr><td>Palette</td><td>Tri-tone: ink and cream plus Swiss Red plus a governed Pastel Turquoise highlight</td><td>Strict duotone: ink and cream plus Blood Red, no third color</td></tr>
+                <tr><td>Icons</td><td>geist-icons</td><td>Lucide</td></tr>
+                <tr><td>Structural Block</td><td>Sidebar, hero band or bold word for Swiss Red, plus a tri-part ink/red/turquoise segment stripe</td><td>Sidebar, hero band or bold word for Blood Red, plus a two-color ink/red segment stripe and a typographic brand-moment device</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="picking">
+            <div class="divider"><h3>Picking one</h3><span class="rule"></span></div>
+            <p class="measure">Use Tri-Swiss when a project wants a bit more chromatic range. Use Lux Swiss when a project wants the starkest possible two-color statement. Both apply the same Swiss-minimalist structural rules underneath: picking one is a palette decision, not a governance one.</p>
+            <div class="row" style="gap:16px; margin-top:32px;">
+              <a class="btn btn-outlined" href="https://github.com/luxsolari/tri-swiss">Tri-Swiss on GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+              <a class="btn btn-outlined" href="https://github.com/luxsolari/lux-swiss/blob/main/HOUSE-MARK.md">HOUSE-MARK.md <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </section>
+
+          <section id="license-notes">
+            <div class="divider"><h3>License</h3><span class="rule"></span></div>
+            <p class="measure small">The design system itself (<code>skills/lux-swiss/</code>, this site, <code>HOUSE-MARK.md</code>) is CC BY-SA 4.0 © 2026 Lux Solari (Luciano Laje): free to use and adapt, including commercially, with credit and the same license on derivatives. Build and tooling scripts, CI config, git hooks and project documentation are MIT/X11.</p>
+          </section>
+          <div class="pager"><a href="charts.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Charts</a><span></span></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>
