@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <script>
-    // Apply the saved theme + font variant before first paint to avoid a flash of
-    // the wrong mode. The toggle buttons are wired by the scripts at end of body.
+    // Apply the saved theme, flavor and heading accent before first paint.
     (function () {
       try {
         var saved = localStorage.getItem("theme");
@@ -18,804 +16,169 @@
       } catch (e) {}
     })();
   </script>
-
-  <title>Lux Swiss — a strict two-color design system for Claude Code</title>
-  <meta name="description" content="Two colors, one accent, no shadows. A strict Swiss-minimalist design system that gives every Claude Code project one consistent, opinionated aesthetic." />
-
+  <title>Lux Swiss — a strict two-color design system</title>
+  <meta name="description" content="Two colors, one accent, no shadows. A strict Swiss-minimalist design system that gives every Claude Code project one consistent, opinionated aesthetic — showcase and documentation." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Lux Swiss — a strict two-color design system" />
-  <meta property="og:description" content="Two colors, one accent, no shadows. One install, one opinionated aesthetic across every Claude Code project." />
+  <meta property="og:description" content="Two colors, one accent, no shadows. A strict Swiss-minimalist design system that gives every Claude Code project one consistent, opinionated aesthetic — showcase and documentation." />
   <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/" />
   <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lux Swiss — a strict two-color design system" />
-  <meta name="twitter:description" content="Two colors, one accent, no shadows. One opinionated aesthetic across every Claude Code project." />
+  <meta name="twitter:description" content="Two colors, one accent, no shadows. A strict Swiss-minimalist design system that gives every Claude Code project one consistent, opinionated aesthetic — showcase and documentation." />
   <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --background:#f5efe0; --foreground:#0a0a0a; --card:#faf6ec; --card-foreground:#0a0a0a;
-      --primary:#8b2e2e; --primary-foreground:#f5efe0; --secondary:#0a0a0a; --secondary-foreground:#f5efe0;
-      --muted:#ebe5d5; --muted-foreground:#4a4a48; --border:#0a0a0a; --input:#faf6ec; --ring:#8b2e2e;
-      /* Role fonts — Space flavor (default). --font-serif is shared by
-         both flavors and is never overridden by .geist. --font-display
-         defaults to --font-mono until the .jost accent is applied. */
-      --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
-      --font-serif:'Zilla Slab',Georgia,serif; --font-display:var(--font-mono);
-    }
-    /* Geist flavor — add class="geist" on <html>; composes with .dark and .jost. */
-    .geist {
-      --font-mono:'Geist Mono',ui-monospace,monospace; --font-sans:'Geist',system-ui,sans-serif;
-    }
-    /* Jost hero-display accent — not a flavor, an independent on/off switch.
-       Overrides --font-display only (hero title + editorial chapter dividers);
-       never --font-mono/--font-sans, so labels/nav/data stay untouched. */
-    .jost {
-      --font-display:'Jost',system-ui,sans-serif;
-    }
-    .dark {
-      --background:#0a0a0a; --foreground:#f5efe0; --card:#161616; --card-foreground:#f5efe0;
-      --primary:#c04545; --primary-foreground:#f5efe0; --secondary:#f5efe0; --secondary-foreground:#0a0a0a;
-      --muted:#1f1f1f; --muted-foreground:#a8a8a0; --border:#f5efe0; --input:#161616; --ring:#c04545;
-    }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--background); color:var(--foreground);
-      font-family:var(--font-sans); line-height:1.65;
-      -webkit-font-smoothing:antialiased; font-feature-settings:"kern","liga","calt"; }
-    .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
-    h1,h2,h3,h4,h5,h6 { font-family:var(--font-display); font-weight:700; margin:0; }
-    h1 { font-size:3rem; letter-spacing:-0.02em; line-height:1.1; }
-    h2 { font-size:2.25rem; letter-spacing:-0.02em; line-height:1.15; }
-    h3 { font-size:1.5rem; line-height:1.3; }
-    .label { font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase;
-      letter-spacing:0.2em; color:var(--muted-foreground); }
-    .divider { display:flex; align-items:baseline; gap:12px; margin:0 0 24px; }
-    .divider .rule { height:1px; flex:1; background:var(--border); }
-    section { padding:64px 0; border-top:1px solid var(--border); }
-    a { color:inherit; }
-    .icon { width:20px; height:20px; fill:none; stroke:currentColor;
-      stroke-width:1.5; stroke-linecap:square; stroke-linejoin:miter; }
-    .toggle { display:flex; align-items:baseline; gap:6px; font-family:var(--font-mono);
-      font-size:0.75rem; text-transform:uppercase; letter-spacing:0.2em; }
-    .toggle button { background:none; border:none; padding:0; cursor:pointer;
-      font:inherit; letter-spacing:inherit; text-transform:inherit; color:var(--muted-foreground); }
-    .toggle button[aria-pressed="true"] { color:var(--foreground); }
-    .toggle .mid { color:var(--muted-foreground); opacity:0.4; }
-
-    /* Hover-state visibility demos. .is-hover-demo mirrors the :hover
-       rule's exact declarations as a static class, so the state is
-       visible in a screenshot as well as to a live pointer. */
-    .btn-destructive { border:1px solid var(--primary); background:none; color:var(--primary);
-      transition:background-color 0.15s, color 0.15s; }
-    .btn-destructive:hover, .btn-destructive.is-hover-demo { background:var(--primary); color:var(--primary-foreground); }
-    .demo-nav-link { color:var(--primary-foreground); text-decoration:none; opacity:0.75;
-      font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.15em;
-      transition:opacity 0.15s; }
-    .demo-nav-link:hover, .demo-nav-link.is-hover-demo { opacity:1; }
-
-    /* More color on hover/borders — Accent button (same mechanism as
-       Destructive, different semantic use) and Interactive card. */
-    .btn-accent { border:1px solid var(--primary); background:none; color:var(--primary);
-      transition:background-color 0.15s, color 0.15s; }
-    .btn-accent:hover, .btn-accent.is-hover-demo { background:var(--primary); color:var(--primary-foreground); }
-    .card-interactive { display:block; text-decoration:none; color:inherit;
-      border:1px solid var(--border); transition:border-color 0.15s; }
-    .card-interactive:hover, .card-interactive.is-hover-demo { border-color:var(--primary); }
-
-    /* Lists, tables, images — new content components. Markers/borders
-       stay neutral (ink/muted), never the accent color. */
-    .list-plain { list-style:none; margin:0; padding:0; }
-    .list-plain li { border-top:1px solid var(--border); padding:10px 0; }
-    .list-plain li:first-child { border-top:none; }
-    table.data-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
-    table.data-table th { font-family:var(--font-mono); font-weight:700; text-transform:uppercase;
-      letter-spacing:0.1em; font-size:0.7rem; text-align:left; padding:8px 0;
-      border-bottom:2px solid var(--border); }
-    table.data-table td { padding:8px 0; border-bottom:1px solid var(--border); }
-    table.data-table td.num { text-align:right; font-variant-numeric:tabular-nums; }
-    figure.img-grid { margin:0; border:1px solid var(--border); }
-    figure.img-grid figcaption { border-top:1px solid var(--border); }
-    /* Structural Block — sidebar layout */
-    .layout { display:flex; min-height:100vh; }
-    .sidebar { width:22%; min-width:220px; max-width:280px; flex-shrink:0;
-      background:var(--primary); color:var(--primary-foreground);
-      position:sticky; top:0; height:100vh; overflow-y:auto;
-      display:flex; flex-direction:column; justify-content:space-between;
-      padding:32px 28px; box-sizing:border-box; }
-    .sidebar-wordmark { font-family:var(--font-mono); font-weight:700;
-      font-size:1.4rem; line-height:1.2; }
-    .sidebar-nav { margin-top:40px; display:flex; flex-direction:column; gap:16px;
-      font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase;
-      letter-spacing:0.15em; }
-    .sidebar-nav a { color:var(--primary-foreground); text-decoration:none;
-      opacity:0.75; transition:opacity 0.15s; width:max-content; }
-    .sidebar-nav a:hover { opacity:1; }
-    .sidebar-bottom { display:flex; flex-direction:column; gap:16px;
-      font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase;
-      letter-spacing:0.12em; }
-    .sidebar-bottom a { color:var(--primary-foreground); text-decoration:none;
-      opacity:0.85; display:inline-flex; align-items:center; gap:6px;
-      transition:opacity 0.15s; }
-    .sidebar-bottom a:hover { opacity:1; }
-    .sidebar-bottom .toggle button { color:var(--primary-foreground); opacity:0.6; }
-    .sidebar-bottom .toggle button[aria-pressed="true"] { opacity:1; }
-    .sidebar-bottom .toggle .mid { color:var(--primary-foreground); opacity:0.4; }
-    .hamburger { display:none; background:none; border:none;
-      color:var(--primary-foreground); cursor:pointer; padding:4px; }
-    .content { flex:1; min-width:0; }
-    .content-inner { max-width:900px; margin:0 auto; padding:0 32px; }
-    @media (max-width: 860px) {
-      .layout { flex-direction:column; }
-      .sidebar { width:100%; max-width:none; height:auto; position:sticky;
-        top:0; z-index:10; flex-direction:row; align-items:center;
-        justify-content:space-between; padding:16px 20px; }
-      .sidebar-nav { display:none; margin-top:0; position:absolute; top:100%;
-        left:0; right:0; background:var(--primary); padding:20px;
-        flex-direction:column; gap:16px; }
-      .sidebar-nav.open { display:flex; }
-      .sidebar-bottom { display:none; }
-      .hamburger { display:block; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <div class="layout">
     <aside class="sidebar">
       <div>
         <div style="display:flex; align-items:center; justify-content:space-between;">
-          <span class="sidebar-wordmark">Lux Swiss</span>
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
           <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
             <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
               <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
             </svg>
           </button>
         </div>
-        <nav class="sidebar-nav" data-nav-list>
-          <a href="#palette">Palette</a>
-          <a href="#typography">Typography</a>
-          <a href="#components">Components</a>
-          <a href="#charts">Charts</a>
-        </nav>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
       </div>
       <div class="sidebar-bottom">
         <div class="toggle" role="group" aria-label="Font flavor">
-          <button data-flavor-btn="space" aria-pressed="true">Space</button>
-          <span class="mid">·</span>
-          <button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
         </div>
-        <div class="toggle" role="group" aria-label="Hero display">
-          <button data-jost-btn="mono" aria-pressed="true">Mono</button>
-          <span class="mid">·</span>
-          <button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
         </div>
         <div class="toggle" role="group" aria-label="Color theme">
-          <button data-theme-btn="light" aria-pressed="true">Light</button>
-          <span class="mid">·</span>
-          <button data-theme-btn="dark" aria-pressed="false">Dark</button>
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
         </div>
-        <a href="https://github.com/luxsolari/lux-swiss">
-          GitHub
-          <svg class="icon" viewBox="0 0 24 24" width="14" height="14" style="color:var(--primary-foreground);">
-            <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-          </svg>
-        </a>
-        <span>© 2026 Lux Solari · <a href="#license">License</a></span>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
       </div>
     </aside>
     <div class="content">
       <div class="content-inner">
-    <main>
-      <!-- sections appended in Tasks 3–7 -->
-      <section id="hero" style="border-top:none;">
-        <p class="label">Claude Code plugin</p>
-        <h1 style="margin:20px 0 0; font-size:4.5rem;">Lux Swiss.</h1>
-        <div style="display:flex; gap:4px; width:64px; margin-top:16px;" aria-hidden="true">
-          <div style="height:3px; flex:1; background:var(--foreground);"></div>
-          <div style="height:3px; flex:1; background:var(--primary);"></div>
-        </div>
-        <p style="font-size:1.15rem; max-width:60ch; margin:24px 0 0; color:var(--foreground);">
-          Lux Solari's house design language — Swiss-minimalist, duotone-strict. Two
-          colors, one strong <span style="color:var(--primary);">accent</span>;
-          everything else is weight, space, and contrast.
-        </p>
-        <div style="display:flex; gap:16px; margin-top:32px; font-family:var(--font-mono);
-                    text-transform:uppercase; letter-spacing:0.2em; font-size:0.75rem;">
-          <a href="#components" style="border:1px solid var(--foreground); background:var(--foreground);
-             color:var(--background); padding:12px 20px; text-decoration:none;">See the components</a>
-          <a href="https://github.com/luxsolari/lux-swiss"
-             style="border:1px solid var(--foreground); padding:12px 20px; text-decoration:none;
-             display:inline-flex; align-items:center; gap:8px;">
-            View on GitHub
-            <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><!-- lucide arrow-up-right -->
-              <path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </section>
-      <section id="install" style="border-top:none; padding-top:0;">
-        <div style="border:1px solid var(--border); background:var(--card); padding:28px 32px;
-             display:flex; flex-wrap:wrap; align-items:center; gap:24px 40px; justify-content:space-between;">
-          <div style="min-width:0;">
-            <p class="label" style="margin:0 0 12px;">Install — two lines in Claude Code</p>
-            <pre style="margin:0; border:none; background:none; padding:0; overflow:auto;
-                 font-family:var(--font-mono); font-size:1rem; line-height:1.8; color:var(--foreground);">/plugin marketplace add luxsolari/lux-solari-plugins
+        <main>
+          <section class="first" id="hero" style="padding-top:40px;">
+            <div class="cover-wrap">
+              <div class="cover" role="img" aria-label="Lux Swiss — two colors, one accent, no shadows">
+              <svg viewBox="0 0 960 288" preserveAspectRatio="none" aria-hidden="true">
+                <rect class="red" x="576" y="0" width="192" height="288"/>
+                <rect class="ink" x="768" y="0" width="192" height="192"/>
+                <line class="rule" x1="480" y1="96.5" x2="960" y2="96.5"/>
+                <line class="rule" x1="480" y1="192.5" x2="960" y2="192.5"/>
+                <line class="rule" x1="528.5" y1="0" x2="528.5" y2="288"/>
+                <rect class="ink" x="768" y="232" width="90" height="8"/>
+                <rect class="red" x="864" y="232" width="90" height="8"/>
+              </svg>
+              <p class="name">Lux Swiss</p>
+              <p class="tagline">Two colors, one accent, no shadows</p>
+              </div>
+            </div>
+            <p class="lead" style="margin-top:32px;">
+              Lux Solari's house design language — Swiss-minimalist, duotone-strict. Two
+              colors, one strong <span class="accent-word">accent</span>; everything else is
+              weight, space, and contrast. This site is the showcase and the documentation:
+              every value on it is the system's own, and every demo is built from its tokens.
+            </p>
+            <div class="row" style="gap:16px; margin-top:32px;">
+              <a href="components.html" class="btn btn-filled">See the components</a>
+              <a href="https://github.com/luxsolari/lux-swiss" class="btn btn-outlined">View on GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </section>
+
+          <section id="install" class="first" style="padding-top:0;">
+            <div class="card" style="display:flex; flex-wrap:wrap; align-items:center; gap:24px 40px; justify-content:space-between; padding:28px 32px;">
+              <div style="min-width:0;">
+                <p class="label" style="margin-bottom:12px;">Install — two lines in Claude Code</p>
+                <pre style="border:none; background:none; padding:0; font-size:1rem; line-height:1.8;">/plugin marketplace add luxsolari/lux-solari-plugins
 /plugin install lux-swiss</pre>
-          </div>
-          <a href="https://github.com/luxsolari/lux-swiss"
-             style="border:1px solid var(--foreground); background:var(--foreground); color:var(--background);
-             padding:12px 22px; text-decoration:none; font-family:var(--font-mono);
-             text-transform:uppercase; letter-spacing:0.2em; font-size:0.75rem; white-space:nowrap;">Get the plugin</a>
-        </div>
-      </section>
-      <section id="rules">
-        <div class="divider"><h3>Two rules govern everything</h3><span class="rule"></span></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-          <div style="border:1px solid var(--border); background:var(--card); padding:24px;">
-            <p class="label">01 — Duotone strict</p>
-            <p style="margin:12px 0 0;">Ink and cream are the two functional colors; blood
-              red is the lone accent. No success green, no info blue. Win/loss, active,
-              emphasis, error — all weight, size, spacing, contrast.</p>
-          </div>
-          <div style="border:1px solid var(--border); background:var(--card); padding:24px;">
-            <p class="label">02 — Swiss-minimalist</p>
-            <p style="margin:12px 0 0;">Visible 1px borders, no shadows — elevation is a
-              background step. Generous whitespace, square corners, uppercase monospace
-              labels with wide letter-spacing.</p>
-          </div>
-        </div>
-      </section>
-      <section id="palette">
-        <div class="divider"><h3>Palette</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 20px;">Semantic tokens — never a raw hex in markup</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(172px,1fr)); gap:16px;">
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="background" style="height:64px; background:var(--background);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">background</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">page</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="card" style="height:64px; background:var(--card);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">card</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">surface</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="foreground" style="height:64px; background:var(--foreground);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">foreground</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">ink/text</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="muted" style="height:64px; background:var(--muted);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">muted</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">subtle</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="muted-foreground" style="height:64px; background:var(--muted-foreground);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">muted-foreground</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">metadata</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="primary" style="height:64px; background:var(--primary);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">primary</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">accent</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-          <figure style="margin:0; border:1px solid var(--border);">
-            <div class="pal-chip" data-token="border" style="height:64px; background:var(--border);"></div>
-            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
-              <span class="label" style="display:block;">border</span>
-              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--muted-foreground);">borders</span>
-              <dl class="pal-vals" style="margin:8px 0 0; font-family:var(--font-mono); font-size:0.62rem; line-height:1.55; color:var(--muted-foreground);"></dl>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-      <section id="typography">
-        <div class="divider"><h3>Typography</h3><span class="rule"></span></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
-          <div>
-            <p class="label" style="margin-bottom:16px;">Display &amp; data — mono</p>
-            <p style="font-family:var(--font-mono); font-weight:700; font-size:3rem; margin:0; letter-spacing:-0.02em;">Aa</p>
-            <h1 style="margin:16px 0 0;">Heading one</h1>
-            <h2 style="margin:8px 0 0;">Heading two</h2>
-            <h3 style="margin:8px 0 0;">Heading three</h3>
-            <p style="font-family:var(--font-mono); font-style:italic; font-size:0.9rem; color:var(--muted-foreground); margin:20px 0 0; max-width:34ch;">
-              Mono italic is reserved for annotations and figure captions — never for
-              emphasis. Emphasis is always weight.</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:16px;">Body — weight axis 300–700</p>
-            <p style="font-weight:300; font-size:1.35rem; line-height:1.4; margin:0;">Light 300 — display sub-decks and leads.</p>
-            <p style="font-weight:400; margin:14px 0 0;">Regular 400 — the body voice. Every element
-              earns its place or is removed; difference is expressed through weight, space, and
-              contrast — never by adding a color.</p>
-            <p style="font-weight:500; margin:14px 0 0;">Medium 500 — UI emphasis and active labels.</p>
-            <p style="font-weight:700; margin:14px 0 0;">Bold 700 — strong emphasis, used sparingly.</p>
-            <p class="label" style="margin-top:28px;">Tabular figures · aligned to the grid</p>
-            <div style="font-variant-numeric:tabular-nums; font-feature-settings:'tnum' 1; margin-top:10px; display:grid; grid-template-columns:auto auto; gap:4px 32px; width:max-content;">
-              <span>Sessions</span><span style="text-align:right;">1,209,384</span>
-              <span>Conversions</span><span style="text-align:right;">18,050</span>
-              <span>Rate</span><span style="text-align:right;">1.4931%</span>
+              </div>
+              <a href="https://github.com/luxsolari/lux-swiss" class="btn btn-filled" style="padding:12px 22px; white-space:nowrap;">Get the plugin</a>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="registers">
-        <div class="divider"><h3>Three type registers</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Core duotone · toggle Space · Geist in the nav to reskin the page</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:32px;">
-          <div>
-            <p class="label" style="margin-bottom:12px;">Display / mono</p>
-            <p style="font-family:var(--font-mono); font-size:1.7rem; font-weight:700; letter-spacing:-0.02em; margin:0;">Lux Swiss</p>
-            <p class="label" style="margin-top:10px;">Space Mono → Geist Mono</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:12px;">Body / sans</p>
-            <p style="font-family:var(--font-sans); font-size:1.05rem; margin:0;">Every element earns its place or is removed — the same body voice
-              carries a landing-page lead, a dashboard's dense stat block, and a
-              settings page's fine print, no separate voice for any of them, just
-              the weight axis already established.</p>
-            <p class="label" style="margin-top:10px;">Space Grotesk → Geist Sans</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:12px;">Serif / long-form</p>
-            <p style="font-family:var(--font-serif); font-size:1.15rem; line-height:1.5; margin:0;">Restraint isn't a limitation — it's a decision that scales. A
-              designer who inherits this system doesn't need a judgment call
-              every time a new element shows up; the rule already tells them
-              what to do with it.</p>
-            <p class="label" style="margin-top:10px;">Zilla Slab</p>
-          </div>
-        </div>
-        <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; line-height:1.45; border-left:2px solid var(--border); margin:40px 0 0; padding:2px 0 2px 24px; max-width:62ch;">
-          &ldquo;Difference is expressed through weight, space, and contrast — never by adding a color.&rdquo;
-        </blockquote>
-        <div style="margin-top:32px;">
-          <div style="font-family:var(--font-display); font-weight:700; font-size:1.5rem; letter-spacing:-0.02em;">02 — Chapter Title</div>
-          <p class="label" style="margin-top:8px;">A section/chapter divider inside long-form editorial content — mono by default, Jost when toggled. Every heading on this page (including its own section dividers above) shares the same toggle.</p>
-        </div>
-      </section>
-      <section id="text-length">
-        <div class="divider"><h3>Content at any length</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Same body voice, same measure — spacing holds regardless of length</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px; align-items:start;">
-          <div>
-            <p class="label" style="margin-bottom:12px;">Short</p>
-            <p style="font-size:0.85rem; color:var(--muted-foreground); margin:0;">Updated 3 hours ago.</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:12px;">Medium</p>
-            <p style="margin:0; max-width:42ch;">A single paragraph reads the same whether it's a card's supporting
-              copy or a page's lead — same measure, same line-height, no
-              separate rule for "short body text."</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:12px;">Long-form</p>
-            <div style="max-width:60ch;">
-              <p style="margin:0;">Restraint scales. A single line of UI copy and a full article both
-                draw from the same weight axis and the same measure — nothing
-                about going longer asks for a new typographic idea.</p>
-              <p style="margin:14px 0 0;">What changes is paragraph spacing, not the voice: each paragraph
-                gets the same top margin as the body rhythm established
-                elsewhere on this page, so a long-form block reads as more of
-                the same system, not a different one.</p>
+          </section>
+
+          <section id="rules">
+            <div class="divider"><h3>Two rules govern everything</h3><span class="rule"></span></div>
+            <div class="grid grid-2" style="gap:24px;">
+              <div class="card">
+                <p class="label">01 — Duotone strict</p>
+                <p style="margin-top:12px;"><code>foreground</code> and <code>background</code> are the two functional colors; <code>primary</code>, Blood Red, is the lone accent. No success green, no info blue, no second accent. Win/loss, active/inactive, emphasis and error are all weight, size, spacing and contrast. If you feel the urge to add a color, add weight 700, a size step, or whitespace instead.</p>
+              </div>
+              <div class="card">
+                <p class="label">02 — Swiss-minimalist</p>
+                <p style="margin-top:12px;">Borders are 1px solid <code>border</code>, full ink in light and full cream in dark. No shadows: elevation is the one background step from <code>background</code> to <code>card</code>. Whitespace is generous. Labels are uppercase mono with 0.2em tracking. Corners are square; <code>radius</code> exists but is rarely used, and <code>rounded-full</code> is for 6px status dots only.</p>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="components">
-        <div class="divider">
-          <div style="display:flex; gap:3px; width:36px;" aria-hidden="true">
-            <div style="height:3px; flex:1; background:var(--foreground);"></div>
-            <div style="height:3px; flex:1; background:var(--primary);"></div>
-          </div>
-          <h3>Components</h3><span class="rule"></span>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px;">
+            <blockquote>&ldquo;Difference is expressed through weight, space, and contrast — never by adding a color.&rdquo;</blockquote>
+          </section>
 
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Buttons</p>
-            <div style="display:flex; flex-wrap:wrap; gap:10px; font-family:var(--font-mono);
-                        text-transform:uppercase; letter-spacing:0.2em; font-size:0.7rem;">
-              <button style="border:1px solid var(--foreground); background:var(--foreground);
-                color:var(--background); padding:8px 14px;">Filled</button>
-              <button style="border:1px solid var(--foreground); background:none;
-                color:var(--foreground); padding:8px 14px;">Outlined</button>
-              <button style="border:none; background:none; color:var(--muted-foreground);
-                padding:8px 14px;">Ghost</button>
-              <button style="border:1px solid var(--foreground); background:none; padding:8px 14px;
-                opacity:0.4;" disabled>Disabled</button>
-              <button class="btn-destructive" style="padding:8px 14px; font:inherit;
-                letter-spacing:inherit; text-transform:inherit;">Destructive</button>
-              <button class="btn-accent" style="padding:8px 14px; font:inherit;
-                letter-spacing:inherit; text-transform:inherit;">Accent</button>
+          <section id="using">
+            <div class="divider"><h3>Using the system</h3><span class="rule"></span></div>
+            <ol class="list-plain ordered measure">
+              <li><span class="n">01</span><span>Copy <code>skills/lux-swiss/assets/theme.css</code> into your global stylesheet. It defines every token for light and dark, both font flavors and the Jost accent, wired to Tailwind 4 via <code>@theme inline</code>; on other stacks the <code>:root</code> / <code>.dark</code> / <code>.geist</code> / <code>.jost</code> blocks work as plain custom properties.</span></li>
+              <li><span class="n">02</span><span>Pick a font flavor, <strong>Space</strong> (default) or <strong>Geist</strong>, and load only that flavor's two families plus Zilla Slab from Google Fonts. Add Jost 700 only if the heading accent is on.</span></li>
+              <li><span class="n">03</span><span>Build with the semantic token, never a raw hex: <code>bg-background</code>, <code>text-foreground</code>, <code>border-border</code>, <code>bg-primary</code>. Compose from the <a href="components.html">component patterns</a>; every demo on this site is plain HTML on these tokens and can be copied.</span></li>
+            </ol>
+            <p class="small muted" style="margin-top:24px;">Dark mode is the <code>.dark</code> class on <code>&lt;html&gt;</code>, persisted in <code>localStorage</code> under <code>theme</code>. The Geist flavor is <code>.geist</code>; the Jost heading accent is <code>.jost</code>. All three compose independently — try the toggles in the sidebar.</p>
+          </section>
+
+          <section id="sections">
+            <div class="divider"><h3>The system, section by section</h3><span class="rule"></span></div>
+            <div class="grid grid-auto">
+              <a class="index-card" href="colors.html"><p class="label">01</p><h4>Colors</h4><p>Thirteen semantic tokens in two themes, Blood Red's four jobs, measured contrast.</p></a>
+              <a class="index-card" href="typography.html"><p class="label">02</p><h4>Typography</h4><p>Three roles, two flavors, the weight axis, the heading scale and the label pattern.</p></a>
+              <a class="index-card" href="spacing.html"><p class="label">03</p><h4>Spacing</h4><p>Spacing steps, the one radius, fixed sizes and the opacity states.</p></a>
+              <a class="index-card" href="components.html"><p class="label">04</p><h4>Components</h4><p>Sixteen patterns with live demos and guidelines: buttons to modals, lists to icons.</p></a>
+              <a class="index-card" href="structural-block.html"><p class="label">05</p><h4>Structural Block</h4><p>Red's layout job: sidebar, hero band, bold word, the segment stripe, the brand moment.</p></a>
+              <a class="index-card" href="charts.html"><p class="label">06</p><h4>Charts</h4><p>Hand-rolled SVG first; Observable Plot restyled when a library earns it.</p></a>
+              <a class="index-card" href="house-mark.html"><p class="label">07</p><h4>House Mark</h4><p>How Lux Swiss and its sibling Tri-Swiss share governance and differ in palette.</p></a>
             </div>
-          </div>
+          </section>
 
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Tags</p>
-            <div style="display:flex; flex-wrap:wrap; gap:8px; font-family:var(--font-mono);
-                        font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em;">
-              <span style="color:var(--muted-foreground); padding:2px 8px;">Neutral</span>
-              <span style="background:var(--foreground); color:var(--background); padding:2px 8px;">Signal</span>
-              <span style="border:1px dashed color-mix(in srgb, var(--foreground) 50%, transparent); padding:2px 8px;">Outlined</span>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Status pips</p>
-            <div style="display:flex; flex-direction:column; gap:10px; font-family:var(--font-mono);
-                        font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em;">
-              <span style="display:inline-flex; align-items:center; gap:8px;">
-                <span style="width:6px;height:6px;border-radius:9999px;background:var(--foreground);"></span>Connected</span>
-              <span style="display:inline-flex; align-items:center; gap:8px;">
-                <span style="width:6px;height:6px;border-radius:9999px;background:var(--primary);"></span>Warning</span>
-              <span style="display:inline-flex; align-items:center; gap:8px;">
-                <span style="width:6px;height:6px;border-radius:9999px;background:color-mix(in srgb, var(--foreground) 35%, transparent);"></span>Disconnected</span>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Input</p>
-            <label class="label" style="display:block; margin-bottom:8px;">Email</label>
-            <input placeholder="you@example.com" style="width:100%; border:1px solid var(--border);
-              background:var(--input); padding:8px 12px; font-family:var(--font-mono);
-              font-size:0.85rem; color:var(--foreground);" />
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">List <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— divider, not a bullet</span></p>
-            <ul class="list-plain" style="font-size:0.9rem;">
-              <li>First item</li>
-              <li>Second item</li>
-              <li>Third item</li>
+          <section id="donot">
+            <div class="divider"><h3>Do not</h3><span class="rule"></span></div>
+            <ul class="list-plain measure">
+              <li>No success green, info blue or second accent. Weight, size or layout instead.</li>
+              <li>No shadows. Depth is border presence and one background step.</li>
+              <li>No <code>rounded-full</code> on containers or pills. Dots only.</li>
+              <li>No raw hex in markup. Always the semantic token.</li>
+              <li>No chart libraries except restyled Observable Plot.</li>
+              <li>No icons but restyled Lucide. No emoji in UI text.</li>
+              <li>No accent-colored list markers or table borders.</li>
+              <li>No full-color images outside the photography-content exception.</li>
+              <li>The Structural Block and the brand-moment device are not new colors: a layout job for the one accent, and a typographic device.</li>
             </ul>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Table <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— tabular-nums, no zebra striping</span></p>
-            <table class="data-table">
-              <thead>
-                <tr><th>Metric</th><th style="text-align:right;">Value</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Sessions</td><td class="num">1,209,384</td></tr>
-                <tr><td>Conversions</td><td class="num">18,050</td></tr>
-                <tr><td>Rate</td><td class="num">1.4931%</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Card</p>
-            <div style="border:1px solid var(--border); background:var(--card); padding:16px;">
-              <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Elevated surface</p>
-              <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
-                Depth is a background step, never a shadow.</p>
+            <div class="flourish-row"><div class="stripe flourish" aria-hidden="true"><i></i><i></i></div></div>
+          </section>
+          <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
+               width:1200px; height:630px; background:var(--background); color:var(--foreground);
+               padding:80px; display:flex; flex-direction:column; justify-content:space-between;
+               border:1px solid var(--border);">
+            <p class="label">Claude Code plugin</p>
+            <div>
+              <h1 style="font-size:4.5rem; line-height:1.05; margin:0;">Lux Swiss.</h1>
+              <p style="font-family:var(--font-mono); font-size:1.25rem; margin:20px 0 0; color:var(--muted-foreground);">Two colors. One accent. No shadows.</p>
             </div>
+            <p style="font-family:var(--font-mono); font-size:1rem; letter-spacing:0.1em; margin:0;">/plugin install lux-swiss</p>
           </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Accent card <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— Red border + wash</span></p>
-            <div style="border:1px solid var(--primary); background:color-mix(in srgb, var(--primary) 8%, var(--card)); padding:16px;">
-              <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Accent card</p>
-              <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
-                Red border + wash — more color on hover/borders.</p>
+          <div class="pager"><span></span><a href="colors.html" class="label">Colors <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
             </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Toggle</p>
-            <div style="display:flex; gap:8px; font-family:var(--font-mono); font-size:0.75rem;
-                        text-transform:uppercase; letter-spacing:0.2em;">
-              <span style="color:var(--foreground);">EN</span>
-              <span style="color:var(--muted-foreground); opacity:0.4;">·</span>
-              <span style="color:var(--muted-foreground);">ES</span>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Icons · Lucide — endorsed set</p>
-            <div style="display:flex; flex-wrap:wrap; gap:18px; color:var(--foreground);">
-              <svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg><!-- menu -->
-              <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><!-- x -->
-              <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- arrow-right -->
-              <svg class="icon" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><!-- external-link -->
-              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg><!-- sun -->
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><!-- moon -->
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Hover — destructive button <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">Red's real signal, made visible</span></p>
-            <div style="display:flex; gap:24px; font-family:var(--font-mono);
-                        text-transform:uppercase; letter-spacing:0.2em; font-size:0.7rem;">
-              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Default</span>
-                <button class="btn-destructive" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Delete</button>
-              </div>
-              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Hover</span>
-                <button class="btn-destructive is-hover-demo" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Delete</button>
-              </div>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Hover — nav link <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">Plain opacity shift, no second color</span></p>
-            <div style="display:flex; gap:0; background:var(--primary); padding:16px;">
-              <div style="flex:1; display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary-foreground); opacity:0.7;">Default</span>
-                <a href="#components" class="demo-nav-link" onclick="return false;">Section</a>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary-foreground); opacity:0.7;">Hover</span>
-                <a href="#components" class="demo-nav-link is-hover-demo" onclick="return false;">Section</a>
-              </div>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Hover — accent button <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">Same mechanism as Destructive</span></p>
-            <div style="display:flex; gap:24px; font-family:var(--font-mono);
-                        text-transform:uppercase; letter-spacing:0.2em; font-size:0.7rem;">
-              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Default</span>
-                <button class="btn-accent" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Learn more</button>
-              </div>
-              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Hover</span>
-                <button class="btn-accent is-hover-demo" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Learn more</button>
-              </div>
-            </div>
-          </div>
-
-          <div style="border:1px solid var(--border); padding:20px;">
-            <p class="label" style="margin-bottom:16px;">Interactive card <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— hover to try</span></p>
-            <a href="#components" class="card-interactive" style="padding:16px;" onclick="return false;">
-              <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Click anywhere</p>
-              <p style="margin:8px 0 0; font-size:0.85rem; color:var(--muted-foreground);">
-                Ink border at rest, Red on hover.</p>
-            </a>
-          </div>
-
-        </div>
-      </section>
-      <section id="images">
-        <div class="divider"><h3>Images in the grid</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Grayscale/duotone by default · full color only when the photo is the content</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
-          <figure class="img-grid" style="aspect-ratio:4/3;">
-            <div style="width:100%; height:75%; background:linear-gradient(135deg, var(--primary) 0%, var(--foreground) 100%); filter:grayscale(1);"></div>
-            <p style="font-family:var(--font-mono); font-style:italic; font-size:0.85rem; color:var(--muted-foreground); margin:0; padding:10px 12px;">
-              Fig. 1 — grayscale, the default treatment. Keeps the three-token palette intact.
-            </p>
-          </figure>
-          <figure class="img-grid" style="aspect-ratio:4/3;">
-            <div style="width:100%; height:75%; background:linear-gradient(135deg, var(--primary) 0%, var(--foreground) 100%);"></div>
-            <p style="font-family:var(--font-mono); font-style:italic; font-size:0.85rem; color:var(--muted-foreground); margin:0; padding:10px 12px;">
-              Fig. 2 — full color, because the photograph itself is the content — a named, scoped exception.
-            </p>
-          </figure>
-        </div>
-      </section>
-      <section id="charts">
-        <div class="divider"><h3>Charts</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Hand-rolled SVG by default · Observable Plot when a lib is warranted</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
-
-          <figure style="margin:0;">
-            <figcaption class="label" style="margin-bottom:12px;">Share bars — outline ring marks the highlight</figcaption>
-            <svg width="100%" height="120" viewBox="0 0 320 120">
-              <rect x="0" y="10" width="240" height="18" fill="var(--foreground)"/>
-              <rect x="0" y="40" width="150" height="18" fill="var(--muted-foreground)"/>
-              <rect x="0" y="70" width="90"  height="18" fill="var(--muted-foreground)"/>
-              <rect x="0" y="10" width="240" height="18" fill="none" stroke="var(--primary)" stroke-width="1.5"/>
-            </svg>
-          </figure>
-
-          <figure style="margin:0;">
-            <figcaption class="label" style="margin-bottom:12px;">Differential — foreground above, primary below zero</figcaption>
-            <svg width="100%" height="120" viewBox="0 0 320 120">
-              <line x1="0" y1="60" x2="320" y2="60" stroke="var(--muted-foreground)" stroke-opacity="0.4"/>
-              <polyline fill="none" stroke="var(--foreground)" stroke-width="1.5"
-                points="0,60 40,40 80,30 120,45 160,55"/>
-              <polyline fill="none" stroke="var(--primary)" stroke-width="1.5"
-                points="160,55 200,75 240,90 280,80 320,70"/>
-            </svg>
-          </figure>
-        </div>
-
-        <div style="display:flex; justify-content:center; padding:32px 0 0;">
-          <div style="display:flex; gap:6px; width:140px;" aria-hidden="true">
-            <div style="height:3px; flex:1; background:var(--foreground);"></div>
-            <div style="height:3px; flex:1; background:var(--primary);"></div>
-          </div>
-        </div>
-
-        <figure style="margin:32px 0 0;">
-          <figcaption class="label" style="margin-bottom:12px;">Observable Plot · endorsed chart library — restyled to the palette</figcaption>
-          <div id="plot-mount"></div>
-        </figure>
-      </section>
-      <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
-           width:1200px; height:630px; background:var(--background); color:var(--foreground);
-           padding:80px; display:flex; flex-direction:column; justify-content:space-between;
-           border:1px solid var(--border);">
-        <p class="label">Claude Code plugin</p>
-        <div>
-          <h1 style="font-size:4.5rem; line-height:1.05; margin:0;">Lux Swiss.</h1>
-          <p style="font-family:var(--font-mono); font-size:1.25rem; margin:20px 0 0;
-             color:var(--muted-foreground);">Two colors. One accent. No shadows.</p>
-        </div>
-        <p style="font-family:var(--font-mono); font-size:1rem; letter-spacing:0.1em;
-           margin:0;">/plugin install lux-swiss</p>
-      </div>
-      <footer style="border-top:1px solid var(--border); padding:48px 0; margin-top:0;">
-        <div style="display:flex; justify-content:space-between; align-items:baseline;
-             flex-wrap:wrap; gap:16px; margin-top:24px; font-family:var(--font-mono);
-             font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em;">
-          <span id="license" style="color:var(--muted-foreground);">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
-          <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex;
-             align-items:center; gap:8px; text-decoration:none;">GitHub
-            <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-          </a>
-        </div>
-      </footer>
-    </main>
+          </footer>
+        </main>
       </div>
     </div>
   </div>
-  <script type="module">
-    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
-    const data = [0,1,3,2,4,6,5,7,6,8].map((v,i) => ({ t:i, v, u: Math.max(0, v-2) }));
-    // Render only after fonts load so Plot measures axis-label metrics with the real
-    // font — otherwise a fallback-font measurement shifts the layout (non-deterministic
-    // pixels, plus a visible reflow on the live page).
-    await document.fonts.ready;
-    const chart = Plot.plot({
-      width: 900, height: 220, marginLeft: 28, marginBottom: 24,
-      style: { background:"transparent", color:"var(--foreground)",
-               fontFamily:"var(--font-mono)", fontSize:"11px" },
-      x: { label:null }, y: { label:null },
-      marks: [
-        Plot.gridY({ stroke:"var(--muted-foreground)", strokeOpacity:0.15 }),
-        Plot.lineY(data, { x:"t", y:"v", stroke:"var(--foreground)", strokeWidth:1.5 }),
-        Plot.lineY(data, { x:"t", y:"u", stroke:"var(--muted-foreground)", strokeWidth:1.5, strokeDasharray:"4 3" }),
-      ],
-    });
-    document.querySelector("#plot-mount").append(chart);
-  </script>
-  <script>
-    // Fill each palette swatch with its live hex / rgb / hsl, recomputed on theme change
-    // so the values always match the swatch (data values → Space Mono).
-    (function () {
-      function pad(n) { return n.toString(16).padStart(2, "0"); }
-      function toHsl(r, g, b) {
-        r /= 255; g /= 255; b /= 255;
-        var max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min, h = 0, s = 0, l = (max + min) / 2;
-        if (d) {
-          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-          h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
-          h *= 60;
-        }
-        return [Math.round(h), Math.round(s * 100), Math.round(l * 100)];
-      }
-      function fill() {
-        document.querySelectorAll("#palette figure").forEach(function (fig) {
-          var chip = fig.querySelector(".pal-chip"), dl = fig.querySelector(".pal-vals");
-          if (!chip || !dl) return;
-          var m = getComputedStyle(chip).backgroundColor.match(/\d+/g);
-          if (!m) return;
-          var r = +m[0], g = +m[1], b = +m[2], H = toHsl(r, g, b);
-          dl.innerHTML = "<div>HEX #" + pad(r) + pad(g) + pad(b) + "</div>" +
-            "<div>RGB " + r + " " + g + " " + b + "</div>" +
-            "<div>HSL " + H[0] + " " + H[1] + "% " + H[2] + "%</div>";
-        });
-      }
-      fill();
-      new MutationObserver(fill).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    })();
-  </script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var saved = localStorage.getItem("theme");
-      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      apply(saved ? saved === "dark" : !!prefersDark);
-      function apply(dark) {
-        root.classList.toggle("dark", dark);
-        document.querySelectorAll("[data-theme-btn]").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b.dataset.themeBtn === (dark ? "dark" : "light")));
-        });
-      }
-      document.addEventListener("click", function (e) {
-        var btn = e.target.closest("[data-theme-btn]");
-        if (!btn) return;
-        var dark = btn.dataset.themeBtn === "dark";
-        localStorage.setItem("theme", dark ? "dark" : "light");
-        apply(dark);
-      });
-    })();
-  </script>
-  <script>
-    // Font-flavor toggle (Space ⇄ Geist): swaps the .geist class, which reskins the
-    // page's --font-mono and --font-sans role variables. Persisted under "flavor".
-    (function () {
-      var root = document.documentElement;
-      apply(localStorage.getItem("flavor") === "geist");
-      function apply(geist) {
-        root.classList.toggle("geist", geist);
-        document.querySelectorAll("[data-flavor-btn]").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b.dataset.flavorBtn === (geist ? "geist" : "space")));
-        });
-      }
-      document.addEventListener("click", function (e) {
-        var btn = e.target.closest("[data-flavor-btn]");
-        if (!btn) return;
-        var geist = btn.dataset.flavorBtn === "geist";
-        localStorage.setItem("flavor", geist ? "geist" : "space");
-        apply(geist);
-      });
-    })();
-  </script>
-  <script>
-    // Jost hero-display toggle: independent of the flavor toggle above -- swaps
-    // only --font-display (hero title + editorial chapter dividers), composing
-    // with .geist and .dark rather than competing with them. Persisted under "jost".
-    (function () {
-      var root = document.documentElement;
-      apply(localStorage.getItem("jost") === "on");
-      function apply(jost) {
-        root.classList.toggle("jost", jost);
-        document.querySelectorAll("[data-jost-btn]").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b.dataset.jostBtn === (jost ? "jost" : "mono")));
-        });
-      }
-      document.addEventListener("click", function (e) {
-        var btn = e.target.closest("[data-jost-btn]");
-        if (!btn) return;
-        var jost = btn.dataset.jostBtn === "jost";
-        localStorage.setItem("jost", jost ? "on" : "off");
-        apply(jost);
-      });
-    })();
-  </script>
-  <script>
-    (function () {
-      var btn = document.querySelector("[data-nav-toggle]");
-      var list = document.querySelector("[data-nav-list]");
-      if (!btn || !list) return;
-      btn.addEventListener("click", function () {
-        var open = list.classList.toggle("open");
-        btn.setAttribute("aria-expanded", String(open));
-      });
-      list.addEventListener("click", function (e) {
-        if (!e.target.closest("a")) return;
-        list.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    })();
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

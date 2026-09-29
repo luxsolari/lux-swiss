@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Typography — Lux Swiss</title>
+  <meta name="description" content="Lux Swiss typography: three roles, the Space and Geist flavors, the weight axis, the heading scale and the mono label pattern." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Typography — Lux Swiss" />
+  <meta property="og:description" content="Lux Swiss typography: three roles, the Space and Geist flavors, the weight axis, the heading scale and the mono label pattern." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/typography.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Typography — Lux Swiss" />
+  <meta name="twitter:description" content="Lux Swiss typography: three roles, the Space and Geist flavors, the weight axis, the heading scale and the mono label pattern." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">02 — Foundations</p>
+            <h1>Typography</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">Three roles, strictly separated by function, in two font flavors that share the serif and swap only the mono/sans pair. Range comes from weight, not more typefaces. Toggle Space · Geist and Mono · Jost in the sidebar to reskin this page.</p>
+          </header>
+          <section id="roles" class="first">
+            <div class="divider"><h3>Three roles, two flavors</h3><span class="rule"></span></div>
+            <table class="data-table">
+              <thead><tr><th>Role</th><th>Space (default)</th><th>Geist</th><th>Use</th></tr></thead>
+              <tbody>
+                <tr><td><code>--font-mono</code></td><td>Space Mono</td><td>Geist Mono</td><td>Data values, tags, nav, labels: functional UI text, not headings.</td></tr>
+                <tr><td><code>--font-sans</code></td><td>Space Grotesk</td><td>Geist Sans</td><td>Body copy, UI text, dense data at small size with tabular figures.</td></tr>
+                <tr><td><code>--font-serif</code></td><td>Zilla Slab</td><td>Zilla Slab (shared)</td><td>Long-form editorial body and pull quotes. Never UI.</td></tr>
+                <tr><td><code>--font-display</code></td><td>= mono</td><td>= mono</td><td>Every heading. Switches to Jost 700 with <code>.jost</code>.</td></tr>
+              </tbody>
+            </table>
+            <p class="measure small muted" style="margin-top:16px;">Space Grotesk was drawn from Space Mono: a duotone of one skeleton, mirroring the two-color rule. Zilla Slab is a slab derived from a monospace (Fira Mono), which is why it stays identical in both flavors.</p>
+          </section>
+
+          <section id="registers">
+            <div class="divider"><h3>Three type registers</h3><span class="rule"></span></div>
+            <div class="grid grid-3" style="gap:32px;">
+              <div><p class="label" style="margin-bottom:12px;">Display / mono</p>
+                <p class="mono" style="font-size:1.7rem; font-weight:700; letter-spacing:-0.02em;">Lux Swiss</p>
+                <p class="label" style="margin-top:10px;">Space Mono → Geist Mono</p></div>
+              <div><p class="label" style="margin-bottom:12px;">Body / sans</p>
+                <p style="font-size:1.05rem;">Every element earns its place or is removed — the same body voice carries a landing-page lead, a dashboard's dense stat block, and a settings page's fine print, no separate voice for any of them.</p>
+                <p class="label" style="margin-top:10px;">Space Grotesk → Geist Sans</p></div>
+              <div><p class="label" style="margin-bottom:12px;">Serif / long-form</p>
+                <p class="serif" style="font-size:1.15rem; line-height:1.5;">Restraint isn't a limitation — it's a decision that scales. A designer who inherits this system doesn't need a judgment call every time a new element shows up; the rule already tells them what to do with it.</p>
+                <p class="label" style="margin-top:10px;">Zilla Slab</p></div>
+            </div>
+          </section>
+
+          <section id="headings">
+            <div class="divider"><h3>Heading scale</h3><span class="rule"></span></div>
+            <p class="label sub"><code>--font-display</code> · weight 700 · mono by default, Jost when toggled</p>
+            <div class="specimens">
+              <div class="specimen"><div class="meta"><b>h1</b>3rem · 1.1 · −0.02em</div><h1>Heading one</h1></div>
+              <div class="specimen"><div class="meta"><b>h2</b>2.25rem · 1.15 · −0.02em</div><h2>Heading two</h2></div>
+              <div class="specimen"><div class="meta"><b>h3</b>1.875rem · 1.2 · −0.01em</div><h3 style="font-size:1.875rem; line-height:1.2; letter-spacing:-0.01em;">Heading three</h3></div>
+              <div class="specimen"><div class="meta"><b>h4</b>1.5rem · 1.3</div><h4 style="font-size:1.5rem;">Heading four</h4></div>
+              <div class="specimen"><div class="meta"><b>h5</b>1.25rem · 1.3</div><h5 style="font-size:1.25rem;">Heading five</h5></div>
+              <div class="specimen"><div class="meta"><b>h6</b>1.125rem · 1.3</div><h6 style="font-size:1.125rem; line-height:1.3;">Heading six</h6></div>
+              <div class="specimen"><div class="meta"><b>brand-moment</b>4.5rem · 700 · once per page</div><div style="font-family:var(--font-display); font-weight:700; font-size:4.5rem; line-height:1.05; letter-spacing:-0.02em;">Lux Swiss.</div></div>
+              <div class="specimen"><div class="meta"><b>chapter-divider</b>1.5rem · 700</div><div style="font-family:var(--font-display); font-weight:700; font-size:1.5rem; letter-spacing:-0.02em;">02 — Chapter Title</div></div>
+            </div>
+            <p class="measure small muted" style="margin-top:16px;"><strong>The brand-moment device.</strong> Lux Swiss has no second color, so its one governed brand moment is typographic: exactly one element per page, the hero wordmark, at 4.5rem and weight 700, dramatically larger than the scale allows anywhere else. Every other heading keeps the scale.</p>
+          </section>
+
+          <section id="weights">
+            <div class="divider"><h3>Body — the weight axis 300–700</h3><span class="rule"></span></div>
+            <div class="grid grid-2 gap-40">
+              <div class="weights">
+                <p style="font-weight:300; font-size:1.35rem; line-height:1.4;">Light 300 — display sub-decks and leads.</p>
+                <p style="font-weight:400;">Regular 400 — the body voice. Every element earns its place or is removed; difference is expressed through weight, space, and contrast — never by adding a color.</p>
+                <p style="font-weight:500;">Medium 500 — UI emphasis and active labels. Prefer this over 700.</p>
+                <p style="font-weight:700;">Bold 700 — strong emphasis, used sparingly.</p>
+              </div>
+              <div>
+                <p class="label">Body</p>
+                <p class="small" style="margin-top:8px;">Sans, weight 400, 1rem, line-height 1.65, <code>kern</code> / <code>liga</code> / <code>calt</code> on, antialiased. Paragraph spacing changes with length; the voice does not.</p>
+                <p class="label" style="margin-top:24px;">Tabular figures · aligned to the grid</p>
+                <div class="tnum" style="margin-top:10px; display:grid; grid-template-columns:auto auto; gap:4px 32px; width:max-content;">
+                  <span>Sessions</span><span style="text-align:right;">1,209,384</span>
+                  <span>Conversions</span><span style="text-align:right;">18,050</span>
+                  <span>Rate</span><span style="text-align:right;">1.4931%</span>
+                </div>
+                <p class="small muted" style="margin-top:12px;">Numerals in a column, table, chart axis or stat block get <code>font-variant-numeric: tabular-nums</code>. Prose numerals stay proportional.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="labels">
+            <div class="divider"><h3>Labels and data</h3><span class="rule"></span></div>
+            <p class="label sub">The pervasive pattern — mono, uppercase, wide tracking; weight and contrast carry state</p>
+            <div class="specimens">
+              <div class="specimen"><div class="meta"><b>label</b>0.75rem · 0.2em · 400 / 700 active</div><div class="row" style="gap:24px;"><span class="label">Section title</span><span class="label active">Active label</span></div></div>
+              <div class="specimen"><div class="meta"><b>button</b>0.75rem · 0.2em</div><span class="btn btn-outlined">See the components</span></div>
+              <div class="specimen"><div class="meta"><b>tag</b>0.65rem · 0.12em</div><span class="tag tag-signal">Signal</span></div>
+              <div class="specimen"><div class="meta"><b>pip</b>0.75rem · 0.15em</div><span class="pip"><i></i>Connected</span></div>
+              <div class="specimen"><div class="meta"><b>table-header</b>0.7rem · 0.1em · 700</div><span class="mono" style="font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:0.7rem;">Metric</span></div>
+              <div class="specimen"><div class="meta"><b>data</b>0.85rem · tabular-nums</div><span class="mono tnum" style="font-size:0.85rem;">1,209,384</span></div>
+              <div class="specimen"><div class="meta"><b>annotation</b>0.85rem · italic</div><span class="mono muted" style="font-style:italic; font-size:0.85rem;">Fig. 1 — grayscale, the default treatment.</span></div>
+            </div>
+            <p class="measure small muted" style="margin-top:16px;"><strong>Mono italic</strong> has one job: inline annotations and figure captions. It is never emphasis. Emphasis is always weight.</p>
+          </section>
+
+          <section id="serif">
+            <div class="divider"><h3>Long-form serif</h3><span class="rule"></span></div>
+            <div class="grid grid-2 gap-40">
+              <p class="serif" style="font-size:1.15rem; line-height:1.5;">Zilla Slab carries long-form editorial body at 1.15rem and 1.5 line-height. It is shared by both flavors and never used for UI: a settings page, a dashboard and a form never see it.</p>
+              <blockquote style="margin:0;">&ldquo;Difference is expressed through weight, space, and contrast — never by adding a color.&rdquo;</blockquote>
+            </div>
+          </section>
+
+          <section id="jost">
+            <div class="divider"><h3>Heading accent — Jost, governed and optional</h3><span class="rule"></span></div>
+            <p class="measure">A fourth typeface driven through a single dependent role variable, <code>--font-display</code>, not a third flavor. It defaults to <code>var(--font-mono)</code> until the <code>.jost</code> class is applied to <code>&lt;html&gt;</code>, at which point every heading, the hero wordmark and long-form chapter dividers move to Jost 700. Labels, nav, tags, table headers and data values stay on <code>--font-mono</code> directly. Unlike <code>.geist</code>, <code>.jost</code> composes independently with either flavor and with <code>.dark</code>. Load Jost at a single weight, 700.</p>
+            <pre style="margin-top:24px;"><code>:root  { --font-display: var(--font-mono); }
+.jost  { --font-display: "Jost", ui-sans-serif, system-ui, sans-serif; }</code></pre>
+          </section>
+
+          <section id="loading">
+            <div class="divider"><h3>Loading the fonts</h3><span class="rule"></span></div>
+            <p class="measure">Load only the chosen flavor's two families plus Zilla Slab — three families, not five, unless the project needs a live toggle. Both sans faces are variable fonts requested at the four weights used (300/400/500/700); both monos load regular and bold, roman and italic.</p>
+            <pre style="margin-top:24px;"><code>&lt;!-- Space flavor (default) --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet" /&gt;
+&lt;!-- Geist flavor --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&amp;family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet" /&gt;
+&lt;!-- Heading accent, opt-in --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&amp;display=swap" rel="stylesheet" /&gt;</code></pre>
+          </section>
+
+          <section id="text-length">
+            <div class="divider"><h3>Content at any length</h3><span class="rule"></span></div>
+            <p class="label sub">Same body voice, same measure — spacing holds regardless of length</p>
+            <div class="grid grid-3" style="gap:32px; align-items:start;">
+              <div><p class="label" style="margin-bottom:12px;">Short</p><p class="small muted">Updated 3 hours ago.</p></div>
+              <div><p class="label" style="margin-bottom:12px;">Medium</p><p style="max-width:42ch;">A single paragraph reads the same whether it's a card's supporting copy or a page's lead — same measure, same line-height, no separate rule for "short body text."</p></div>
+              <div><p class="label" style="margin-bottom:12px;">Long-form</p><div style="max-width:60ch;"><p>Restraint scales. A single line of UI copy and a full article both draw from the same weight axis and the same measure — nothing about going longer asks for a new typographic idea.</p><p>What changes is paragraph spacing, not the voice: each paragraph gets the same top margin as the body rhythm established elsewhere, so a long-form block reads as more of the same system, not a different one.</p></div></div>
+            </div>
+          </section>
+          <div class="pager"><a href="colors.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Colors</a><a href="spacing.html" class="label">Spacing <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

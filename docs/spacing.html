@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Spacing — Lux Swiss</title>
+  <meta name="description" content="Lux Swiss spacing steps, the one radius, fixed sizes and opacity states." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Spacing — Lux Swiss" />
+  <meta property="og:description" content="Lux Swiss spacing steps, the one radius, fixed sizes and opacity states." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/spacing.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spacing — Lux Swiss" />
+  <meta name="twitter:description" content="Lux Swiss spacing steps, the one radius, fixed sizes and opacity states." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">03 — Foundations</p>
+            <h1>Spacing</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">The source declares no spacing variables; these steps are the values the skill and the showcase actually use, named on the Tailwind stems they appear as. Radius is one token, rarely used. Fixed sizes and opacities complete the set.</p>
+          </header>
+          <section id="scale" class="first">
+            <div class="divider"><h3>Spacing scale</h3><span class="rule"></span></div>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:32px;"><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-1</span><span style="display:block; height:12px; width:4px; background:var(--foreground);"></span><span class="cap">4px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-2</span><span style="display:block; height:12px; width:8px; background:var(--foreground);"></span><span class="cap">8px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-3</span><span style="display:block; height:12px; width:12px; background:var(--foreground);"></span><span class="cap">12px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-4</span><span style="display:block; height:12px; width:16px; background:var(--foreground);"></span><span class="cap">16px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-5</span><span style="display:block; height:12px; width:20px; background:var(--foreground);"></span><span class="cap">20px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-6</span><span style="display:block; height:12px; width:24px; background:var(--foreground);"></span><span class="cap">24px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-8</span><span style="display:block; height:12px; width:32px; background:var(--foreground);"></span><span class="cap">32px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-10</span><span style="display:block; height:12px; width:40px; background:var(--foreground);"></span><span class="cap">40px</span></div><div style="display:flex; align-items:center; gap:16px;"><span class="cap" style="width:64px;">space-16</span><span style="display:block; height:12px; width:64px; background:var(--foreground);"></span><span class="cap">64px</span></div></div>
+            <table class="data-table"><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody>
+                <tr><td><code>space-1</code></td><td class="mono small">4px</td><td>Stripe gap at marker size; dot prefix size on outlined tags.</td></tr>
+                <tr><td><code>space-2</code></td><td class="mono small">8px</td><td>Button vertical padding; gap between a label and its input; list row padding.</td></tr>
+                <tr><td><code>space-3</code></td><td class="mono small">12px</td><td>Input horizontal padding; section-header gap between title and rule.</td></tr>
+                <tr><td><code>space-4</code></td><td class="mono small">16px</td><td>Button horizontal padding; showcase card inner padding; sidebar nav gap.</td></tr>
+                <tr><td><code>space-5</code></td><td class="mono small">20px</td><td>Gallery card padding and grid gap.</td></tr>
+                <tr><td><code>space-6</code></td><td class="mono small">24px</td><td>Card padding; page gutter; grid gap between rule cards.</td></tr>
+                <tr><td><code>space-8</code></td><td class="mono small">32px</td><td>Sidebar padding; content gutter inside the sidebar layout; gap between figures.</td></tr>
+                <tr><td><code>space-10</code></td><td class="mono small">40px</td><td>Sidebar nav top margin; wide two-column gap.</td></tr>
+                <tr><td><code>space-16</code></td><td class="mono small">64px</td><td>Section vertical padding; hero-band vertical padding.</td></tr>
+              </tbody></table>
+          </section>
+
+          <section id="layout">
+            <div class="divider"><h3>Layout</h3><span class="rule"></span></div>
+            <p class="measure">Content is centered at <code>content-max</code> (1100px; 900px inside the sidebar layout) with <code>space-6</code> gutters. Sections take <code>space-16</code> above and below with a 1px top border. Cards pad <code>space-6</code>; the showcase gallery pads <code>space-5</code>. Buttons pad <code>space-2</code> by <code>space-4</code>. Inputs pad <code>space-2</code> by <code>space-3</code>.</p>
+            <div class="grid grid-2" style="margin-top:32px;">
+              <div class="demo"><span class="label">Section header</span>
+                <div class="divider" style="margin:0;"><h5>Section title</h5><span class="rule"></span></div>
+                <div class="divider" style="margin:16px 0 0;"><span class="stripe" aria-hidden="true"><i></i><i></i></span><h5>With stripe marker</h5><span class="rule"></span></div>
+              </div>
+              <div class="demo"><span class="label">Elevation is a background step</span>
+                <div class="card" style="padding:16px;"><p class="mono" style="font-weight:700;">card on background</p><p class="small muted" style="margin-top:8px;">1px border, one step up, no shadow.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="radius">
+            <div class="divider"><h3>Corner radius</h3><span class="rule"></span></div>
+            <div class="grid grid-2 gap-40" style="align-items:start;">
+              <table class="data-table"><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody>
+                <tr><td><code>radius</code></td><td class="mono small">0.5rem</td><td>The one base radius (theme.css --radius). Rarely used: most corners are square. rounded-full is reserved for 6px dot indicators only, never containers or pills.</td></tr>
+              </tbody></table>
+              <div class="row" style="gap:24px;">
+                <div style="width:96px; height:64px; border:1px solid var(--border); display:grid; place-items:center;"><span class="cap">square</span></div>
+                <div style="width:96px; height:64px; border:1px solid var(--border); border-radius:var(--radius); display:grid; place-items:center;"><span class="cap">0.5rem</span></div>
+                <span class="pip"><i></i>dot only</span>
+              </div>
+            </div>
+            <p class="small muted measure" style="margin-top:16px;">theme.css also derives <code>--radius-sm</code> / <code>--radius-md</code> / <code>--radius-lg</code> as base minus 2px, base, base plus 2px for Tailwind's utilities.</p>
+          </section>
+
+          <section id="sizing">
+            <div class="divider"><h3>Sizing</h3><span class="rule"></span></div>
+            <table class="data-table"><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody>
+                <tr><td><code>content-max</code></td><td class="mono small">1100px</td><td>Max content width, centered (1000 to 1200px). Inside the sidebar layout the inner column is 900px.</td></tr>
+                <tr><td><code>sidebar-width</code></td><td class="mono small">22%</td><td>Structural Block sidebar width, capped at about 25% of the viewport.</td></tr>
+                <tr><td><code>sidebar-min</code></td><td class="mono small">220px</td><td>Sidebar minimum width.</td></tr>
+                <tr><td><code>sidebar-max</code></td><td class="mono small">280px</td><td>Sidebar maximum width.</td></tr>
+                <tr><td><code>modal-max</code></td><td class="mono small">560px</td><td>Modal panel max width.</td></tr>
+                <tr><td><code>border-width</code></td><td class="mono small">1px</td><td>Every border. Visible, full ink or full cream.</td></tr>
+                <tr><td><code>rule-heavy</code></td><td class="mono small">2px</td><td>Table header bottom rule; pull-quote left rule.</td></tr>
+                <tr><td><code>stripe-height</code></td><td class="mono small">3px</td><td>Segment stripe thickness at every length.</td></tr>
+                <tr><td><code>stripe-marker</code></td><td class="mono small">36px</td><td>Segment stripe as a heading marker (gap 3px).</td></tr>
+                <tr><td><code>stripe-hero</code></td><td class="mono small">64px</td><td>Segment stripe under the hero wordmark (gap 4px).</td></tr>
+                <tr><td><code>stripe-flourish</code></td><td class="mono small">140px</td><td>Segment stripe as a closing flourish (gap 6px).</td></tr>
+                <tr><td><code>icon</code></td><td class="mono small">20px</td><td>Lucide icon box (16 to 20px), stroke 1.5, square caps, miter joins.</td></tr>
+                <tr><td><code>dot</code></td><td class="mono small">6px</td><td>Status pip dot. The only rounded-full element.</td></tr>
+              </tbody></table>
+          </section>
+
+          <section id="opacity">
+            <div class="divider"><h3>Opacity</h3><span class="rule"></span></div>
+            <p class="label sub">State is opacity or weight, never a new color</p>
+            <table class="data-table"><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody>
+                <tr><td><code>disabled</code></td><td class="mono small">0.4</td><td>Disabled controls: always opacity 0.4, never a color change.</td></tr>
+                <tr><td><code>nav-rest</code></td><td class="mono small">0.75</td><td>Sidebar nav link at rest on the red block; 1 on hover.</td></tr>
+                <tr><td><code>backdrop</code></td><td class="mono small">0.8</td><td>Modal backdrop: background at 80%, a dim, not a shadow.</td></tr>
+                <tr><td><code>grid-line</code></td><td class="mono small">0.15</td><td>Chart grid lines in muted-foreground.</td></tr>
+                <tr><td><code>zero-axis</code></td><td class="mono small">0.4</td><td>Chart zero line in muted-foreground; the toggle middot.</td></tr>
+              </tbody></table>
+          </section>
+          <div class="pager"><a href="typography.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Typography</a><a href="components.html" class="label">Components <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

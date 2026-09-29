@@ -3,41 +3,43 @@ import path from "node:path";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
+// Regenerates the README / social screenshots from the documentation site
+// (docs/*.html). The banner PNGs are rendered separately by banner.sh.
 const here = path.dirname(fileURLToPath(import.meta.url));
-const fileUrl = "file://" + path.resolve(here, "../../docs/index.html").replace(/\\/g, "/");
-const outDir = path.resolve(here, "../../docs/assets");
+const docsDir = path.resolve(here, "../../docs");
+const pageUrl = (file) => "file://" + path.join(docsDir, file).replace(/\\/g, "/");
+const outDir = path.resolve(docsDir, "assets");
 fs.mkdirSync(outDir, { recursive: true });
 
 async function shoot({ dsr, viewport }, jobs) {
   const browser = await chromium.launch();
   const ctx = await browser.newContext({ deviceScaleFactor: dsr, viewport });
   const page = await ctx.newPage();
-  await page.goto(fileUrl, { waitUntil: "networkidle" });
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForSelector("#plot-mount svg", { timeout: 20000 }); // Plot chart rendered from CDN
+  let loaded = null;
   for (const j of jobs) {
+    if (loaded !== j.page) {
+      await page.goto(pageUrl(j.page), { waitUntil: "networkidle" });
+      await page.evaluate(() => document.fonts.ready);
+      if (j.page === "charts.html") await page.waitForSelector("#plot-mount svg", { timeout: 20000 }); // Plot from CDN
+      loaded = j.page;
+    }
     await page.evaluate((d) => document.documentElement.classList.toggle("dark", d), !!j.dark);
     await page.evaluate((g) => document.documentElement.classList.toggle("geist", g), !!j.geist);
     await page.evaluate((j2) => document.documentElement.classList.toggle("jost", j2), !!j.jost);
     await page.evaluate(() => document.fonts.ready); // re-settle metrics after a flavor/accent swap
     await page.waitForTimeout(200);
     if (j.fullViewport) {
-      // Sidebar + content together, not scoped to one section — the sidebar is a
-      // sibling of every #section, so an element-scoped shot never shows it. A plain
-      // page.screenshot() with no clip/fullPage captures exactly the loaded viewport.
+      // Sidebar + content together: a plain page.screenshot() with no clip/fullPage
+      // captures exactly the loaded viewport.
       await page.screenshot({ path: path.join(outDir, j.file) });
       console.log("wrote", j.file);
       continue;
     }
     const el = await page.$(j.id);
-    // #social-card is intentionally rendered off-canvas (left:-9999px) so it never
-    // shows in the live page. Playwright's elementHandle.screenshot() cannot clip a
-    // negative-x region correctly (the browser can't scroll to negative X, so the
-    // clip falls back to the viewport origin and silently captures whatever else is
-    // at (0,0) — verified by reproduction: it grabbed the hero section instead).
-    // Fix: temporarily zero out the element's own inline offset for the capture only
-    // (DOM-only, in the headless page — never touches docs/index.html on disk), then
-    // restore it so the live page is unaffected.
+    if (!el) throw new Error(`${j.file}: ${j.id} not found on ${j.page}`);
+    // #social-card is rendered off-canvas (left:-9999px) so it never shows on the live
+    // page. Playwright cannot clip a negative-x region, so zero the offset for the
+    // capture only (DOM-only, in the headless page) and restore it afterwards.
     const box = await el.boundingBox();
     const offCanvas = box.x < 0 || box.y < 0;
     if (offCanvas) {
@@ -70,17 +72,17 @@ async function shoot({ dsr, viewport }, jobs) {
 
 // Section shots — crisp 2x.
 await shoot({ dsr: 2, viewport: { width: 1180, height: 1000 } }, [
-  { fullViewport: true, file: "hero-light.png", dark: false },
-  { fullViewport: true, file: "hero-dark.png", dark: true },
-  { id: "#palette", file: "palette.png", dark: false },
-  { id: "#registers", file: "type-registers.png", dark: false },
-  { id: "#components", file: "components.png", dark: false },
-  { id: "#images", file: "images.png", dark: false },
-  { id: "#text-length", file: "text-length.png", dark: false },
-  { id: "#charts", file: "charts.png", dark: false },
+  { page: "index.html", fullViewport: true, file: "hero-light.png", dark: false },
+  { page: "index.html", fullViewport: true, file: "hero-dark.png", dark: true },
+  { page: "colors.html", id: "#palette", file: "palette.png", dark: false },
+  { page: "typography.html", id: "#registers", file: "type-registers.png", dark: false },
+  { page: "typography.html", id: "#text-length", file: "text-length.png", dark: false },
+  { page: "components.html", id: "#gallery", file: "components.png", dark: false },
+  { page: "components.html", id: "#figure", file: "images.png", dark: false },
+  { page: "charts.html", id: "#plot", file: "charts.png", dark: false },
 ]);
 
-// Social card — exact 1200x630 at 1x for OG.
+// Social card — exactly 1200x630 at 1x.
 await shoot({ dsr: 1, viewport: { width: 1280, height: 720 } }, [
-  { id: "#social-card", file: "social-card.png", dark: false, assert: { w: 1200, h: 630 } },
+  { page: "index.html", id: "#social-card", file: "social-card.png", dark: false, assert: { w: 1200, h: 630 } },
 ]);

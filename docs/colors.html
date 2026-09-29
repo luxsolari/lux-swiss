@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Colors — Lux Swiss</title>
+  <meta name="description" content="The Lux Swiss palette: thirteen semantic tokens in light and dark, Blood Red's four jobs, and measured contrast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Colors — Lux Swiss" />
+  <meta property="og:description" content="The Lux Swiss palette: thirteen semantic tokens in light and dark, Blood Red's four jobs, and measured contrast." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/colors.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Colors — Lux Swiss" />
+  <meta name="twitter:description" content="The Lux Swiss palette: thirteen semantic tokens in light and dark, Blood Red's four jobs, and measured contrast." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">01 — Foundations</p>
+            <h1>Colors</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">Thirteen semantic tokens, two themes. Light and dark are the same system inverted: <code>background</code> and <code>foreground</code> swap, <code>border</code> follows <code>foreground</code>, and <code>primary</code> lifts from <code>#8b2e2e</code> to <code>#c04545</code> so it holds contrast on near-black.</p>
+          </header>
+          <section id="palette" class="first">
+            <div class="divider"><h3>Palette</h3><span class="rule"></span></div>
+            <p class="label sub">Semantic tokens — never a raw hex in markup · values update with the theme toggle</p>
+            <div class="palette">
+              <figure><div class="pal-chip" style="background:var(--background);"></div>
+                <figcaption><span class="label">background</span><span class="role">page</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--card);"></div>
+                <figcaption><span class="label">card</span><span class="role">surface</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--foreground);"></div>
+                <figcaption><span class="label">foreground</span><span class="role">ink / text</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--muted);"></div>
+                <figcaption><span class="label">muted</span><span class="role">subtle</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--muted-foreground);"></div>
+                <figcaption><span class="label">muted-foreground</span><span class="role">metadata</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--primary);"></div>
+                <figcaption><span class="label">primary</span><span class="role">accent</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--primary-foreground);"></div>
+                <figcaption><span class="label">primary-foreground</span><span class="role">on accent</span><dl class="pal-vals"></dl></figcaption></figure>
+              <figure><div class="pal-chip" style="background:var(--border);"></div>
+                <figcaption><span class="label">border</span><span class="role">borders</span><dl class="pal-vals"></dl></figcaption></figure>
+            </div>
+          </section>
+
+          <section id="tokens">
+            <div class="divider"><h3>Every token, both themes</h3><span class="rule"></span></div>
+            <table class="data-table">
+              <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr></thead>
+              <tbody>
+                <tr><td><code>--background</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td>Page background. Warm cream in light, near-black ink in dark.</td></tr>
+                <tr><td><code>--foreground</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td>Body text, active controls, filled-button fill, chart marks.</td></tr>
+                <tr><td><code>--card</code></td>
+                  <td><span class="tok-swatch" style="background:#faf6ec;"></span><code>#faf6ec</code></td>
+                  <td><span class="tok-swatch" style="background:#161616;"></span><code>#161616</code></td>
+                  <td>Elevated surface: card, popover, install panel. The only depth cue.</td></tr>
+                <tr><td><code>--card-foreground</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td>Text on card surfaces.</td></tr>
+                <tr><td><code>--primary</code></td>
+                  <td><span class="tok-swatch" style="background:#8b2e2e;"></span><code>#8b2e2e</code></td>
+                  <td><span class="tok-swatch" style="background:#c04545;"></span><code>#c04545</code></td>
+                  <td>Blood Red, the lone accent. Four named jobs only.</td></tr>
+                <tr><td><code>--primary-foreground</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td>Text on primary: sidebar nav, hero-band title, hovered accent button.</td></tr>
+                <tr><td><code>--secondary</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td>Secondary action background: the inverted ink fill.</td></tr>
+                <tr><td><code>--secondary-foreground</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td>Text on secondary.</td></tr>
+                <tr><td><code>--muted</code></td>
+                  <td><span class="tok-swatch" style="background:#ebe5d5;"></span><code>#ebe5d5</code></td>
+                  <td><span class="tok-swatch" style="background:#1f1f1f;"></span><code>#1f1f1f</code></td>
+                  <td>Subtle backgrounds: hover fills, code blocks. Not a border color.</td></tr>
+                <tr><td><code>--muted-foreground</code></td>
+                  <td><span class="tok-swatch" style="background:#4a4a48;"></span><code>#4a4a48</code></td>
+                  <td><span class="tok-swatch" style="background:#a8a8a0;"></span><code>#a8a8a0</code></td>
+                  <td>Subdued labels, metadata, placeholders, inactive nav, secondary chart series.</td></tr>
+                <tr><td><code>--border</code></td>
+                  <td><span class="tok-swatch" style="background:#0a0a0a;"></span><code>#0a0a0a</code></td>
+                  <td><span class="tok-swatch" style="background:#f5efe0;"></span><code>#f5efe0</code></td>
+                  <td>Every 1px border, list divider and table rule. Never a grey hairline.</td></tr>
+                <tr><td><code>--input</code></td>
+                  <td><span class="tok-swatch" style="background:#faf6ec;"></span><code>#faf6ec</code></td>
+                  <td><span class="tok-swatch" style="background:#161616;"></span><code>#161616</code></td>
+                  <td>Input field background. Same step as card.</td></tr>
+                <tr><td><code>--ring</code></td>
+                  <td><span class="tok-swatch" style="background:#8b2e2e;"></span><code>#8b2e2e</code></td>
+                  <td><span class="tok-swatch" style="background:#c04545;"></span><code>#c04545</code></td>
+                  <td>Focus ring: 1px in primary, no glow.</td></tr>
+              </tbody>
+            </table>
+            <p class="small muted" style="margin-top:16px;">Dark mode is the <code>.dark</code> class on <code>&lt;html&gt;</code>. In Tailwind 4 the variant is <code>@custom-variant dark (&amp;:is(.dark *));</code>, already in <code>theme.css</code>.</p>
+          </section>
+
+          <section id="jobs">
+            <div class="divider"><span class="stripe" aria-hidden="true"><i></i><i></i></span><h3>Blood Red has four jobs and no others</h3><span class="rule"></span></div>
+            <ol class="list-plain ordered measure">
+              <li><span class="n">01</span><span><strong>Accent and destructive controls.</strong> The Accent and Destructive buttons, the Accent card border and wash, the Interactive card on hover.</span></li>
+              <li><span class="n">02</span><span><strong>Focus ring.</strong> <code>ring</code>, 1px.</span></li>
+              <li><span class="n">03</span><span><strong>Structural Block.</strong> One solid red sidebar or hero band per layout, capped at about 25% of the viewport, or one bold red word inside a heading or paragraph. See <a href="structural-block.html">Structural Block</a>.</span></li>
+              <li><span class="n">04</span><span><strong>The segment stripe.</strong> Two equal segments, ink then red, 3px tall, at any width. Static and decorative, used a handful of times per page.</span></li>
+            </ol>
+            <p class="measure" style="margin-top:24px;">Never: list markers, table rules, chart categories, links in body text, or a status meaning on its own. The status pip's warning dot is the one exception already named in that component.</p>
+          </section>
+
+          <section id="contrast">
+            <div class="divider"><h3>Contrast</h3><span class="rule"></span></div>
+            <p class="measure">Every text pair clears 4.5:1 in both themes except one. <code>primary-foreground</code> on <code>primary</code> in dark mode is 4.4:1, and <code>primary</code> on <code>background</code> in dark mode is 3.9:1. Keep red-on-dark text at the mono label size or above, and keep hovered button text at weight 700 or at 0.75rem+. This is the source's pair and is kept as it is.</p>
+            <table class="data-table" style="margin-top:24px; max-width:640px;">
+              <thead><tr><th>Pair</th><th class="num">Light</th><th class="num">Dark</th></tr></thead>
+              <tbody>
+                <tr><td>foreground on background</td><td class="num">17.3</td><td class="num">17.3</td></tr>
+                <tr><td>muted-foreground on background</td><td class="num">7.7</td><td class="num">8.3</td></tr>
+                <tr><td>muted-foreground on card</td><td class="num">8.2</td><td class="num">7.6</td></tr>
+                <tr><td>muted-foreground on muted</td><td class="num">7.1</td><td class="num">6.9</td></tr>
+                <tr><td>primary on background</td><td class="num">7.2</td><td class="num">3.9</td></tr>
+                <tr><td>primary-foreground on primary</td><td class="num">7.2</td><td class="num">4.4</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="states">
+            <div class="divider"><h3>State without color</h3><span class="rule"></span></div>
+            <p class="measure">Active, inactive, disabled, hover and error are expressed by weight, opacity and contrast. Disabled is always opacity 0.4. A nav link on the red block rests at 0.75 and lifts to 1 on hover. Emphasis is weight 500 or 700. An error is copy and weight, not a red field.</p>
+            <div class="row" style="gap:32px; margin-top:24px;">
+              <span class="label">Inactive label</span><span class="label active">Active label</span>
+              <button class="btn btn-outlined" disabled>Disabled</button>
+              <span class="tag tag-signal">Signal</span>
+            </div>
+          </section>
+          <div class="pager"><a href="index.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Overview</a><a href="typography.html" class="label">Typography <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

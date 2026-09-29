@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Apply the saved theme, flavor and heading accent before first paint.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+        if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Components — Lux Swiss</title>
+  <meta name="description" content="Sixteen Lux Swiss component patterns with live demos and guidelines, from buttons to modals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Components — Lux Swiss" />
+  <meta property="og:description" content="Sixteen Lux Swiss component patterns with live demos and guidelines, from buttons to modals." />
+  <meta property="og:url" content="https://luxsolari.github.io/lux-swiss/components.html" />
+  <meta property="og:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Components — Lux Swiss" />
+  <meta name="twitter:description" content="Sixteen Lux Swiss component patterns with live demos and guidelines, from buttons to modals." />
+  <meta name="twitter:image" content="https://luxsolari.github.io/lux-swiss/assets/social-card.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <a class="sidebar-wordmark" href="index.html">Lux Swiss</a>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list aria-label="Sections"><a href="index.html">Overview</a><a href="colors.html">Colors</a><a href="typography.html">Typography</a><a href="spacing.html">Spacing</a><a href="components.html">Components</a><a href="structural-block.html">Structural Block</a><a href="charts.html">Charts</a><a href="house-mark.html">House Mark</a></nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Font flavor">
+          <button data-flavor-btn="space" aria-pressed="true">Space</button><span class="mid">·</span><button data-flavor-btn="geist" aria-pressed="false">Geist</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Heading face">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button><span class="mid">·</span><button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button><span class="mid">·</span><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <span>© 2026 Lux Solari · <a href="index.html#license">License</a></span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
+        <main>
+          <header class="page-head">
+            <p class="label">04 — Patterns</p>
+            <h1>Components</h1>
+            <div class="stripe hero" aria-hidden="true"><i></i><i></i></div>
+            <p class="lead">Sixteen patterns, each a small amount of HTML on the tokens. Every demo below is live and copyable; every guideline says what the consumer provides. Nothing here adds a color, a shadow or a rounded container.</p>
+          </header>
+          <section id="gallery" class="first">
+            <div class="divider"><span class="stripe" aria-hidden="true"><i></i><i></i></span><h3>Gallery</h3><span class="rule"></span></div>
+            <nav class="row" style="gap:8px 20px; margin-bottom:8px;" aria-label="Components">
+              <a class="label" href="#button">Button</a><a class="label" href="#tag">Tag</a><a class="label" href="#card">Card</a><a class="label" href="#input">Input</a><a class="label" href="#section-header">SectionHeader</a><a class="label" href="#toggle">Toggle</a><a class="label" href="#status-pip">StatusPip</a><a class="label" href="#list">List</a><a class="label" href="#table">Table</a><a class="label" href="#segment-stripe">SegmentStripe</a><a class="label" href="#sidebar">Sidebar</a><a class="label" href="#hero-band">HeroBand</a><a class="label" href="#modal">Modal</a><a class="label" href="#figure">Figure</a><a class="label" href="#chart">Chart</a><a class="label" href="#icon">Icon</a>
+            </nav>
+          </section>
+
+          <section id="button">
+            <div class="divider"><h3>Button</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Five variants in the uppercase mono label style, differentiated by border and fill, never by a new color. All buttons are <code>mono</code>, 0.75rem, uppercase, 0.2em tracking, padding <code>space-2</code> by <code>space-4</code>, square corners.</p>
+            <div class="demo"><span class="label">Variants</span><div class="row"><button class="btn btn-ghost">Ghost</button><button class="btn btn-outlined">Outlined</button><button class="btn btn-filled">Filled</button><button class="btn btn-destructive">Destructive</button><button class="btn btn-accent">Accent</button><button class="btn btn-outlined" disabled>Disabled</button></div></div><div class="grid grid-2" style="margin-top:20px;"><div class="demo"><span class="label">Hover — destructive button <span class="note">Red's real signal, made visible</span></span><div class="hover-pair"><div><span class="cap">Default</span><button class="btn btn-destructive">Delete</button></div><div><span class="cap">Hover</span><button class="btn btn-destructive is-hover-demo">Delete</button></div></div></div><div class="demo"><span class="label">Hover — accent button <span class="note">Same mechanism as Destructive</span></span><div class="hover-pair"><div><span class="cap">Default</span><button class="btn btn-accent">Learn more</button></div><div><span class="cap">Hover</span><button class="btn btn-accent is-hover-demo">Learn more</button></div></div></div></div>
+            <div class="measure" style="margin-top:24px;"><ul class="list-plain small">
+              <li><strong>Ghost / nav</strong> (most common): no border, <code>muted-foreground</code>, <code>foreground</code> on hover.</li>
+              <li><strong>Outlined</strong>: 1px <code>foreground</code> border; inverts to a <code>foreground</code> fill with <code>background</code> text on hover.</li>
+              <li><strong>Filled</strong> (primary action, rare): <code>foreground</code> fill, <code>background</code> text, 90% on hover.</li>
+              <li><strong>Destructive</strong>: 1px <code>primary</code> border and text; fills with <code>primary</code> on hover. Red's named destructive job.</li>
+              <li><strong>Accent</strong>: identical treatment under a separate semantic name for general emphasis. One accent cannot look two ways.</li>
+              <li><strong>Disabled</strong> is always opacity 0.4, never a color change. Focus is a 1px <code>ring</code>.</li>
+            </ul></div>
+          </section>
+          <section id="tag">
+            <div class="divider"><h3>Tag</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Small inline badges in <code>mono</code> at 0.65rem, uppercase, 0.12em tracking, padding 2px by 8px. Four variants, all ink-only.</p>
+            <div class="demo"><span class="label">Variants</span><div class="row" style="gap:10px;"><span class="tag tag-neutral">Neutral</span><span class="tag tag-signal">Signal</span><span class="tag tag-outlined"><span class="dot"></span>Outlined</span><span class="tag tag-saved"><span class="dot"></span>Saved</span></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small"><strong>Neutral</strong> is plain <code>muted-foreground</code> text. <strong>Signal</strong> (latest, highlight) inverts to a <code>foreground</code> fill. <strong>Outlined</strong> is a dashed <code>foreground</code> border at 50% with a 4px dot prefix. <strong>Saved</strong> is a solid border at 30%, text at 50%, same dot. Never <code>rounded-full</code> on a tag; never <code>primary</code> on a tag. The consumer provides the text.</p></div>
+          </section>
+          <section id="card">
+            <div class="divider"><h3>Card</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">A bordered surface one background step above the page: 1px <code>border</code>, <code>card</code> fill, padding <code>space-6</code>, square corners. Elevation is that step and nothing else.</p>
+            <div class="grid grid-3"><div class="card"><h4>Elevated surface</h4><p class="small muted">Depth is a background step, never a shadow.</p></div><div class="card card-accent"><h4>Accent card</h4><p class="small muted">Red border and an 8% wash: more color on borders.</p></div><a href="#card" class="card card-interactive" onclick="return false;"><h4>Interactive card</h4><p class="small muted">Ink border at rest, red on hover. Click anywhere.</p></a></div>
+            <div class="measure" style="margin-top:24px;"><p class="small"><strong>Accent card</strong>: 1px <code>primary</code> border and a wash of <code>primary</code> at 8% over <code>card</code>. Static; for the one thing on a page that deserves more color. <strong>Interactive card</strong>: wrap in <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>; <code>border</code> at rest moves to <code>primary</code> on hover over 0.15s, the same single-accent hover hierarchy as the Accent button. Titles are <code>mono</code> 700; descriptions <code>body-small</code> in <code>muted-foreground</code>. Nest a SectionHeader for titled regions.</p></div>
+          </section>
+          <section id="input">
+            <div class="divider"><h3>Input</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">A text field on the <code>input</code> surface with a 1px <code>border</code>, padding <code>space-2</code> by <code>space-3</code>, <code>mono</code> text at 0.85rem and a <code>muted-foreground</code> placeholder. Focus is a 1px <code>ring</code>, the accent's named focus job.</p>
+            <div class="grid grid-2"><div class="demo field"><label class="label">Email</label><input placeholder="you@example.com" /></div><div class="demo field"><label class="label active">Handle · focused</label><input value="luxsolari" class="is-focus-demo" /></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">The label above is the uppercase mono label: <code>muted-foreground</code> at rest, <code>foreground</code> and weight 700 when the field is active. Square corners, no inner shadow. Errors are expressed by weight and copy, not by turning the field red. The consumer provides label, placeholder, value and validation.</p></div>
+          </section>
+          <section id="section-header">
+            <div class="divider"><h3>SectionHeader</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">A heading beside a full-width 1px rule in <code>border</code>, baseline-aligned, gap <code>space-3</code>, margin-bottom <code>space-6</code>. The section header everywhere: cards, pages, panels.</p>
+            <div class="demo"><span class="label">Forms</span><div class="divider" style="margin:0 0 16px;"><h5>Section title</h5><span class="rule"></span></div><div class="divider" style="margin:0 0 16px;"><span class="stripe" aria-hidden="true"><i></i><i></i></span><h5>With a stripe marker</h5><span class="rule"></span></div><div class="divider" style="margin:0;"><span class="label">Semantic tokens — never a raw hex in markup</span><span class="rule"></span></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">The title is <code>h5</code> in <code>display</code> (mono, or Jost with <code>.jost</code>); a lighter form uses the uppercase mono label instead. Optionally a 36px SegmentStripe marker precedes the title. The consumer provides the title text.</p></div>
+          </section>
+          <section id="toggle">
+            <div class="divider"><h3>Toggle</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Two or more inline options separated by a middot, for theme, flavor, language and other small enumerated choices. No switch chrome, no pill, no track.</p>
+            <div class="demo"><span class="label">Groups</span><div class="row" style="gap:40px;"><div class="toggle" role="group" aria-label="Demo theme"><button aria-pressed="true">Light</button><span class="mid">·</span><button aria-pressed="false">Dark</button></div><div class="toggle" role="group" aria-label="Demo flavor"><button aria-pressed="true">Space</button><span class="mid">·</span><button aria-pressed="false">Geist</button></div><div class="toggle" role="group" aria-label="Demo language"><button aria-pressed="false">EN</button><span class="mid">·</span><button aria-pressed="true">ES</button><span class="mid">·</span><button aria-pressed="false">PT</button></div></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">The active option is <code>foreground</code>; the rest are <code>muted-foreground</code> with a hover lift; the middot sits at 0.4 opacity. Use <code>aria-pressed</code> on each button. On the red Sidebar the same control renders in <code>primary-foreground</code> at 0.6 opacity, 1 when pressed. The live toggles in this site's sidebar are this component.</p></div>
+          </section>
+          <section id="status-pip">
+            <div class="divider"><h3>StatusPip</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">An inline source or connection indicator: a 6px dot and an uppercase mono label at 0.75rem with 0.15em tracking. State is carried by the dot alone; the text stays neutral.</p>
+            <div class="demo"><span class="label">States</span><div class="row" style="gap:32px;"><span class="pip"><i></i>Connected</span><span class="pip warn"><i></i>Warning</span><span class="pip load"><i></i>Loading</span><span class="pip off"><i></i>Disconnected</span></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">Connected is <code>foreground</code>; Warning is <code>primary</code>, the accent's one sanctioned status use; Loading is <code>muted-foreground</code> at 30% with a pulse; Disconnected is <code>foreground</code> at 25%. The dot is the only element in the system that may be <code>rounded-full</code>.</p></div>
+          </section>
+          <section id="list">
+            <div class="divider"><h3>List</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">No round bullet glyphs. Unordered items are separated by a 1px <code>border</code> top rule; ordered items lead with a two-digit tabular mono number in <code>muted-foreground</code>.</p>
+            <div class="grid grid-2"><div class="demo"><span class="label">Unordered <span class="note">— divider, not a bullet</span></span><ul class="list-plain small"><li>Visible 1px borders everywhere</li><li>No shadows; elevation is a background step</li><li>Uppercase monospace labels</li></ul></div><div class="demo"><span class="label">Ordered <span class="note">— tabular mono numbers</span></span><ol class="list-plain ordered small"><li><span class="n">01</span><span>Install the theme</span></li><li><span class="n">02</span><span>Pick a font flavor</span></li><li><span class="n">03</span><span>Build with semantic tokens</span></li></ol></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">Dividers and numbers stay ink and <code>muted-foreground</code> only. Using <code>primary</code> as a list marker is a hard rule violation, not a style preference.</p></div>
+          </section>
+          <section id="table">
+            <div class="divider"><h3>Table</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">A bold <code>mono</code> header row (0.7rem, uppercase, 0.1em tracking) over a 2px <code>border</code> rule, 1px rows, body cells in <code>sans</code> at 0.85rem. Numeric columns are right-aligned with tabular figures.</p>
+            <div class="demo"><span class="label">Data table <span class="note">— tabular-nums, no zebra striping</span></span><table class="data-table"><thead><tr><th>Metric</th><th class="num">Value</th><th class="num">Change</th></tr></thead><tbody><tr><td>Sessions</td><td class="num">1,209,384</td><td class="num">+4.2%</td></tr><tr><td>Conversions</td><td class="num">18,050</td><td class="num">+0.8%</td></tr><tr><td>Rate</td><td class="num">1.4931%</td><td class="num">−0.1%</td></tr></tbody></table></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">No zebra striping, no hover fill, no accent-colored rules. Positive and negative change are plain numerals with a sign, never green or red.</p></div>
+          </section>
+          <section id="segment-stripe">
+            <div class="divider"><h3>SegmentStripe</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Two equal solid segments, <code>foreground</code> then <code>primary</code>, 3px tall, as a static decorative divider or spacer at any length.</p>
+            <div class="demo"><span class="label">Three lengths</span><div style="display:flex; flex-direction:column; gap:24px;"><div class="row" style="gap:20px;"><div class="stripe " aria-hidden="true"><i></i><i></i></div><span class="cap">36px · marker before a heading</span></div><div class="row" style="gap:20px;"><div class="stripe hero" aria-hidden="true"><i></i><i></i></div><span class="cap">64px · under the hero wordmark</span></div><div class="row" style="gap:20px;"><div class="stripe flourish" aria-hidden="true"><i></i><i></i></div><span class="cap">140px · closing flourish</span></div></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">Always two equal segments in this exact order. Purely decorative, never interactive or meaningful. Use it selectively, a handful of times per page; the default divider remains the 1px <code>border</code> rule. Add <code>aria-hidden="true"</code>. Full guidance under <a href="structural-block.html#stripe">Structural Block</a>.</p></div>
+          </section>
+          <section id="sidebar">
+            <div class="divider"><h3>Sidebar</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">The Structural Block as a nav rail: a full-height, sticky, solid <code>primary</code> panel at 22% of the viewport (min 220px, max 280px). The sidebar of this site is the live instance.</p>
+            <div class="demo"><span class="label">Nav link hover <span class="note">Plain opacity shift, no second color</span></span><div class="on-red"><div class="hover-pair" style="gap:0;"><div><span class="cap">Default</span><a href="#sidebar" class="demo-nav-link" onclick="return false;">Section</a></div></div><div class="hover-pair" style="gap:0;"><div><span class="cap">Hover</span><a href="#sidebar" class="demo-nav-link is-hover-demo" onclick="return false;">Section</a></div></div></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">Padding 32px by 28px. Holds the wordmark (<code>mono</code>, 1.4rem, 700), an anchor nav (<code>mono</code>, 0.8rem, uppercase, 0.15em tracking) and, at the bottom, the toggles, an external link and the copyright at 0.7rem. Nav links rest at 0.75 opacity and lift to 1. One Structural Block per layout: a Sidebar never combines with a HeroBand. Below 860px it collapses to a sticky top bar with a hamburger. See <a href="structural-block.html">Structural Block</a>.</p></div>
+          </section>
+          <section id="hero-band">
+            <div class="divider"><h3>HeroBand</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">The Structural Block as a horizontal band: a solid <code>primary</code> block with <code>primary-foreground</code> text, padding <code>space-16</code> by 48px, used once at the top of a page as an alternative to the Sidebar.</p>
+            <div style="border:1px solid var(--border);"><div style="background:var(--primary); color:var(--primary-foreground); padding:48px 40px;"><p class="label" style="color:var(--primary-foreground); opacity:0.75;">Structural Block · hero band</p><h2 style="margin-top:12px;">Two colors, one accent.</h2></div><div style="padding:20px 40px;"><p class="small measure">Below the band, ink and cream take over every other surface. One strong <span class="accent-word">accent</span> as a bold word; everything else is weight, space, and contrast.</p></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">Never combined with a Sidebar. The bold-word accent (one word in <code>primary</code> at normal weight and size) is independent and may combine with either block form. The consumer provides the heading and any label.</p></div>
+          </section>
+          <section id="modal">
+            <div class="divider"><h3>Modal</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">A backdrop that dims the page with <code>background</code> at 80% (a translucent wash, not a shadow) and a hard-bordered panel: 1px <code>foreground</code> border, <code>background</code> fill, padding <code>space-6</code>, max width 560px.</p>
+            <div class="modal-demo"><div class="page"><p class="label">Page content beneath</p><p class="small" style="margin-top:8px;">Ink and cream, borders, no shadows. The backdrop is a dim, not a shadow.</p></div><div class="overlay"><div class="panel" role="dialog" aria-modal="true" aria-labelledby="modal-demo-title"><h4 id="modal-demo-title">Delete this workspace?</h4><p>Twelve projects and their history will be removed. This cannot be undone.</p><div class="row"><button class="btn btn-destructive">Delete</button><button class="btn btn-outlined">Cancel</button></div></div></div></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">No radius, no elevation shadow, no blur. Actions sit in a row at the bottom as Buttons; the destructive choice uses the Destructive variant, the safe one Outlined. Use <code>role="dialog"</code> and <code>aria-modal</code>.</p></div>
+          </section>
+          <section id="figure">
+            <div class="divider"><h3>Figure</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">An image in a 1px <code>border</code> container at a consistent aspect ratio (4:3 or 16:9), with a <code>mono</code> italic caption beneath a 1px rule. Grayscale by default.</p>
+            <div class="grid grid-2" style="gap:32px;"><figure class="img-grid"><div class="img gray"></div><figcaption>Fig. 1 — grayscale, the default treatment. Keeps the three-token palette intact.</figcaption></figure><figure class="img-grid"><div class="img"></div><figcaption>Fig. 2 — full color, because the photograph itself is the content — a named, scoped exception.</figcaption></figure></div>
+            <div class="measure" style="margin-top:24px;"><p class="small">The default is <code>filter: grayscale(1)</code> or a duotone mapped toward ink and cream, echoing the Swiss tradition of black-and-white photography. Full color is a scoped exception: only when the photograph itself is the primary content (a post's photography, a portfolio, product shots), never for decorative images in UI chrome. The demo stands in for a photograph with a swatch.</p></div>
+          </section>
+          <section id="chart">
+            <div class="divider"><h3>Chart</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Hand-rolled SVG in <code>foreground</code>, <code>muted-foreground</code> and <code>primary</code>; outline rings and dashes, not hues. The full treatment, including the restyled Observable Plot, is on the <a href="charts.html">Charts</a> page.</p>
+            <div class="grid grid-2" style="gap:32px;"><figure style="margin:0;"><figcaption class="label" style="margin-bottom:12px;">Share bars — outline ring marks the highlight</figcaption><svg width="100%" height="120" viewBox="0 0 320 120"><rect x="0" y="10" width="240" height="18" fill="var(--foreground)"/><rect x="0" y="40" width="150" height="18" fill="var(--muted-foreground)"/><rect x="0" y="70" width="90" height="18" fill="var(--muted-foreground)"/><rect x="0" y="10" width="240" height="18" fill="none" stroke="var(--primary)" stroke-width="1.5"/></svg></figure><figure style="margin:0;"><figcaption class="label" style="margin-bottom:12px;">Differential — foreground above, primary below zero</figcaption><svg width="100%" height="120" viewBox="0 0 320 120"><line x1="0" y1="60" x2="320" y2="60" stroke="var(--muted-foreground)" stroke-opacity="0.4"/><polyline fill="none" stroke="var(--foreground)" stroke-width="1.5" points="0,60 40,40 80,30 120,45 160,55 175,60"/><polyline fill="none" stroke="var(--primary)" stroke-width="1.5" points="175,60 200,75 240,90 280,80 320,70"/></svg></figure></div>
+            <div class="measure" style="margin-top:24px;"><p class="small"><code>width="100%"</code>, a fixed height, a <code>viewBox</code> from the data range. Encode categories and emphasis with fill opacity, solid versus dashed strokes and outline rings, never a new hue.</p></div>
+          </section>
+          <section id="icon">
+            <div class="divider"><h3>Icon</h3><span class="rule"></span></div>
+            <p class="measure" style="margin-bottom:24px;">Lucide is the single sanctioned icon set, mirroring the two-font rule: no other library, no icon fonts, no emoji. Restyle three defaults with one CSS rule.</p>
+            <div class="demo"><span class="label">Lucide, restyled <span class="note">— stroke 1.5, square caps, miter joins</span></span><div class="row" style="gap:48px;"><div class="row" style="gap:18px;"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg><!-- menu --><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><!-- x --><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- arrow-right --><svg class="icon" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><!-- external-link --><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg><!-- sun --><svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><!-- moon --></div><span class="label" style="display:inline-flex; align-items:center; gap:8px; color:var(--foreground);"><svg class="icon" viewBox="0 0 24 24" style="width:16px; height:16px;"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>View on GitHub</span></div></div>
+            <div class="measure" style="margin-top:24px;"><pre><code>.icon {{ width: 20px; height: 20px; fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }}</code></pre>
+            <p class="small" style="margin-top:16px;">Size 16 to 20px, <code>currentColor</code> so icons inherit <code>foreground</code> or <code>muted-foreground</code>; <code>primary</code> only in the destructive and accent cases already reserved for it. Icons augment the uppercase mono label and never replace it. In React use <code>lucide-react</code> with the same stroke props. Shown: menu, x, arrow-right, external-link, sun, moon, arrow-up-right.</p></div>
+          </section>
+          <div class="pager"><a href="spacing.html" class="label"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Spacing</a><a href="structural-block.html" class="label">Structural Block <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <footer>
+            <div class="footer-row">
+              <span id="license" class="muted">v2.3.0 · © 2026 Lux Solari (Luciano Laje) — Design <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE-DESIGN">CC BY-SA 4.0</a> · Code <a href="https://github.com/luxsolari/lux-swiss/blob/main/LICENSE">MIT/X11</a></span>
+              <a href="https://github.com/luxsolari/lux-swiss" style="display:inline-flex; align-items:center; gap:8px;">GitHub <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>
