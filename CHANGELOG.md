@@ -6,6 +6,8 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+## [2.4.0] — 2026-09-29
+
 ### Added
 - **Documentation site** — the single showcase page is now a navigable
   site under `docs/` that is both showcase and documentation: Overview,
