@@ -140,6 +140,9 @@ footer { border-top:1px solid var(--border); padding:48px 0; }
 .index-card { display:block; text-decoration:none; color:inherit; border:1px solid var(--border);
   padding:24px; transition:border-color 0.15s; }
 .index-card:hover { border-color:var(--primary); }
+.index-card.demo { padding:20px; }
+.index-card.demo > .label { display:block; margin-bottom:16px; }
+.index-card.demo .btn, .index-card.demo .demo-nav-link { pointer-events:none; }
 .index-card h4 { font-family:var(--font-mono); font-size:1rem; margin-top:12px; }
 .index-card p { margin-top:8px; font-size:0.85rem; color:var(--muted-foreground); }
 

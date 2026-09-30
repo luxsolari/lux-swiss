@@ -79,7 +79,8 @@ await shoot({ dsr: 2, viewport: { width: 1180, height: 1000 } }, [
   { page: "typography.html", id: "#text-length", file: "text-length.png", dark: false },
   { page: "components.html", id: "#gallery", file: "components.png", dark: false },
   { page: "components.html", id: "#figure", file: "images.png", dark: false },
-  { page: "charts.html", id: "#plot", file: "charts.png", dark: false },
+  { page: "charts.html", id: "#handrolled", file: "charts.png", dark: false },
+  { page: "charts.html", id: "#plot figure", file: "plot.png", dark: false },
 ]);
 
 // Social card — exactly 1200x630 at 1x.

@@ -6,6 +6,17 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Components at a glance** — the Components page opens with a compact
+  gallery grid (buttons, tags, pips, input, list, table, cards, toggle,
+  icons, hover pairs, stripe), each card linking to its guideline.
+
+### Changed
+- README and social screenshots regenerated from the documentation site
+  with `scripts/capture/capture.mjs`; `charts.png` now shows the
+  hand-rolled SVG figures and a new `plot.png` the restyled Observable
+  Plot.
+
 ## [2.4.0] — 2026-09-29
 
 ### Added

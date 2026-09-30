@@ -89,6 +89,7 @@ The component library, palette, and hand-rolled + Observable Plot charts:
 
 ![Component gallery](docs/assets/components.png)
 ![Charts](docs/assets/charts.png)
+![Observable Plot, restyled](docs/assets/plot.png)
 
 ## What it does
 
