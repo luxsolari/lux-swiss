@@ -1,5 +1,12 @@
 # Work log
 
+## 2026-10-23 — Explicit Agensi purchase label
+
+- At Lux's request, changed the Agensi action to Buy on Agensi · $4.99 to distinguish a skill purchase from a contribution. Destination, price, free/open-source notice, and Buy Me a Coffee action are unchanged.
+- Verified the scoped diff and git diff --check. Copy-only edit; earlier build/test results remain applicable, with no new full run. Updating the existing PR branch; no merge or production deployment.
+- Photography support was discussed as a possible /photos callout; no photography-specific changes authorized or made.
+- Files: docs/index.html, JOURNAL.md.
+
 ## 2026-10-23 — Support changes prepared for pull request
 
 - Lux approved the local arrangement and requested PRs for both repositories. Kept the reviewed Support via Agensi wording; explained that it can read as a donation although Agensi sells the skill. No copy change requested.
