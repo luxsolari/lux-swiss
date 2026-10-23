@@ -7,11 +7,14 @@ All notable changes to this plugin are documented here. Format follows
 ## [Unreleased]
 
 ### Added
+- An optional Buy Me a Coffee button alongside the Agensi support action.
+- An optional Agensi purchase button beside the installation instructions, with a notice confirming that Lux Swiss remains free and open source.
 - **Components at a glance** — the Components page opens with a compact
   gallery grid (buttons, tags, pips, input, list, table, cards, toggle,
   icons, hover pairs, stripe), each card linking to its guideline.
 
 ### Changed
+- Grouped the optional support notice and buttons in a left-border callout beneath installation.
 - README and social screenshots regenerated from the documentation site
   with `scripts/capture/capture.mjs`; `charts.png` now shows the
   hand-rolled SVG figures and a new `plot.png` the restyled Observable
