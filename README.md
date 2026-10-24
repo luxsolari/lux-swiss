@@ -106,18 +106,12 @@ The skill bundles:
 - **`references/components.md`** — the full component catalogue: buttons, tags,
   status pips, modals, toggles, cards, inputs, and the SVG chart patterns.
 
-## Marketplace package
+## Maintainer packaging
 
-For Agensi, upload the attached **`lux-swiss-agensi-VERSION.zip`** from
-the GitHub Release, not GitHub's automatic **Source code (zip)** archive.
-The skill archive contains six text files: the skill, theme, component
-reference, house-mark explanation, and both license notices. Repository
-plans, screenshot tools, images, and CI files are deliberately excluded.
-
-Rebuild it locally with `python scripts/package_agensi.py`; the version is
-read from `.claude-plugin/plugin.json`. The release workflow attaches the
-ZIP and its SHA-256 checksum automatically. Network references and local
-font/chart alternatives are documented in `SKILL.md`.
+The Agensi submission archive is built locally with
+`python scripts/package_agensi.py`. It is for maintainer upload to Agensi
+and is not attached to public GitHub Releases. The ordinary plugin
+installation below remains unchanged.
 
 ## Install
 
