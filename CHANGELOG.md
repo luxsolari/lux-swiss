@@ -6,6 +6,10 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- A minimal public native-plugin ZIP and checksum built by Release CI,
+  preserving the manifest and skill layout; Agensi packages remain local-only.
+
 ### Fixed
 - Removed Agensi submission artifacts from public release automation;
   marketplace packages are built locally for maintainer upload only.

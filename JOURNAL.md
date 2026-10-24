@@ -1,5 +1,12 @@
 # Work log
 
+## 2026-10-24 — Minimal public native-plugin release artifact
+
+- Lux requested slimming normal release artifacts and updating CI in both repos. Added a separate seven-file public plugin builder preserving .claude-plugin/plugin.json, skills/<name>/SKILL.md, theme, component reference, HOUSE-MARK.md, and both original licenses. Unlike the local Agensi ZIP, this keeps native plugin layout and does not flatten or adapt files.
+- Release CI runs native-package tests and publishes only <name>-plugin-VERSION.zip plus checksum. The Agensi builder is never invoked or uploaded. Automatic GitHub Source code archives remain unmodified full snapshots; README explains the distinction and local build command.
+- Verified three native-package regressions per repo (repeatable bytes/allowlist/native layout, missing theme rejection, unexpected skill-path rejection), philosophy compliance, and whitespace checks. Local candidates: 20,602 bytes. No new version tag or release requested for this CI change; next tagged release will attach the public native artifact.
+- Preparing a new PR after #28's merge. Public Agensi assets have already been deleted; verified local copies retained. Files: scripts/package_plugin.py, scripts/test_package_plugin.py, .github/workflows/release.yml, README.md, CHANGELOG.md, JOURNAL.md.
+
 ## 2026-10-24 — Keep Agensi submission packages out of public releases
 
 - Lux explicitly requested deletion of public Agensi build outputs. Removed the ZIP and checksum release assets, retaining verified copies in the task's local release-assets folders. Removed the marketplace build/test/upload step from Release CI; ordinary changelog-based release creation remains.
