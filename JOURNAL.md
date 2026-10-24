@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-24 — v2.5.0 release preparation via existing CI
+
+- User requested a new Lux Swiss release and explicitly reiterated using the repository release machinery. Bump suggester recommends minor v2.5.0 from v2.4.0; synchronized plugin manifest, changelog dated 2026-10-24, and demo footer labels. Extended PR #27 to include release metadata.
+- Rebuilt six-file lux-swiss-agensi-2.5.0.zip (19,955 bytes); three package regression tests, philosophy checker, changelog extraction, and whitespace checks passed. No design behavior changes. Release will be triggered by a signed version tag only after PR merge, using the existing Release workflow; no manual release publication.
+- Open: merge PR, push tag, confirm CI and downloadable artifact checksum. No Agensi upload. Files: .claude-plugin/plugin.json, CHANGELOG.md, docs/*.html, JOURNAL.md and packaging changes from prior entry.
+
 ## 2026-10-24 — Preemptive Agensi packaging audit
 
 - Latest v2.4.0 release has no attached assets; its source tree has 58 tracked files (current main has 60), exceeding the 50-file threshold quoted in Tri-Swiss's rejection. The skill itself needs three files plus the house-mark explanation and license notices. Repository plans and screenshot tooling are not runtime dependencies.
