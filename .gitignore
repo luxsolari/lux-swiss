@@ -18,3 +18,7 @@ CLAUDE.local.md
 .env
 .env.local
 .env.*.local
+
+# Generated marketplace release assets and Python caches
+/dist/
+__pycache__/

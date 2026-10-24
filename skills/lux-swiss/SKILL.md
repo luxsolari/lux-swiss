@@ -1,5 +1,6 @@
 ---
 name: lux-swiss
+tags: [design-system, ui, css, swiss-design, typography]
 description: >
   Lux Swiss (formerly Duotone Swiss) — Lux Solari's house design system. A
   strict two-color visual language (ink + warm cream) with a single blood-red
@@ -28,6 +29,24 @@ personal brand identity carried into every project built with them. Its
 sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss), applies the
 same governance philosophy through a tri-tone palette with a governed
 Pastel Turquoise highlight; see `HOUSE-MARK.md` for how the two relate.
+
+## Network access and file changes
+
+This package contains instructions, a CSS theme, and component examples, not
+executable scripts or a background network client. Applying it writes the
+requested project's styles and UI files. No API keys or passwords are required.
+
+- `github.com/luxsolari/tri-swiss` is a sibling-system reference, not a
+  required runtime request or upload endpoint.
+- `fonts.googleapis.com/css2` supplies font CSS; the generated site's browser
+  then loads font files from `fonts.gstatic.com`. Use locally hosted fonts
+  instead when external requests are unwanted. These requests send ordinary
+  browser metadata, not project files or credentials.
+- `observablehq.com/plot` is documentation. The optional chart example in
+  `references/components.md` imports code from
+  `cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm` in the browser. Use a
+  locally bundled copy to avoid that CDN request. Hand-written SVG needs no
+  chart-library network access.
 
 ## When you apply this
 
