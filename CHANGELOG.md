@@ -14,6 +14,7 @@ All notable changes to this plugin are documented here. Format follows
   icons, hover pairs, stripe), each card linking to its guideline.
 
 ### Changed
+- Added a spare-time aside to explain the optional support request.
 - Grouped the optional support notice and buttons in a left-border callout beneath installation.
 - README and social screenshots regenerated from the documentation site
   with `scripts/capture/capture.mjs`; `charts.png` now shows the

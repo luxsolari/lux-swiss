@@ -1,5 +1,18 @@
 # Work log
 
+## 2026-10-24 — Review branches for pending Tri-Swiss listing
+
+- Lux requested PR preparation and Coming soon on Agensi actions on the Tri-Swiss project card and demo while approval is pending. Used disabled native buttons without destination or price, retaining existing free access and coffee actions. Published the previously approved spare-time demo copy for review as well.
+- HTML parsing and git diff --check passed. Copy-only addition; no new visual/mobile check.
+- Updating existing draft PR #26. No merge or production deployment. Agensi destination and price remain pending approval for Tri-Swiss.
+- Files: docs/index.html, CHANGELOG.md, JOURNAL.md.
+
+## 2026-10-23 — Spare-time joke in demo support callout
+
+- Added the approved Built in my spare time sentence and open-source-development joke before the existing free/open-source notice in the support aside. Preserved all existing buttons and destinations.
+- Verified HTML parsing, one occurrence of the joke inside the support aside, and git diff --check. Copy-only local edit; no new browser, build, or mobile check. No push, merge, or deployment.
+- Files: docs/index.html, CHANGELOG.md, JOURNAL.md.
+
 ## 2026-10-23 — Explicit Agensi purchase label
 
 - At Lux's request, changed the Agensi action to Buy on Agensi · $4.99 to distinguish a skill purchase from a contribution. Destination, price, free/open-source notice, and Buy Me a Coffee action are unchanged.
