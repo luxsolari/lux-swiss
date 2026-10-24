@@ -106,6 +106,18 @@ The skill bundles:
 - **`references/components.md`** — the full component catalogue: buttons, tags,
   status pips, modals, toggles, cards, inputs, and the SVG chart patterns.
 
+## Public release package
+
+Release CI attaches **`lux-swiss-plugin-VERSION.zip`** and its checksum.
+This seven-file package retains `.claude-plugin/plugin.json`, the native
+`skills/lux-swiss/` layout, the house-mark reference, and license notices.
+Repository plans, demo pages, screenshots, tests, and CI files are excluded.
+Extract it into a plugin directory for local plugin loading; the marketplace
+installation below is unchanged. GitHub's automatic **Source code** archives
+remain full source snapshots and cannot be trimmed by this workflow.
+
+Build locally with `python scripts/package_plugin.py`.
+
 ## Maintainer packaging
 
 The Agensi submission archive is built locally with
