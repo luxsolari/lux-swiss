@@ -6,11 +6,15 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Fixed
+- Removed Agensi submission artifacts from public release automation;
+  marketplace packages are built locally for maintainer upload only.
+
 ## [2.5.0] — 2026-10-24
 
 ### Added
-- A six-file Agensi archive builder and release-CI attachment with a SHA-256
-  checksum, frontmatter tags, and explicit network-reference documentation.
+- A local maintainer archive builder for Agensi submissions, frontmatter
+  tags, and explicit network-reference documentation.
 - An optional Buy Me a Coffee button alongside the Agensi support action.
 - An optional Agensi purchase button beside the installation instructions, with a notice confirming that Lux Swiss remains free and open source.
 - **Components at a glance** — the Components page opens with a compact

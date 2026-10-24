@@ -1,5 +1,18 @@
 # Work log
 
+## 2026-10-24 — Keep Agensi submission packages out of public releases
+
+- Lux explicitly requested deletion of public Agensi build outputs. Removed the ZIP and checksum release assets, retaining verified copies in the task's local release-assets folders. Removed the marketplace build/test/upload step from Release CI; ordinary changelog-based release creation remains.
+- Corrected README and release changelog wording so they no longer offer marketplace packages as public assets. Local packaging tools remain available for maintainer uploads. No source-archive, version-tag, native plugin, or Agensi listing deletion.
+- Verified the workflow has no marketplace-builder invocation or release-upload command, while the normal release-create/edit path remains. Whitespace checks pass. Preparing a corrective PR; release-page notes will be refreshed from the corrected version section. No new version tag required.
+- Files: .github/workflows/release.yml, README.md, CHANGELOG.md, JOURNAL.md.
+
+## 2026-10-24 — v2.5.0 published through Release CI
+
+- At Lux's explicit request, merged PR #27 without bypass at 9476246aedbc0df2b994059d4a51bb7ce953e5f3 and pushed signed annotated tag v2.5.0. Existing Release workflow run 40120621452 succeeded; no manual release creation used.
+- Downloaded the published lux-swiss-agensi-2.5.0.zip and checksum to ../lux-swiss-release-assets; verified SHA-256 and all six payloads against the locally checked build. Agensi upload/update remains for Lux; no marketplace mutation performed.
+- Post-release audit entry remains local only; no source changes after publication. Files: JOURNAL.md.
+
 ## 2026-10-24 — v2.5.0 release preparation via existing CI
 
 - User requested a new Lux Swiss release and explicitly reiterated using the repository release machinery. Bump suggester recommends minor v2.5.0 from v2.4.0; synchronized plugin manifest, changelog dated 2026-10-24, and demo footer labels. Extended PR #27 to include release metadata.
