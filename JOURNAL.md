@@ -1,5 +1,20 @@
 # Work log
 
+## 2026-10-24 — Preemptive Agensi packaging audit
+
+- Latest v2.4.0 release has no attached assets; its source tree has 58 tracked files (current main has 60), exceeding the 50-file threshold quoted in Tri-Swiss's rejection. The skill itself needs three files plus the house-mark explanation and license notices. Repository plans and screenshot tooling are not runtime dependencies.
+- Added the same six-file allowlist builder, metadata tags, endpoint-purpose disclosure/local font and chart alternatives, README artifact guidance, and existing Release CI asset attachment as Tri-Swiss. Kept the native plugin manifest/layout and repository history. No version bump or publication requested; changes remain under Unreleased. Candidate ZIP uses the current manifest version and is not an official v2.4.0 release asset.
+- Three packaging regressions pass (reproducibility/exclusion, broken relative reference rejection, credential-shaped payload rejection), philosophy checker passes, builder verifies six-file ZIP contents and checksum, and whitespace checks pass. Candidate is 19,955 bytes. A bounded scan for GitHub/AWS/Stripe credential formats and private-key headers found no matches in tracked text; this is not an exhaustive secret audit or an Agensi approval claim.
+- Set ZIP creator platform explicitly for stable metadata across Windows/Linux. Tests ran outside the sandbox due to its known temporary-directory restriction. No design tokens or components changed; no new visual checks needed.
+- Preparing feature/agensi-package PR; no merge, tag, release, or Agensi upload. Files: scripts/package_agensi.py, scripts/test_package_agensi.py, skills/lux-swiss/SKILL.md, .github/workflows/release.yml, .gitignore, README.md, CHANGELOG.md, JOURNAL.md.
+
+## 2026-10-24 — Approved merge and public verification
+
+- Lux explicitly requested all three PRs be merged and made live. This repository's merge commit: 19ec21209d0f93444c07faff8ed1b0342bc8b7a3.
+- GitHub Pages build completed without error. Browser verified the public installation support callout, spare-time joke, free/open-source notice, Agensi purchase and coffee destinations.
+- Public verification was desktop/browser content and link inspection, not a new full test or mobile run. Tri-Swiss listing approval remains pending; no purchase URL or price was fabricated.
+- This post-release audit entry is local only to avoid another publication cycle for log-only changes. No source changes after merge. Files: JOURNAL.md.
+
 ## 2026-10-24 — Review branches for pending Tri-Swiss listing
 
 - Lux requested PR preparation and Coming soon on Agensi actions on the Tri-Swiss project card and demo while approval is pending. Used disabled native buttons without destination or price, retaining existing free access and coffee actions. Published the previously approved spare-time demo copy for review as well.
