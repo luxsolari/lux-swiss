@@ -1,5 +1,17 @@
 # Work log
 
+## 2026-10-24 — Release 2.6.0 with separated artifacts
+
+- Lux requested new releases via existing CI, explicitly authorizing administrator bypass where needed, and local Agensi packages. Bump script derived v2.6.0; synchronized manifest, changelog, and demo footer version labels.
+- Both builders pass: native plugin ZIP has seven files and preserved manifest/skill layout; local Agensi ZIP has six files. All six package regression tests, philosophy check, and whitespace check pass. CI invokes/uploads only the public native-plugin builder and checksum.
+- The screenshot-referenced private-packaging-pr.txt and other PR drafts were loose workspace files, not tracked in any repo. Archived them outside the workspace after a sandbox move failure. New PRs use inline descriptions, with no draft text files added to a repo.
+- Preparing release PR and version tag; public CI publication and downloaded-asset verification still pending. No Agensi upload. Files: .claude-plugin/plugin.json, CHANGELOG.md, docs/*.html, JOURNAL.md.
+
+## 2026-10-24 — Public artifact separation merged
+
+- Merged PR #29 normally with minimal public native plugin packaging; Agensi-specific release assets remain removed. Read back main's workflow via GitHub API and verified only native plugin packaging is invoked/uploaded. Current release custom-asset count is zero.
+- Next version-tag publication will attach the seven-file native plugin ZIP and checksum; no new release or historical tag rewrite performed. Local Agensi ZIPs remain available for manual submission. Post-merge audit entry is local only.
+
 ## 2026-10-24 — Minimal public native-plugin release artifact
 
 - Lux requested slimming normal release artifacts and updating CI in both repos. Added a separate seven-file public plugin builder preserving .claude-plugin/plugin.json, skills/<name>/SKILL.md, theme, component reference, HOUSE-MARK.md, and both original licenses. Unlike the local Agensi ZIP, this keeps native plugin layout and does not flatten or adapt files.
