@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-26 — Host-specific demo installation
+
+- Replace the generic Claude-only install block with native expandable Claude Code, Codex and Hermes instructions, each identifying chat versus terminal context. Include actual renamed selectors, public collection links, Hermes active-profile scope and a new-session note.
+- Sources: published collection READMEs/catalog, Codex plugin add/marketplace add local help and official plugin packaging docs; Hermes skills install help. No installations performed; this is command/documentation verification, not a fresh runtime smoke test.
+- Preserve edition layout/copy and support choices. Verification pending: philosophy/whitespace, browser disclosures/overflow and publication. Relevant files: docs/index.html, docs/assets/site.css, CHANGELOG.md, JOURNAL.md. Earlier local production notes retained in named stash. No runtime/version/license change.
+
 ## 2026-10-26 — Refine edition layout and support copy
 
 - Remove duplicate install CTA and host-specific marketing/header wording. Retain concrete installation commands; preserve the open-source aside.
