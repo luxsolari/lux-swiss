@@ -7,6 +7,9 @@ All notable changes to this plugin are documented here. Format follows
 ## [Unreleased]
 
 ### Changed
+- Add labeled Claude Code, Codex and Hermes README installation instructions matching the demos; consolidate the duplicate migration install example.
+
+### Changed
 - Label installation by host and add Codex marketplace and Hermes tap commands alongside Claude Code, with collection links and a new-session note.
 
 ### Changed
