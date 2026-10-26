@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-26 — Restore the original open-source aside
+
+- At Lux's request, replace the compact comparison introduction with the original line: Open source has many virtues; paying for its own development is rarely one of them.
+- Keep the concise edition descriptions, optional coffee route, paid workflow, corrected banners and all destinations. No extra support section is introduced; the same sentence is already retained on the personal site's Projects page.
+- Verification pending at entry creation: philosophy/whitespace and exact live readback. Copy-only; no runtime, styling, price, license or Agensi listing change. Files: docs/index.html, CHANGELOG.md, JOURNAL.md.
+
 ## 2026-10-26 — Shorten the edition comparison
 
 - Trim repeated support/product explanations to one short paragraph per edition plus an optional-coffee note. Shorten CTAs to Get the free plugin and Get Supporter Edition; retain their destinations and both support choices.
