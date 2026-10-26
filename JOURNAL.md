@@ -1,5 +1,12 @@
 # Work log
 
+## 2026-10-26 — Explain Open Source and Supporter Edition
+
+- Added an edition comparison to the showcase and README: free complete interface plugin versus paid Agensi workflow with the planned Image Direction companion and managed access. Preserve separate optional coffee support; remove fixed-price/donation-only purchase wording.
+- Mark updated packs as in preparation/review; do not claim the new pack or bundle is live. State host/image-reference delivery limits and link to primary Agensi guidance. Native plugin names/identifiers, versions, licenses, theme and runtime remain unchanged.
+- Verification pending at entry creation: philosophy checks, HTML/link validation and local layout inspection; checked PR and live readback follow. Prior JOURNAL-only verification note retained in named stash.
+- Scope: docs/index.html, README.md, CHANGELOG.md, JOURNAL.md. Agensi listing edits remain in the separate active commercial task; no concurrent remote listing mutation here.
+
 ## 2026-10-26 — Unify the Lux Visual Systems family
 
 - Changed active branding, repository/install identifiers and explicit skill/command references to the three owner-approved family names. Preserved historical changelog/journal entries, source snapshots, licenses, binary assets and version numbers. Source identifiers are a breaking migration; users must select/reinstall the new package.
