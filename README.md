@@ -127,12 +127,42 @@ installation below remains unchanged.
 
 ## Install
 
-Add the marketplace, then install:
+Choose your host. Add the collection once, then install this system.
 
-```
+### Claude Code
+
+Run in Claude Code:
+
+```text
 /plugin marketplace add luxsolari/lux-solari-plugins
 /plugin install lux-visual-systems-lux-swiss
 ```
+
+[Claude Code collection](https://github.com/luxsolari/lux-solari-plugins)
+
+### Codex
+
+Run in your terminal with the Codex CLI installed:
+
+```sh
+codex plugin marketplace add luxsolari/lux-solari-codex-plugins
+codex plugin add lux-visual-systems-lux-swiss@lux-solari-codex
+```
+
+[Codex collection](https://github.com/luxsolari/lux-solari-codex-plugins)
+
+### Hermes
+
+Run in your terminal with Hermes installed. Installs into the active profile:
+
+```sh
+hermes skills tap add luxsolari/lux-solari-hermes-plugins
+hermes skills install luxsolari/lux-solari-hermes-plugins/skills/lux-visual-systems-lux-swiss
+```
+
+[Hermes collection](https://github.com/luxsolari/lux-solari-hermes-plugins)
+
+Start a new session after installation to load the system.
 
 ## Applying it to a project
 
@@ -169,11 +199,7 @@ package and update explicit invocations; existing installations do not rename
 themselves. Previous releases and historical records retain their original names.
 The design rules, licensed assets and repository visibility are unchanged.
 
-### Install from the shared Claude marketplace
-
-```text
-/plugin install lux-visual-systems-lux-swiss --marketplace luxsolari/lux-solari-plugins
-```
+See [Install](#install) for the current host-specific commands.
 
 ## Open Source and Supporter Edition
 

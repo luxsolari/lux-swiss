@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-26 — README installation for all three hosts
+
+- Replace Claude-only Install with labeled Claude Code, Codex and Hermes sections, exact demo commands, collection links, execution context, Hermes active-profile scope and a new-session note. Replace the duplicate migration install block with a link to Install.
+- Verified all three command blocks byte-for-byte against docs/index.html; whitespace check follows. Reuses the host syntax verified for the published demos; no installation performed. Edition/support content and native runtime/version/license unchanged.
+- Files: README.md, CHANGELOG.md, JOURNAL.md. Pending: PR review/merge and remote source readback. Previous local verification notes preserved in named stash.
+
 ## 2026-10-26 — Host-specific demo installation
 
 - Replace the generic Claude-only install block with native expandable Claude Code, Codex and Hermes instructions, each identifying chat versus terminal context. Include actual renamed selectors, public collection links, Hermes active-profile scope and a new-session note.
