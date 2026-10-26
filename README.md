@@ -179,8 +179,15 @@ The design rules, licensed assets and repository visibility are unchanged.
 
 The complete interface design system remains free and open source. Supporter
 Edition names the paid Agensi offer, combining the interface workflow and
-Image Direction companion with purchase/access managed by Agensi. The Agensi listing states the current version, included files and price. Image generation requires a capable host; Agensi text delivery
+Image Direction companion with purchase/access managed by Agensi. The Agensi
+listing states the current version, included files and price. Image generation
+requires a capable host; Agensi text delivery
 does not make packaged PNG pixels visible to an agent.
 
 See the [edition comparison](https://luxsolari.github.io/lux-visual-systems-lux-swiss/#editions)
 and the [Agensi listing](https://www.agensi.io/skills/lux-visual-systems-lux-swiss).
+
+You can support the work either by buying the Supporter Edition for its additional
+workflow, or by [leaving an optional coffee](https://buymeacoffee.com/lux.solari)
+while using the complete open-source plugin. A donation is a thank-you; the free
+plugin does not require a purchase or donation.
