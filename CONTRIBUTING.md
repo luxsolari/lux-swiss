@@ -3,7 +3,7 @@
 Contributions welcome! Here's how:
 
 ## Design changes
-The design language lives in `skills/lux-swiss/`. Keep the two governing
+The design language lives in `skills/lux-visual-systems-lux-swiss/`. Keep the two governing
 rules intact — **duotone strict** (two colors + one accent, used more freely for
 action/Structural-Block/brand-moment/hover-signal jobs, but never a second hue) and
 **Swiss-minimalist** (visible borders, no shadows). Changes that add a color or a
@@ -36,7 +36,7 @@ version.
 
 ## License
 This repo is dual-licensed (see [README.md](README.md#license)):
-contributions to `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`,
+contributions to `skills/lux-visual-systems-lux-swiss/`, `docs/index.html`, `docs/assets/`,
 or `HOUSE-MARK.md` are accepted under CC BY-SA 4.0; contributions to
 `scripts/` or other tooling are accepted under MIT/X11.
 

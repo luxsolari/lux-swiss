@@ -52,4 +52,4 @@ jobs:
           else
             gh release create "$TAG" --repo "${{ github.repository }}" --title "$TAG" --notes-file release_notes.md
           fi
-          gh release upload "$TAG" dist/lux-swiss-plugin-*.zip dist/lux-swiss-plugin-*.zip.sha256 --repo "${{ github.repository }}" --clobber
+          gh release upload "$TAG" dist/lux-visual-systems-lux-swiss-plugin-*.zip dist/lux-visual-systems-lux-swiss-plugin-*.zip.sha256 --repo "${{ github.repository }}" --clobber

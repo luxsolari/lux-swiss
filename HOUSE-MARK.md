@@ -1,6 +1,6 @@
 # House Mark
 
-Tri-Swiss and Lux Swiss are Lux Solari's two house-mark design systems —
+Lux Visual Systems - Tri-Swiss and Lux Visual Systems - Lux Swiss are Lux Solari's two house-mark design systems —
 not two variations of one system, but two related, independently governed
 languages that both carry the same personal brand identity into whatever
 project they're applied to. A house mark, in the traditional sense, is the
@@ -27,7 +27,7 @@ two systems play here.
 
 ## What's different
 
-| | Tri-Swiss | Lux Swiss |
+| | Lux Visual Systems - Tri-Swiss | Lux Visual Systems - Lux Swiss |
 |---|---|---|
 | Palette | Tri-tone — ink/cream + Swiss Red + a governed Pastel Turquoise highlight | Strict duotone — ink/cream + Blood Red, no third color |
 | Icons | `geist-icons` | Lucide |
@@ -35,8 +35,8 @@ two systems play here.
 
 ## Picking one
 
-Use Tri-Swiss when a project wants a bit more chromatic range (the
-governed Turquoise highlight, used decoratively). Use Lux Swiss when a
+Use Lux Visual Systems - Tri-Swiss when a project wants a bit more chromatic range (the
+governed Turquoise highlight, used decoratively). Use Lux Visual Systems - Lux Swiss when a
 project wants the starkest possible two-color statement. Both apply the
 same Swiss-minimalist structural rules underneath — picking one is a
 palette decision, not a governance one.

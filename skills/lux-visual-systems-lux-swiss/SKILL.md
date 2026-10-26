@@ -1,8 +1,8 @@
 ---
-name: lux-swiss
+name: lux-visual-systems-lux-swiss
 tags: [design-system, ui, css, swiss-design, typography]
 description: >
-  Lux Swiss (formerly Duotone Swiss) — Lux Solari's house design system. A
+  Lux Visual Systems - Lux Swiss (formerly Duotone Swiss) — Lux Solari's house design system. A
   strict two-color visual language (ink + warm cream) with a single blood-red
   accent, Swiss-minimalist layout, visible borders, no shadows, and Space Mono
   / Space Grotesk typography. Use this skill whenever building, styling, or
@@ -17,16 +17,16 @@ description: >
   client's brand kit), defer to that instead.
 ---
 
-# Lux Swiss — Design System
+# Lux Visual Systems - Lux Swiss — Design System
 
 A strict, minimalist visual language. Two functional colors plus one accent, hard
 borders, generous whitespace, monospace labels. The whole point is restraint: every
 element earns its place or is removed, and **difference is expressed through
 typography, spacing, and contrast — never by adding a color.**
 
-Lux Swiss is one of Lux Solari's two house-mark design systems — the
+Lux Visual Systems - Lux Swiss is one of Lux Solari's two house-mark design systems — the
 personal brand identity carried into every project built with them. Its
-sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss), applies the
+sibling, [Lux Visual Systems - Tri-Swiss](https://github.com/luxsolari/lux-visual-systems-tri-swiss), applies the
 same governance philosophy through a tri-tone palette with a governed
 Pastel Turquoise highlight; see `HOUSE-MARK.md` for how the two relate.
 
@@ -36,7 +36,7 @@ This package contains instructions, a CSS theme, and component examples, not
 executable scripts or a background network client. Applying it writes the
 requested project's styles and UI files. No API keys or passwords are required.
 
-- `github.com/luxsolari/tri-swiss` is a sibling-system reference, not a
+- `github.com/luxsolari/lux-visual-systems-tri-swiss` is a sibling-system reference, not a
   required runtime request or upload endpoint.
 - `fonts.googleapis.com/css2` supplies font CSS; the generated site's browser
   then loads font files from `fonts.gstatic.com`. Use locally hosted fonts
@@ -150,8 +150,8 @@ Dark mode is the `.dark` class on `<html>`. Toggle with
 
 ### The brand-moment device — read this before using it
 
-Lux Swiss has no second color, so it needs a different way to express
-Tri-Swiss's "one governed brand moment" job (that system uses a rare
+Lux Visual Systems - Lux Swiss has no second color, so it needs a different way to express
+Lux Visual Systems - Tri-Swiss's "one governed brand moment" job (that system uses a rare
 highlight color for it). Here it's typographic: **exactly one element per
 page** — the hero wordmark — renders larger and bolder than anything else
 on the page. Neither Space Grotesk nor Space Mono actually ships a weight
@@ -252,7 +252,7 @@ every heading site-wide, giving it real protagonism rather than a
 single narrow appearance. Labels, nav, tags, table headers, and data
 values stay on `--font-mono` directly — those are functional UI text,
 not headings, and keep the monospace-label identity this system shares
-with Tri-Swiss.
+with Lux Visual Systems - Tri-Swiss.
 
 Unlike `.geist`, `.jost` is **not** a flavor: it composes independently
 with either flavor and with `.dark`, exactly like `.dark` composes with
@@ -280,7 +280,7 @@ own.
 {/* Hero title/wordmark and editorial chapter dividers are styled as
     headings, not marked up as <h1>-<h6> — they use font-display directly: */}
 <div className="font-display" style={{ fontSize: "4.5rem", fontWeight: 700 }}>
-  Lux Swiss.
+  Lux Visual Systems - Lux Swiss.
 </div>
 
 <div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
@@ -403,7 +403,7 @@ two-font rule, no other icon library, no icon fonts, no emoji.
 
 Restyle Lucide's three off-identity defaults; keep everything else:
 
-| Attribute | Lucide default | Lux Swiss |
+| Attribute | Lucide default | Lux Visual Systems - Lux Swiss |
 |-----------|---------------|---------------|
 | `stroke-width` | `2` | `1.5` |
 | `stroke-linecap` | `round` | `square` |

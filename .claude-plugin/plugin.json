@@ -1,13 +1,13 @@
 {
-  "name": "lux-swiss",
+  "name": "lux-visual-systems-lux-swiss",
   "version": "2.6.0",
-  "description": "Lux Swiss (formerly Duotone Swiss) — a strict two-color (ink + cream) plus single blood-red accent, Swiss-minimalist design system. Applies a consistent house aesthetic across any stack.",
+  "description": "Lux Visual Systems - Lux Swiss (formerly Duotone Swiss) — a strict two-color (ink + cream) plus single blood-red accent, Swiss-minimalist design system. Applies a consistent house aesthetic across any stack.",
   "author": {
     "name": "Lux Solari",
     "email": "luxsolari@outlook.com",
     "url": "https://github.com/luxsolari"
   },
-  "repository": "https://github.com/luxsolari/lux-swiss",
+  "repository": "https://github.com/luxsolari/lux-visual-systems-lux-swiss",
   "license": "CC-BY-SA-4.0",
   "keywords": [
     "design-system",

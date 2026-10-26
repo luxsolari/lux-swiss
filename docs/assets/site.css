@@ -1,7 +1,7 @@
-/* Lux Swiss — documentation site stylesheet.
- * Tokens mirror skills/lux-swiss/assets/theme.css exactly; keep them in sync.
+/* Lux Visual Systems - Lux Swiss — documentation site stylesheet.
+ * Tokens mirror skills/lux-visual-systems-lux-swiss/assets/theme.css exactly; keep them in sync.
  * Everything below the token blocks is the showcase/documentation chrome and the
- * component patterns documented in skills/lux-swiss/references/components.md. */
+ * component patterns documented in skills/lux-visual-systems-lux-swiss/references/components.md. */
 
 :root {
   --background:#f5efe0; --foreground:#0a0a0a; --card:#faf6ec; --card-foreground:#0a0a0a;
