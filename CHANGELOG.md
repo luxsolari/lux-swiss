@@ -8,6 +8,11 @@ All notable changes to this plugin are documented here. Format follows
 
 ### Changed
 
+- Make the edition comparison evergreen: present-tense Supporter Edition contents, no preparation/review notices, and the live listing as the source for current version/files/price.
+
+
+### Changed
+
 - Explain Open Source versus Supporter Edition on the showcase, including the planned Image Direction pack, managed Agensi access, delivery limits and current listing as the authority on availability. No runtime, license or price change.
 
 

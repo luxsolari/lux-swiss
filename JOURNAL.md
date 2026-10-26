@@ -1,5 +1,12 @@
 # Work log
 
+## 2026-10-26 — Make Supporter Edition comparison evergreen
+
+- At Lux's explicit request, describe Supporter Edition contents in the present tense and remove preparation/review notices from the public comparison and matching README. Keep the listing reference for current version/files/price, open-source completeness and image-tool/reference-delivery limits.
+- Removed the temporary planned-bundle sentence; no new bundle URL, price, availability badge, native identifier, version, runtime or license change.
+- This is authorized forward-facing copy, not independent verification that the parallel Agensi submission has been approved. Publication/serving status remains recorded separately in the owner journal.
+- Verification pending at entry creation: philosophy checks and whitespace; exact PR/merge/live readback follow. Files: docs/index.html, README.md, CHANGELOG.md, JOURNAL.md.
+
 ## 2026-10-26 — Explain Open Source and Supporter Edition
 
 - Added an edition comparison to the showcase and README: free complete interface plugin versus paid Agensi workflow with the planned Image Direction companion and managed access. Preserve separate optional coffee support; remove fixed-price/donation-only purchase wording.
