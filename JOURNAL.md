@@ -3,6 +3,7 @@
 ## 2026-10-26 — Make Supporter Edition comparison evergreen
 
 - At Lux's explicit request, describe Supporter Edition contents in the present tense and remove preparation/review notices from the public comparison and matching README. Keep the listing reference for current version/files/price, open-source completeness and image-tool/reference-delivery limits.
+- Further correction: the family rename had left the old one-line banner typography in place, causing clipping and poor contrast over the artwork. Split the family label from the large short variant name in the responsive cover, standalone banner source and social-card source. Add compact-container spacing; no asset colors or shapes changed. Responsive/browser fit checks follow.
 - Follow-up from Lux: make the two support routes explicit. The free card offers source plus an optional coffee thank-you; the paid card explains additional workflow and managed Agensi access. Remove the separate competing support aside.
 - Removed the temporary planned-bundle sentence; no new bundle URL, price, availability badge, native identifier, version, runtime or license change.
 - This is authorized forward-facing copy, not independent verification that the parallel Agensi submission has been approved. Publication/serving status remains recorded separately in the owner journal.
