@@ -1,25 +1,25 @@
-# Lux Swiss
+# Lux Visual Systems - Lux Swiss
 
-[![Version](https://img.shields.io/github/v/release/luxsolari/lux-swiss)](https://github.com/luxsolari/lux-swiss/releases)
+[![Version](https://img.shields.io/github/v/release/luxsolari/lux-visual-systems-lux-swiss)](https://github.com/luxsolari/lux-visual-systems-lux-swiss/releases)
 [![License: MIT/X11](https://img.shields.io/badge/license-MIT%2FX11-blue.svg)](LICENSE)
 [![Design: CC BY-SA 4.0](https://img.shields.io/badge/design-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE-DESIGN)
 
 <p align="center">
-  <a href="https://luxsolari.github.io/lux-swiss/">
+  <a href="https://luxsolari.github.io/lux-visual-systems-lux-swiss/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png" />
-      <img src="docs/assets/banner-light.png" alt="Lux Swiss — two colors, one accent, no shadows" width="960" />
+      <img src="docs/assets/banner-light.png" alt="Lux Visual Systems - Lux Swiss — two colors, one accent, no shadows" width="960" />
     </picture>
   </a>
 </p>
 
-<p align="center"><strong><a href="https://luxsolari.github.io/lux-swiss/">Showcase and documentation →</a></strong></p>
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-visual-systems-lux-swiss/">Showcase and documentation →</a></strong></p>
 
-A Claude Code plugin that teaches Claude **Lux Swiss** (formerly Duotone
+A Claude Code plugin that teaches Claude **Lux Visual Systems - Lux Swiss** (formerly Duotone
 Swiss) — Lux Solari's house design language — so every project you build
 shares one consistent, opinionated aesthetic.
 
-Lux Swiss and its sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss),
+Lux Visual Systems - Lux Swiss and its sibling, [Lux Visual Systems - Tri-Swiss](https://github.com/luxsolari/lux-visual-systems-tri-swiss),
 are the two house-mark design systems that carry Lux Solari's personal
 brand identity into every project built with them — related governance,
 distinct palettes. See [HOUSE-MARK.md](HOUSE-MARK.md) for how the two
@@ -58,20 +58,20 @@ Win/loss, active/inactive, emphasis, and error are all expressed through
 
 ## See it
 
-[luxsolari.github.io/lux-swiss](https://luxsolari.github.io/lux-swiss/) is both
+[luxsolari.github.io/lux-visual-systems-lux-swiss](https://luxsolari.github.io/lux-visual-systems-lux-swiss/) is both
 the showcase and the documentation. Its sidebar is the system's own Structural
 Block, and every demo on it is plain HTML on the tokens:
 
 | Page | What it documents |
 |------|-------------------|
-| [Overview](https://luxsolari.github.io/lux-swiss/) | The banner, the two governing rules, how to use the system, the do-not list |
-| [Colors](https://luxsolari.github.io/lux-swiss/colors.html) | Thirteen semantic tokens in both themes, Blood Red's four jobs, measured contrast |
-| [Typography](https://luxsolari.github.io/lux-swiss/typography.html) | Three roles, the Space/Geist flavors, the weight axis, the heading scale, labels, Jost |
-| [Spacing](https://luxsolari.github.io/lux-swiss/spacing.html) | Spacing steps, the one radius, fixed sizes, opacity states |
-| [Components](https://luxsolari.github.io/lux-swiss/components.html) | Sixteen patterns with live demos and guidelines |
-| [Structural Block](https://luxsolari.github.io/lux-swiss/structural-block.html) | Sidebar, hero band, bold word, the segment stripe, the brand moment, hover hierarchy |
-| [Charts](https://luxsolari.github.io/lux-swiss/charts.html) | Hand-rolled SVG and the restyled Observable Plot |
-| [House Mark](https://luxsolari.github.io/lux-swiss/house-mark.html) | How Lux Swiss and Tri-Swiss relate |
+| [Overview](https://luxsolari.github.io/lux-visual-systems-lux-swiss/) | The banner, the two governing rules, how to use the system, the do-not list |
+| [Colors](https://luxsolari.github.io/lux-visual-systems-lux-swiss/colors.html) | Thirteen semantic tokens in both themes, Blood Red's four jobs, measured contrast |
+| [Typography](https://luxsolari.github.io/lux-visual-systems-lux-swiss/typography.html) | Three roles, the Space/Geist flavors, the weight axis, the heading scale, labels, Jost |
+| [Spacing](https://luxsolari.github.io/lux-visual-systems-lux-swiss/spacing.html) | Spacing steps, the one radius, fixed sizes, opacity states |
+| [Components](https://luxsolari.github.io/lux-visual-systems-lux-swiss/components.html) | Sixteen patterns with live demos and guidelines |
+| [Structural Block](https://luxsolari.github.io/lux-visual-systems-lux-swiss/structural-block.html) | Sidebar, hero band, bold word, the segment stripe, the brand moment, hover hierarchy |
+| [Charts](https://luxsolari.github.io/lux-visual-systems-lux-swiss/charts.html) | Hand-rolled SVG and the restyled Observable Plot |
+| [House Mark](https://luxsolari.github.io/lux-visual-systems-lux-swiss/house-mark.html) | How Lux Visual Systems - Lux Swiss and Lux Visual Systems - Tri-Swiss relate |
 
 The site is static HTML under `docs/`, served by GitHub Pages: `docs/assets/site.css`
 holds the tokens and every pattern, `docs/assets/site.js` the theme, flavor and Jost
@@ -93,7 +93,7 @@ The component library, palette, and hand-rolled + Observable Plot charts:
 
 ## What it does
 
-Once installed, the `lux-swiss` skill activates automatically whenever
+Once installed, the `lux-visual-systems-lux-swiss` skill activates automatically whenever
 Claude builds or restyles UI — components, pages, forms, dashboards, Tailwind/CSS
 themes — and applies these tokens and patterns by default, even if you don't name
 the design system. You can also invoke it explicitly ("apply my design system",
@@ -108,9 +108,9 @@ The skill bundles:
 
 ## Public release package
 
-Release CI attaches **`lux-swiss-plugin-VERSION.zip`** and its checksum.
+Release CI attaches **`lux-visual-systems-lux-swiss-plugin-VERSION.zip`** and its checksum.
 This seven-file package retains `.claude-plugin/plugin.json`, the native
-`skills/lux-swiss/` layout, the house-mark reference, and license notices.
+`skills/lux-visual-systems-lux-swiss/` layout, the house-mark reference, and license notices.
 Repository plans, demo pages, screenshots, tests, and CI files are excluded.
 Extract it into a plugin directory for local plugin loading; the marketplace
 installation below is unchanged. GitHub's automatic **Source code** archives
@@ -131,7 +131,7 @@ Add the marketplace, then install:
 
 ```
 /plugin marketplace add luxsolari/lux-solari-plugins
-/plugin install lux-swiss
+/plugin install lux-visual-systems-lux-swiss
 ```
 
 ## Applying it to a project
@@ -151,7 +151,7 @@ Dark mode is the `.dark` class on `<html>`, toggled via JS and persisted to
 
 This repository is dual-licensed:
 
-- **The design system itself** (`skills/lux-swiss/`, `docs/index.html`,
+- **The design system itself** (`skills/lux-visual-systems-lux-swiss/`, `docs/index.html`,
   `docs/assets/`, [HOUSE-MARK.md](HOUSE-MARK.md)) — CC BY-SA 4.0 © 2026
   Lux Solari (Luciano Laje). Free to use and adapt, including
   commercially, provided you credit Lux Solari and license your
@@ -159,3 +159,18 @@ This repository is dual-licensed:
 - **Everything else** (build/tooling scripts, CI config, git hooks, and
   project documentation such as this README) — MIT/X11 © 2026 Lux
   Solari (Luciano Laje). See [LICENSE](LICENSE).
+
+## Naming migration
+
+This member of the Lux Visual Systems family now uses `lux-visual-systems-lux-swiss`
+as its repository, installation identifier, skill name and command namespace.
+It replaces the previous `lux-swiss` identifier. Reinstall/select the renamed
+package and update explicit invocations; existing installations do not rename
+themselves. Previous releases and historical records retain their original names.
+The design rules, licensed assets and repository visibility are unchanged.
+
+### Install from the shared Claude marketplace
+
+```text
+/plugin install lux-visual-systems-lux-swiss --marketplace luxsolari/lux-solari-plugins
+```

@@ -187,7 +187,7 @@ signal visible without a live pointer:
 ```
 
 **Nav-link hover, Default vs. Hover.** A plain opacity shift — no
-decorative flourish exists here, unlike Tri-Swiss's turquoise-flourish
+decorative flourish exists here, unlike Lux Visual Systems - Tri-Swiss's turquoise-flourish
 nav link, since this system has no second color to add one with:
 
 ```html

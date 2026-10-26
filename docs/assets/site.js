@@ -1,4 +1,4 @@
-// Lux Swiss docs — shared behaviour: theme / flavor / Jost toggles (persisted in
+// Lux Visual Systems - Lux Swiss docs — shared behaviour: theme / flavor / Jost toggles (persisted in
 // localStorage under "theme", "flavor", "jost"), the mobile nav, the current-page
 // marker in the sidebar, and live palette values. The head of every page applies
 // the saved classes before first paint (see the inline script there); this file
