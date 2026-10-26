@@ -289,3 +289,23 @@ figure.img-grid figcaption, .caption { border-top:1px solid var(--border); paddi
   .page-head { padding:32px 0; }
   section { padding:40px 0; }
 }
+
+/* Edition choice: shared action baseline and a compact, readable comparison. */
+#install { padding-bottom:32px; }
+#editions { margin-top:32px; padding:32px 0 0; }
+.edition-grid { gap:24px; margin-top:24px; }
+.edition-card { display:flex; flex-direction:column; min-width:0; }
+.edition-card h3 { margin-top:12px; }
+.edition-thanks { margin-bottom:20px; }
+.edition-actions { margin-top:auto; padding-top:4px; }
+.edition-actions .btn { display:flex; width:100%; text-align:center; justify-content:center; white-space:normal; }
+.edition-table-wrap { margin-top:24px; }
+.edition-table { table-layout:fixed; }
+.edition-table caption { text-align:left; margin-bottom:12px; font-family:var(--font-mono); }
+.edition-table th[scope="row"] { font-family:var(--font-sans); text-transform:none; letter-spacing:normal; font-weight:500; }
+.edition-table th, .edition-table td { overflow-wrap:anywhere; }
+.edition-table th[scope="row"] { border-bottom:1px solid var(--border); padding:8px 12px 8px 0; }
+.edition-note { margin-top:20px; color:var(--muted-foreground); }
+@media (max-width:600px) {
+  .edition-table th, .edition-table td { font-size:0.75rem; padding-right:8px; }
+}
