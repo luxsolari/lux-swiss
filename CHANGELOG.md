@@ -7,6 +7,9 @@ All notable changes to this plugin are documented here. Format follows
 ## [Unreleased]
 
 ### Changed
+- Refine demo edition choices: neutral install heading without duplicate CTA, aligned card actions, supporter thanks, compact comparison table and reduced section spacing.
+
+### Changed
 
 - Restore the original open-source aside above the compact edition cards, replacing the generic introduction rather than adding another support block.
 

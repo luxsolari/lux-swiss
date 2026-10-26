@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-26 — Refine edition layout and support copy
+
+- Remove duplicate install CTA and host-specific marketing/header wording. Retain concrete installation commands; preserve the open-source aside.
+- Add brief thanks, one full-width primary action per card on a shared baseline, an optional coffee link, and a four-row semantic comparison table. Remove stacked nested-section bottom padding before the rules divider.
+- Verification pending: philosophy/whitespace, desktop/mobile browser layout and remote checks. No native plugin, runtime, version, license, price or listing change. Files: docs/index.html, docs/assets/site.css, CHANGELOG.md, JOURNAL.md. Previous local readback preserved in a named stash.
+
 ## 2026-10-26 — Restore the original open-source aside
 
 - At Lux's request, replace the compact comparison introduction with the original line: Open source has many virtues; paying for its own development is rarely one of them.
