@@ -1,5 +1,11 @@
 # Work log
 
+## 2026-10-26 — Shorten the edition comparison
+
+- Trim repeated support/product explanations to one short paragraph per edition plus an optional-coffee note. Shorten CTAs to Get the free plugin and Get Supporter Edition; retain their destinations and both support choices.
+- Keep the existing evergreen present-tense copy, banner family/variant hierarchy and compact layout fixes. Condense footer requirements while retaining the image-tool requirement and linked reference-delivery details.
+- Verification pending at entry creation: philosophy/whitespace and local rendered layout; no native plugin/runtime/version/license or Agensi product change. Files: docs/index.html, CHANGELOG.md, JOURNAL.md. Header grouping remains in the separate site PR.
+
 ## 2026-10-26 — Make Supporter Edition comparison evergreen
 
 - At Lux's explicit request, describe Supporter Edition contents in the present tense and remove preparation/review notices from the public comparison and matching README. Keep the listing reference for current version/files/price, open-source completeness and image-tool/reference-delivery limits.
