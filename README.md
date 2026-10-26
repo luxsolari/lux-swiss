@@ -174,3 +174,16 @@ The design rules, licensed assets and repository visibility are unchanged.
 ```text
 /plugin install lux-visual-systems-lux-swiss --marketplace luxsolari/lux-solari-plugins
 ```
+
+## Open Source and Supporter Edition
+
+The complete interface design system remains free and open source. Supporter
+Edition names the paid Agensi offer, combining the interface workflow and planned
+Image Direction companion with purchase/access managed by Agensi. Updated packs
+are being prepared or reviewed: the live listing states what it currently serves.
+A future bundle brings both systems together with the shared Image Direction
+workflow. Image generation requires a capable host; Agensi text delivery
+does not make packaged PNG pixels visible to an agent.
+
+See the [edition comparison](https://luxsolari.github.io/lux-visual-systems-lux-swiss/#editions)
+and the [Agensi listing](https://www.agensi.io/skills/lux-visual-systems-lux-swiss).

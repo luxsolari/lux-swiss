@@ -8,6 +8,11 @@ All notable changes to this plugin are documented here. Format follows
 
 ### Changed
 
+- Explain Open Source versus Supporter Edition on the showcase, including the planned Image Direction pack, managed Agensi access, delivery limits and current listing as the authority on availability. No runtime, license or price change.
+
+
+### Changed
+
 - Rename the visual family to Lux Visual Systems - Lux Swiss, Lux Visual Systems - Tri-Swiss, and Lux Visual Systems - Image Direction. Update active identifiers, installation paths and references; retain prior releases and licenses.
 
 
