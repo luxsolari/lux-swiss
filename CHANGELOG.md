@@ -8,6 +8,13 @@ All notable changes to this plugin are documented here. Format follows
 
 ### Changed
 
+- Split banner family/variant hierarchy and keep the renamed title inside the clear text field on compact screens.
+- Present Agensi purchase and optional coffee donation as two support routes; integrate the coffee choice with the free plugin card instead of a competing support block.
+- Make the edition comparison evergreen: present-tense Supporter Edition contents, no preparation/review notices, and the live listing as the source for current version/files/price.
+
+
+### Changed
+
 - Explain Open Source versus Supporter Edition on the showcase, including the planned Image Direction pack, managed Agensi access, delivery limits and current listing as the authority on availability. No runtime, license or price change.
 
 

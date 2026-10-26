@@ -24,10 +24,12 @@
     .cover .red { fill:var(--primary); }
     .cover .ink { fill:var(--foreground); }
     .cover .rule { stroke:var(--border); stroke-width:1; fill:none; }
+    .cover .family { position:absolute; left:48px; bottom:164px; max-width:432px; margin:0; font-family:var(--font-mono);
+      font-weight:400; font-size:16px; line-height:1.4; letter-spacing:0.16em; text-transform:uppercase; color:var(--foreground); }
     .cover .name { position:absolute; left:48px; bottom:74px; margin:0; font-family:var(--font-mono);
       font-weight:700; font-size:76px; line-height:.92; letter-spacing:-0.02em; color:var(--foreground); white-space:nowrap; }
     .cover .tag { position:absolute; left:48px; bottom:44px; margin:0; font-family:var(--font-mono); font-size:13px;
-      letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-foreground); }
+      max-width:440px; line-height:1.35; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-foreground); }
   </style>
   <script>if (location.search.indexOf("dark") !== -1) document.documentElement.classList.add("dark");</script>
 </head>
@@ -42,7 +44,8 @@
       <rect class="ink" x="768" y="232" width="90" height="8"/>
       <rect class="red" x="864" y="232" width="90" height="8"/>
     </svg>
-    <p class="name">Lux Visual Systems - Lux Swiss</p>
+    <p class="family">Lux Visual Systems</p>
+    <p class="name">Lux Swiss</p>
     <p class="tag">Two colors, one accent, no shadows</p>
   </div>
 </body>
