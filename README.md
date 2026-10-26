@@ -181,8 +181,8 @@ The complete interface design system remains free and open source. Supporter
 Edition names the paid Agensi offer, combining the interface workflow and planned
 Image Direction companion with purchase/access managed by Agensi. Updated packs
 are being prepared or reviewed: the live listing states what it currently serves.
-A future bundle combines the two system offers without counting shared Image
-Direction twice. Image generation requires a capable host; Agensi text delivery
+A future bundle brings both systems together with the shared Image Direction
+workflow. Image generation requires a capable host; Agensi text delivery
 does not make packaged PNG pixels visible to an agent.
 
 See the [edition comparison](https://luxsolari.github.io/lux-visual-systems-lux-swiss/#editions)
