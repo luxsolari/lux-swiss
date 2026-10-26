@@ -95,12 +95,31 @@
           </section>
 
           <section id="install" class="first" style="padding-top:0;">
-            <div class="card" style="display:flex; flex-wrap:wrap; align-items:center; gap:24px 40px; justify-content:space-between; padding:28px 32px;">
-              <div style="min-width:0;">
-                <p class="label" style="margin-bottom:12px;">Install</p>
-                <pre style="border:none; background:none; padding:0; font-size:1rem; line-height:1.8;">/plugin marketplace add luxsolari/lux-solari-plugins
-/plugin install lux-visual-systems-lux-swiss</pre>
-              </div>
+            <div class="card install-hosts">
+              <h3>Install for your agent</h3>
+              <p>Choose your host. Add the collection once, then install this system.</p>
+              <details class="install-host" open>
+                <summary>Claude Code</summary>
+                <p class="small muted">Run in Claude Code.</p>
+                <pre><code>/plugin marketplace add luxsolari/lux-solari-plugins
+/plugin install lux-visual-systems-lux-swiss</code></pre>
+                <a class="small" href="https://github.com/luxsolari/lux-solari-plugins">Claude Code collection</a>
+              </details>
+              <details class="install-host">
+                <summary>Codex</summary>
+                <p class="small muted">Run in your terminal with the Codex CLI installed.</p>
+                <pre><code>codex plugin marketplace add luxsolari/lux-solari-codex-plugins
+codex plugin add lux-visual-systems-lux-swiss@lux-solari-codex</code></pre>
+                <a class="small" href="https://github.com/luxsolari/lux-solari-codex-plugins">Codex collection</a>
+              </details>
+              <details class="install-host">
+                <summary>Hermes</summary>
+                <p class="small muted">Run in your terminal with Hermes installed. Installs into the active profile.</p>
+                <pre><code>hermes skills tap add luxsolari/lux-solari-hermes-plugins
+hermes skills install luxsolari/lux-solari-hermes-plugins/skills/lux-visual-systems-lux-swiss</code></pre>
+                <a class="small" href="https://github.com/luxsolari/lux-solari-hermes-plugins">Hermes collection</a>
+              </details>
+              <p class="small muted install-session-note">Start a new session after installation to load the system.</p>
             </div>
             <section id="editions" aria-labelledby="editions-title">
               <div class="divider"><h3 id="editions-title">Choose your edition</h3><span class="rule"></span></div>

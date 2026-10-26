@@ -7,6 +7,9 @@ All notable changes to this plugin are documented here. Format follows
 ## [Unreleased]
 
 ### Changed
+- Label installation by host and add Codex marketplace and Hermes tap commands alongside Claude Code, with collection links and a new-session note.
+
+### Changed
 - Refine demo edition choices: neutral install heading without duplicate CTA, aligned card actions, supporter thanks, compact comparison table and reduced section spacing.
 
 ### Changed

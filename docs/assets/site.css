@@ -309,3 +309,12 @@ figure.img-grid figcaption, .caption { border-top:1px solid var(--border); paddi
 @media (max-width:600px) {
   .edition-table th, .edition-table td { font-size:0.75rem; padding-right:8px; }
 }
+
+/* Native disclosures keep each host's commands labeled and keyboard accessible. */
+.install-hosts > p { margin-top:12px; }
+.install-host { border-top:1px solid var(--border); margin-top:20px; padding-top:16px; min-width:0; }
+.install-host summary { cursor:pointer; font-family:var(--font-mono); font-weight:700; }
+.install-host summary:focus-visible { outline:2px solid var(--ring); outline-offset:4px; }
+.install-host p { margin-top:12px; }
+.install-host pre { margin:12px 0; font-size:0.85rem; max-width:100%; overflow-x:auto; }
+.install-session-note { margin-top:20px; }
