@@ -8,6 +8,11 @@ All notable changes to this plugin are documented here. Format follows
 
 ### Changed
 
+- Restore the original open-source aside above the compact edition cards, replacing the generic introduction rather than adding another support block.
+
+
+### Changed
+
 - Shorten the edition comparison and calls to action; retain the full free system, paid Image Direction/managed-access benefit, optional coffee route and reference-delivery link.
 
 
